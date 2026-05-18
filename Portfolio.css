@@ -1,0 +1,460 @@
+html {
+  background-color: black;
+  color: white;
+}
+html body {
+  margin: 0;
+  background-image: url("fond-Accueil.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+html body hr {
+  color: white;
+  margin: 0;
+}
+html body header {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
+  backdrop-filter: blur(2px);
+  padding: 0 15px;
+}
+html body header nav {
+  display: flex;
+  justify-content: center;
+}
+html body header nav ul {
+  display: flex;
+  width: 65%;
+  justify-content: space-around;
+  padding: 0 20px;
+  border: solid 2px white;
+  border-radius: 50px;
+  padding: 5px;
+}
+html body header nav ul .logo-accueil {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+html body header nav ul li {
+  list-style: none;
+  background-color: #16161d;
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #00FFFF;
+  padding: 4px;
+  font-size: 30px;
+  height: -moz-max-content;
+  height: max-content;
+  align-self: center;
+  transition: transform 0.3s ease;
+}
+html body header nav ul li:hover {
+  transform: scale(1.1);
+  box-shadow: 2px #00FFFF;
+}
+html body header nav ul li a {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body header nav ul li a img {
+  width: 60px;
+  height: 60px;
+}
+html body header h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 50px;
+}
+html body main {
+  padding: 30px 15px;
+}
+html body main hr {
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+}
+html body main .whoIAm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 90%;
+  margin: auto;
+  -moz-column-gap: 70px;
+       column-gap: 70px;
+}
+html body main .whoIAm div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: #16161d;
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #00FFFF;
+  padding: 10px;
+  height: 200px;
+  max-width: 300px;
+  overflow-wrap: break-word;
+}
+html body main .whoIAm div img {
+  width: 40%;
+}
+html body main .whoIAm div p {
+  font-size: large;
+}
+html body main .whoIAm div:nth-child(even) {
+  background-color: #16161d;
+  justify-self: end;
+}
+html body main .whoIAm div:nth-child(odd) {
+  justify-self: start;
+  background-color: #16161d;
+}
+html body main .whoIAm div:first-child {
+  grid-column: 1/-1;
+  max-width: 90%;
+  justify-self: center;
+}
+html body main .whoIAm div:last-child {
+  grid-column: 1/-1;
+  background-color: #16161d;
+  justify-self: center;
+}
+html body main .whoIAm .html-css {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: center;
+  gap: 15px;
+  -moz-column-gap: 0;
+       column-gap: 0;
+  width: 323px;
+}
+html body main .whoIAm .html-css img {
+  width: 120px;
+}
+html body main .whoIAm .html-css p {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+html body main .Cursus {
+  border: solid 1px white;
+}
+html body main .Projet {
+  border: solid 1px white;
+}
+html body main .Contacter {
+  border: solid 1px white;
+}
+html body footer {
+  padding: 0 15px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
+  height: 150px;
+}
+
+html {
+  background-color: black;
+  color: white;
+}
+html body {
+  margin: 0;
+  background-image: url("fond-Accueil.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+html body hr {
+  color: white;
+  margin: 0;
+}
+html body header {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
+  backdrop-filter: blur(2px);
+  padding: 0 15px;
+}
+html body header nav {
+  display: flex;
+  justify-content: center;
+}
+html body header nav ul {
+  display: flex;
+  width: 65%;
+  justify-content: space-around;
+  padding: 0 20px;
+  border: solid 2px white;
+  border-radius: 50px;
+  padding: 5px;
+  list-style: none;
+}
+html body header nav ul .logo-accueil {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+html body header nav ul li {
+  background-color: #16161d;
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #00FFFF;
+  padding: 4px;
+  font-size: 30px;
+  height: -moz-max-content;
+  height: max-content;
+  align-self: center;
+  transition: transform 0.3s ease;
+  list-style: none;
+}
+html body header nav ul li:hover {
+  transform: scale(1.1);
+  box-shadow: 2px #00FFFF;
+}
+html body header nav ul li a {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+html body header nav ul li a img {
+  width: 60px;
+  height: 60px;
+}
+html body header h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 50px;
+}
+html body .FloatingNav {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+html body .FloatingNav.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+html body .FloatingNav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 20px;
+  margin: 0;
+  list-style: none;
+  border: solid 2px white;
+  border-radius: 50px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
+  backdrop-filter: blur(6px);
+}
+html body .FloatingNav ul .logo-accueil {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+html body .FloatingNav ul li {
+  list-style: none;
+  background-color: #16161d;
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #00FFFF;
+  padding: 4px 10px;
+  font-size: 22px;
+  height: -moz-max-content;
+  height: max-content;
+  align-self: center;
+  transition: transform 0.3s ease;
+}
+html body .FloatingNav ul li:hover {
+  transform: scale(1.08);
+  box-shadow: 2px #00FFFF;
+}
+html body .FloatingNav ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body .FloatingNav ul li a img {
+  width: 45px;
+  height: 45px;
+}
+html body main {
+  position: relative;
+  padding: 30px 15px;
+}
+html body main hr {
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+}
+html body main section {
+  gap: 30px;
+  width: 90%;
+  -moz-column-gap: 70px;
+       column-gap: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+html body main section.active {
+  display: grid;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+html body main .WhoIAm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 90%;
+  -moz-column-gap: 70px;
+       column-gap: 70px;
+}
+html body main .WhoIAm div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(22, 22, 29, 0.7);
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #00FFFF;
+  padding: 10px;
+  max-width: 300px;
+  overflow-wrap: break-word;
+}
+html body main .WhoIAm div img {
+  width: 50%;
+}
+html body main .WhoIAm div p {
+  font-size: larger;
+}
+html body main .WhoIAm div:nth-child(even) {
+  justify-self: end;
+}
+html body main .WhoIAm div:nth-child(odd) {
+  justify-self: start;
+}
+html body main .WhoIAm div:first-child {
+  grid-column: 1/-1;
+  max-width: 90%;
+  justify-self: center;
+  background-color: rgba(22, 22, 29, 0.8);
+}
+html body main .WhoIAm div:last-child {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+html body main .WhoIAm div:last-child p {
+  margin-top: 10px;
+}
+html body main .WhoIAm .html-css {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: center;
+  gap: 15px;
+  -moz-column-gap: 0;
+       column-gap: 0;
+  width: 323px;
+}
+html body main .WhoIAm .html-css img {
+  width: 150px;
+}
+html body main .WhoIAm .html-css p {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+html body main .Cursus {
+  border: solid 1px white;
+  width: 90%;
+  height: 100vh;
+}
+html body main .Cursus section {
+  display: grid;
+}
+html body main .Cursus section div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: #16161d;
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #00FFFF;
+  padding: 10px;
+  max-width: 300px;
+  overflow-wrap: break-word;
+}
+html body main .Projet {
+  border: solid 1px white;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 90%;
+  -moz-column-gap: 70px;
+       column-gap: 70px;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: center;
+}
+html body main .Projet div {
+  background-color: rgba(22, 22, 29, 0.7);
+  border: solid;
+  border-width: 1px 2px 2px 1px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #00FFFF;
+  padding: 10px;
+  overflow-wrap: break-word;
+}
+html body main .Contacter {
+  border: solid 1px white;
+  width: 90%;
+  height: 100vh;
+}
+html body footer {
+  padding: 0 15px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+}
+html body footer p a:visited {
+  color: white;
+  font-style: italic;
+  gap: 10px;
+}/*# sourceMappingURL=Portfolio.css.map */

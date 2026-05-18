@@ -1,0 +1,188 @@
+html {
+    background-color: black;
+    color: white;
+
+    body {
+        margin: 0;
+        background-image: url("fond-Accueil.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+
+        hr {
+            color: white;
+            margin: 0;
+        }
+        
+        header {
+            background: linear-gradient(0deg, 
+                                      rgba(0, 0, 0, 0.5), 
+                                      rgba(22, 22, 29, 0.5));
+            backdrop-filter: blur(2px);
+            padding: 0 15px;
+            
+            nav {
+                display: flex;
+                justify-content: center;
+                
+                ul {
+                    display: flex;
+                    width: 65%;
+                    justify-content: space-around;
+                    padding: 0 20px;
+                    border: solid 2px white;
+                    border-radius: 50px;
+                    padding: 5px;
+                    
+                    .logo-accueil {
+                        border: none;
+                        box-shadow: none;
+                        background-color: transparent;
+                    }
+                    
+                    li {
+                        list-style: none;
+                        background-color: #16161d;
+                        border: solid;
+                        border-width: 1px 2px 2px 1px;
+                        border-radius: 5px;
+                        box-shadow: 1px 1px 3px #00FFFF;
+                        padding: 4px;
+                        font-size: 30px;
+                        height: max-content;
+                        align-self: center;
+                        transition: transform 0.3s ease;
+                        
+                        &:hover {
+                            transform: scale(1.1);
+                            box-shadow: 2px #00FFFF;
+                        }
+
+                        a {
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            
+
+                            img {
+                                width: 60px;
+                                height: 60px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 50px;
+            }
+        }
+        
+        main {
+            padding: 30px 15px;
+
+            hr {
+                width: 50%;
+                margin: auto;
+                margin-top: 10px;
+            }
+
+            .whoIAm {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                max-width: 90%;
+                margin: auto;
+                column-gap: 70px;
+                
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    align-items: center;
+                    background-color: #16161d;
+                    border: solid;
+                    border-width: 1px 2px 2px 1px;
+                    border-radius: 10px;
+                    box-shadow: 2px 2px 10px #00FFFF;
+                    padding: 10px;
+                    height: 200px;
+                    max-width: 300px;
+                    overflow-wrap: break-word;
+
+                    img {
+                        width: 40%;
+                    }
+                    p {
+                        font-size: large;
+                    }
+                }
+                div:nth-child(even) {
+                    background-color: #16161d;
+                    justify-self: end;
+                }
+                div:nth-child(odd) {
+                    justify-self: start;
+                    background-color: #16161d;
+                    
+                }
+                div:first-child {
+                    grid-column: 1 / -1;
+                    max-width: 90%;
+                    justify-self: center;
+                }
+                div:last-child {
+                    grid-column: 1 / -1;
+                    background-color: #16161d;
+                    justify-self: center;
+                    
+                }
+                .html-css {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr; 
+                    grid-template-rows: auto auto;
+                    align-items: center;
+                    justify-items: center;
+                    gap: 15px;
+                    column-gap: 0;
+                    width: 323px;
+
+                    img {
+                        width: 120px;
+                    }
+                    
+                    p {
+                        grid-column: 1 / -1;
+                        text-align: center;
+                        margin-top: 0;
+                        margin-bottom: 36px;
+                    }
+                }
+            }
+            
+            .Cursus {
+                border: solid 1px white;
+            }
+
+            .Projet {
+                border: solid 1px white;
+            }
+
+            .Contacter {
+                border: solid 1px white;
+            }
+        }
+
+        footer {
+            padding: 0 15px;
+            background: linear-gradient(0deg, 
+                                      rgba(0, 0, 0, 0.5), 
+                                      rgba(22, 22, 29, 0.5));
+            height: 150px;
+        }
+    }
+}
