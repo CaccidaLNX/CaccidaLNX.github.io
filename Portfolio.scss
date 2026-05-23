@@ -279,7 +279,7 @@ html {
 
             .Projet.active {
                 // border
-                border: solid 1px white;
+                border: none;
                 width: 90%;
 
                 // box position
@@ -307,16 +307,27 @@ html {
                     align-items: center;
 
                     h1 {
-                        margin: 15px 0 0 0;
+                        margin: 15px 0;
                     }
                     section {
                         // content adjustment
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        
-                        p {
-                            text-align: center;
+                                                
+                        section {
+                            display: flex;
+                            flex-direction: column;
+
+                            h2 {
+                                margin: 0;
+                            }
+                            p {
+                                display: flex;
+                                flex-direction: row;
+                                text-align: center;
+                                margin: 10px 0;
+                            }
                         }
                     }
                 }

@@ -403,7 +403,7 @@ html body main .Cursus.active section div {
   overflow-wrap: break-word;
 }
 html body main .Projet.active {
-  border: solid 1px white;
+  border: none;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -428,15 +428,25 @@ html body main .Projet.active div {
   align-items: center;
 }
 html body main .Projet.active div h1 {
-  margin: 15px 0 0 0;
+  margin: 15px 0;
 }
 html body main .Projet.active div section {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-html body main .Projet.active div section p {
+html body main .Projet.active div section section {
+  display: flex;
+  flex-direction: column;
+}
+html body main .Projet.active div section section h2 {
+  margin: 0;
+}
+html body main .Projet.active div section section p {
+  display: flex;
+  flex-direction: row;
   text-align: center;
+  margin: 10px 0;
 }
 html body main .Contacter.active {
   border: solid 1px white;
