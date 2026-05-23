@@ -189,7 +189,7 @@ html body header nav {
 }
 html body header nav ul {
   display: flex;
-  width: 65%;
+  width: 70%;
   justify-content: space-around;
   padding: 0 20px;
   border: solid 2px white;
@@ -223,6 +223,7 @@ html body header nav ul li:hover {
 html body header nav ul li:first-child {
   box-shadow: none;
   border: none;
+  background-color: transparent;
 }
 html body header nav ul li a {
   color: white;
@@ -232,8 +233,8 @@ html body header nav ul li a {
   text-decoration: none;
 }
 html body header nav ul li a img {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
 }
 html body header h1 {
   margin: 0;
@@ -312,21 +313,16 @@ html body main hr {
   margin: auto;
   margin-top: 10px;
 }
-html body main section {
-  gap: 30px;
-  width: 100%;
-  max-width: 83rem;
-  -moz-column-gap: 70px;
-       column-gap: 70px;
+html body main > section {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(100%);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.6s ease;
+  transition: transform 0.5s ease;
 }
-html body main section.active {
+html body main > section.active {
   display: grid;
   position: relative;
   top: 0;
@@ -334,16 +330,17 @@ html body main section.active {
   transform: translateX(-50%) translateX(0);
   opacity: 1;
   pointer-events: auto;
+  gap: 30px;
+  width: 100%;
+  max-width: 83rem;
 }
-html body main .WhoIAm {
+html body main .WhoIAm.active {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  width: 90%;
-  -moz-column-gap: 70px;
-       column-gap: 70px;
+  -moz-column-gap: 0;
+       column-gap: 0;
 }
-html body main .WhoIAm div {
+html body main .WhoIAm.active div {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -358,14 +355,14 @@ html body main .WhoIAm div {
   overflow-wrap: break-word;
   justify-self: center;
 }
-html body main .WhoIAm div img {
+html body main .WhoIAm.active div img {
   width: 70%;
 }
-html body main .WhoIAm div p {
+html body main .WhoIAm.active div p {
   font-size: larger;
   margin-top: 10px;
 }
-html body main .WhoIAm div:nth-child(2) {
+html body main .WhoIAm.active div:nth-child(2) {
   background-color: transparent;
   box-shadow: none;
   grid-column: 1/-1;
@@ -373,35 +370,25 @@ html body main .WhoIAm div:nth-child(2) {
   padding: 0 10px;
   margin-top: 10px;
 }
-html body main .WhoIAm div:nth-child(2) h1 {
+html body main .WhoIAm.active div:nth-child(2) h1 {
   margin: 0;
   font-size: 40px;
 }
-html body main .WhoIAm div:first-child {
+html body main .WhoIAm.active div:first-child {
   grid-column: 1/-1;
   max-width: 90%;
   justify-self: center;
   background-color: rgba(22, 22, 29, 0.8);
 }
-html body main .WhoIAm .html-css {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  align-items: center;
-  justify-items: center;
-  gap: 15px;
-  -moz-column-gap: 0;
-       column-gap: 0;
-}
-html body main .Cursus {
+html body main .Cursus.active {
   border: solid 1px white;
   width: 90%;
   height: 100vh;
 }
-html body main .Cursus section {
+html body main .Cursus.active section {
   display: grid;
 }
-html body main .Cursus section div {
+html body main .Cursus.active section div {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -415,7 +402,7 @@ html body main .Cursus section div {
   max-width: 300px;
   overflow-wrap: break-word;
 }
-html body main .Projet {
+html body main .Projet.active {
   border: solid 1px white;
   width: 90%;
   display: grid;
@@ -428,7 +415,7 @@ html body main .Projet {
   align-items: center;
   justify-items: center;
 }
-html body main .Projet div {
+html body main .Projet.active div {
   background-color: rgba(22, 22, 29, 0.7);
   border: solid;
   border-width: 1px 2px 2px 1px;
@@ -440,10 +427,18 @@ html body main .Projet div {
   flex-direction: column;
   align-items: center;
 }
-html body main .Projet div p {
+html body main .Projet.active div h1 {
+  margin: 15px 0 0 0;
+}
+html body main .Projet.active div section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+html body main .Projet.active div section p {
   text-align: center;
 }
-html body main .Contacter {
+html body main .Contacter.active {
   border: solid 1px white;
   width: 90%;
   height: 100vh;
@@ -455,27 +450,41 @@ html body footer {
   height: max-content;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+html body footer p a img {
+  width: 40px;
+  background-color: white;
+  border-radius: 5px;
 }
 html body footer p a:visited {
   color: white;
   font-style: italic;
   gap: 10px;
 }
+html body footer p:last-child {
+  text-decoration: none;
+  display: flex;
+  gap: 5px;
+}
+html body footer p:last-child a {
+  text-decoration: none;
+}
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   html body header nav ul {
     width: 100%;
   }
-  html body main .WhoIAm {
+  html body main .WhoIAm.active {
     grid-template-columns: 1fr;
   }
-  html body main .WhoIAm div {
+  html body main .WhoIAm.active div {
     max-width: 60%;
   }
-  html body main .WhoIAm div img {
+  html body main .WhoIAm.active div img {
     width: 50%;
   }
-  html body main .Projet {
+  html body main .Projet.active {
     grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=Portfolio.css.map */

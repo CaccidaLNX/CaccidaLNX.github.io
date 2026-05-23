@@ -1,5 +1,5 @@
 const links = document.querySelectorAll("nav a");
-const sections = document.querySelectorAll("main section");
+const sections = document.querySelectorAll("main > section");
 const mainHeader = document.getElementById("MainHeader");
 const floatingNav = document.getElementById("FloatingNav");
 

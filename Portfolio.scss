@@ -35,7 +35,7 @@ html {
                 
                 ul {
                     display: flex;
-                    width: 65%;
+                    width: 70%;
                     justify-content: space-around;
                     padding: 0 20px;
                     border: solid 2px white;
@@ -70,6 +70,7 @@ html {
                         &:first-child {
                             box-shadow: none;
                             border: none;
+                            background-color: transparent;
                         }
 
                         a {
@@ -80,8 +81,8 @@ html {
                             text-decoration: none;
 
                             img {
-                                width: 60px;
-                                height: 60px;
+                                width: 55px;
+                                height: 55px;
                             }
                         }
                     }
@@ -176,12 +177,7 @@ html {
                 margin-top: 10px;
             }
 
-            section {
-                gap: 30px;
-                width: 100%;
-                max-width: 83rem;
-                column-gap: 70px;
-
+            > section {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -189,7 +185,7 @@ html {
                 opacity: 0;
                 pointer-events: none;
 
-                transition: all 0.6s ease;
+                transition: transform 0.5s ease;
 
                 &.active {
                     display: grid;
@@ -199,15 +195,17 @@ html {
                     transform: translateX(-50%) translateX(0);
                     opacity: 1;
                     pointer-events: auto;
+
+                    gap: 30px;
+                    width: 100%;
+                    max-width: 83rem;
                 }                
             }
 
-            .WhoIAm {
+            .WhoIAm.active {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 30px;
-                width: 90%;
-                column-gap: 70px;
+                column-gap: 0;
 
                 div {
                     display: flex;
@@ -252,19 +250,9 @@ html {
                         background-color: rgba(22, 22, 29, 0.8);
                     }
                 }
-
-                .html-css {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr; 
-                    grid-template-rows: auto auto;
-                    align-items: center;
-                    justify-items: center;
-                    gap: 15px;
-                    column-gap: 0;
-                }
             }
             
-            .Cursus {
+            .Cursus.active {
                 border: solid 1px white;
                 width: 90%;
                 height: 100vh;
@@ -289,7 +277,7 @@ html {
                 }
             }
 
-            .Projet {
+            .Projet.active {
                 // border
                 border: solid 1px white;
                 width: 90%;
@@ -318,13 +306,23 @@ html {
                     flex-direction: column;
                     align-items: center;
 
-                    p {
-                        text-align: center;
+                    h1 {
+                        margin: 15px 0 0 0;
+                    }
+                    section {
+                        // content adjustment
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        
+                        p {
+                            text-align: center;
+                        }
                     }
                 }
             }
 
-            .Contacter {
+            .Contacter.active {
                 border: solid 1px white;
                 width: 90%;
                 height: 100vh;
@@ -339,13 +337,28 @@ html {
             height: max-content;
             display: flex;
             justify-content: space-between;
+            align-items: center;
 
             p {
                 a {
+                    img {
+                        width: 40px;
+                        background-color: white;
+                        border-radius: 5px;
+                    }
                     &:visited {
                         color: white;
                         font-style: italic;
                         gap: 10px;
+                    }
+                }
+
+                &:last-child {
+                    text-decoration: none;
+                    display: flex;
+                    gap: 5px;
+                    a {
+                        text-decoration: none;
                     }
                 }
             }
@@ -353,7 +366,7 @@ html {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     html {
         body {
             header {
@@ -366,7 +379,7 @@ html {
         
 
             main {
-                .WhoIAm {
+                .WhoIAm.active {
                     grid-template-columns: 1fr;
 
                     div {
@@ -378,7 +391,7 @@ html {
                     }
                 }
 
-                .Projet {
+                .Projet.active {
                     grid-template-columns: 1fr;
                 }
             }
