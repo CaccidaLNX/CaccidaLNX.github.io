@@ -67,6 +67,11 @@ html {
                             box-shadow: 2px #00FFFF;
                         }
 
+                        &:first-child {
+                            box-shadow: none;
+                            border: none;
+                        }
+
                         a {
                             color: white;
                             display: flex;
@@ -162,6 +167,7 @@ html {
         
         main {
         position: relative;
+        overflow: hidden;
         padding: 30px 15px;
 
             hr {
@@ -172,7 +178,8 @@ html {
 
             section {
                 gap: 30px;
-                width: 90%;
+                width: 100%;
+                max-width: 83rem;
                 column-gap: 70px;
 
                 position: absolute;
@@ -214,28 +221,16 @@ html {
                     border-radius: 10px;
                     box-shadow: 2px 2px 10px #00FFFF;
                     padding: 10px;
-                    max-width: 300px;
+                    max-width: 60%;
                     overflow-wrap: break-word;
+                    justify-self: center;
 
                     img {
-                        width: 50%;
+                        width: 70%;
                     }
                     p {
                         font-size: larger;
-                    }
-                    &:first-child {
-                        grid-column: 1 / -1;
-                        max-width: 90%;
-                        justify-self: center;
-                        background-color: rgba(22, 22, 29, 0.8);
-                        
-                    }
-                    &:nth-child(even) {
-                        justify-self: end;
-                    }
-                    &:nth-child(odd) {
-                        justify-self: start;
-                        
+                        margin-top: 10px;
                     }
                     &:nth-child(2) {
                         background-color: transparent;
@@ -250,14 +245,11 @@ html {
                             font-size: 40px;
                         }
                     }
-                    &:last-child {
+                    &:first-child {
                         grid-column: 1 / -1;
+                        max-width: 90%;
                         justify-self: center;
-
-                        p {
-                            margin-top: 10px;
-                        }
-                        
+                        background-color: rgba(22, 22, 29, 0.8);
                     }
                 }
 
@@ -269,18 +261,6 @@ html {
                     justify-items: center;
                     gap: 15px;
                     column-gap: 0;
-                    width: 323px;
-
-                    img {
-                        width: 150px;
-                    }
-                    
-                    p {
-                        grid-column: 1 / -1;
-                        text-align: center;
-                        margin-top: 0;
-                        margin-bottom: 36px;
-                    }
                 }
             }
             
@@ -333,6 +313,14 @@ html {
                     box-shadow: 2px 2px 10px #00FFFF;
                     padding: 10px;
                     overflow-wrap: break-word;
+                    // content adjustment
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                        text-align: center;
+                    }
                 }
             }
 
@@ -359,6 +347,39 @@ html {
                         font-style: italic;
                         gap: 10px;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        body {
+            header {
+                nav {
+                    ul {
+                        width: 100%;
+                    }
+                }
+            }
+        
+
+            main {
+                .WhoIAm {
+                    grid-template-columns: 1fr;
+
+                    div {
+                        max-width: 60%;
+                        
+                        img {
+                            width: 50%;
+                        }
+                    }
+                }
+
+                .Projet {
+                    grid-template-columns: 1fr;
                 }
             }
         }
