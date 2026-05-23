@@ -363,7 +363,7 @@ html body main .WhoIAm.active div p {
   margin-top: 10px;
 }
 html body main .WhoIAm.active div:nth-child(2) {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
   grid-column: 1/-1;
   justify-self: center;
