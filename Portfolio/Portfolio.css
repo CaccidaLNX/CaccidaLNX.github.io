@@ -462,6 +462,12 @@ html body footer {
   justify-content: space-between;
   align-items: center;
 }
+html body footer p {
+  margin: 10px 0;
+}
+html body footer p a {
+  color: white;
+}
 html body footer p a img {
   width: 40px;
   background-color: white;
