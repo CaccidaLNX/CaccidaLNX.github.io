@@ -164,6 +164,7 @@ html body footer {
 html {
   background-color: black;
   color: white;
+  font-family: "Inter", sans-serif;
 }
 html body {
   margin: 0;
@@ -409,8 +410,8 @@ html body main .Projet.active {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   width: 90%;
-  -moz-column-gap: 70px;
-       column-gap: 70px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
   grid-template-rows: auto auto;
   align-items: center;
   justify-items: center;
@@ -442,11 +443,21 @@ html body main .Projet.active div section section {
 html body main .Projet.active div section section h2 {
   margin: 0;
 }
+html body main .Projet.active div section section ul {
+  border: dashed 1px white;
+  padding: 5px;
+  padding-left: 20px;
+}
 html body main .Projet.active div section section p {
   display: flex;
   flex-direction: row;
   text-align: center;
   margin: 10px 0;
+  border: dashed 1px white;
+  padding: 5px;
+}
+html body main .Projet.active div section aside ul {
+  padding-left: 25px;
 }
 html body main .Contacter.active {
   border: solid 1px white;
@@ -464,7 +475,7 @@ html body footer {
   gap: 10px;
 }
 html body footer p {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 html body footer p a {
   color: white;
