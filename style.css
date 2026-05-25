@@ -1,0 +1,23 @@
+html {
+    background-color: #181a1b;
+    color: white;
+
+    main {
+
+        h2 {
+            margin: 25px 0 15px 0;
+        }
+
+        ul {
+            li {
+                a {
+                    font-size: 22px;
+
+                    &:visited {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
