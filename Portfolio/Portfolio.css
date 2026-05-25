@@ -467,21 +467,20 @@ html body footer p {
 }
 html body footer p a {
   color: white;
+  font-style: italic;
 }
 html body footer p a img {
-  width: 40px;
+  width: 45px;
   background-color: white;
   border-radius: 5px;
 }
 html body footer p a:visited {
   color: white;
-  font-style: italic;
-  gap: 10px;
 }
 html body footer p:last-child {
   text-decoration: none;
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 html body footer p:last-child a {
   text-decoration: none;

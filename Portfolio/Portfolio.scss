@@ -349,25 +349,26 @@ html {
 
             p {
                 margin: 10px 0;
+                
                 a {
                     color: white;
+                    font-style: italic;
 
                     img {
-                        width: 40px;
+                        width: 45px;
                         background-color: white;
                         border-radius: 5px;
                     }
                     &:visited {
                         color: white;
-                        font-style: italic;
-                        gap: 10px;
                     }
                 }
 
                 &:last-child {
                     text-decoration: none;
                     display: flex;
-                    gap: 5px;
+                    gap: 10px;
+
                     a {
                         text-decoration: none;
                     }
