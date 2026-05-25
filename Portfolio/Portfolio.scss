@@ -386,17 +386,45 @@ html {
                 nav {
                     ul {
                         width: 100%;
+                        gap: 10px;
+
+                        li {
+                            width: 100%;
+                            a {
+                                font-size: 60%;
+                                img {
+                                    width: 40px;
+                                    height: 40px;
+                                }
+                            }
+
+                            &:last-child {
+                                margin-right: 5px;
+                            }
+                        }
                     }
                 }
             }
-        
+
+            .FloatingNav {
+                width: 100%;
+
+                ul {   
+                    display: flex;
+                    gap: 0;
+
+                    li {
+                        padding: 5px;
+                    }
+                }
+            }        
 
             main {
                 .WhoIAm.active {
                     grid-template-columns: 1fr;
 
                     div {
-                        max-width: 60%;
+                        max-width: 70%;
                         
                         img {
                             width: 50%;

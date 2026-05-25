@@ -489,12 +489,36 @@ html body footer p:last-child a {
 @media (max-width: 768px) {
   html body header nav ul {
     width: 100%;
+    gap: 10px;
+  }
+  html body header nav ul li {
+    width: 100%;
+  }
+  html body header nav ul li a {
+    font-size: 60%;
+  }
+  html body header nav ul li a img {
+    width: 40px;
+    height: 40px;
+  }
+  html body header nav ul li:last-child {
+    margin-right: 5px;
+  }
+  html body .FloatingNav {
+    width: 100%;
+  }
+  html body .FloatingNav ul {
+    display: flex;
+    gap: 0;
+  }
+  html body .FloatingNav ul li {
+    padding: 5px;
   }
   html body main .WhoIAm.active {
     grid-template-columns: 1fr;
   }
   html body main .WhoIAm.active div {
-    max-width: 60%;
+    max-width: 70%;
   }
   html body main .WhoIAm.active div img {
     width: 50%;
