@@ -12,6 +12,7 @@ html {
             li {
                 a {
                     font-size: 22px;
+                    color: white;
 
                     &:visited {
                         color: white;
