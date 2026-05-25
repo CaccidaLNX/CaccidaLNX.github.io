@@ -210,6 +210,7 @@ html {
                     flex-direction: column;
                     text-align: center;
                     align-items: center;
+                    
                     // box & text
                     background-color: rgba(22, 22, 29, 0.7);
                     border: solid;
@@ -251,27 +252,23 @@ html {
             }
             
             .Cursus.active {
-                border: solid 1px white;
+                border: none;
                 width: 90%;
-                height: 100vh;
 
                 section {
                     display: grid;
+                }
+                div {
+                    display: flex;
+                    flex-direction: column;
 
-                    div {
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-                        align-items: center;
-                        background-color: #16161d;
-                        border: solid;
-                        border-width: 1px 2px 2px 1px;
-                        border-radius: 10px;
-                        box-shadow: 2px 2px 10px #00FFFF;
-                        padding: 10px;
-                        max-width: 300px;
-                        overflow-wrap: break-word;
-                    }
+                    background-color: rgba(22, 22, 29, 0.7);
+                    border: solid 1px white;
+                    border-width: 1px 2px 2px 1px;
+                    border-radius: 10px;
+                    box-shadow: 2px 2px 10px #00FFFF;
+                    padding: 10px;
+                    overflow-wrap: break-word;
                 }
             }
 
