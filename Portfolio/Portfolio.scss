@@ -33,7 +33,7 @@ html {
                 
                 ul {
                     display: flex;
-                    width: 70%;
+                    width: 50%;
                     justify-content: space-around;
                     padding: 0 20px;
                     border: solid 2px white;
@@ -202,7 +202,7 @@ html {
 
             .WhoIAm.active {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
                 column-gap: 0;
 
                 div {
@@ -228,6 +228,7 @@ html {
                     p {
                         font-size: larger;
                         margin-top: 10px;
+                        padding: 0 35px;
                     }
                     &:nth-child(2) {
                         background-color: rgba(0, 0, 0, 0.7);
@@ -289,7 +290,7 @@ html {
 
                 div {
                     // box & border
-                    background-color: rgba(22, 22, 29, 0.7);
+                    background-color: rgba(22, 22, 29, 0.95);
                     border: solid;
                     border-width: 1px 2px 2px 1px;
                     border-radius: 10px;
@@ -317,6 +318,7 @@ html {
 
                             h2 {
                                 margin: 0;
+                                margin-top: 5px;
                             }
                             ul {
                                 border: dashed 1px white;
@@ -327,7 +329,7 @@ html {
                                 display: flex;
                                 flex-direction: row;
                                 text-align: center;
-                                margin: 10px 0;
+                                margin: 10px;
                                 border: dashed 1px white;
                                 padding: 5px;
                             }
@@ -340,12 +342,6 @@ html {
                     }
                 }
             }
-
-            .Contacter.active {
-                border: solid 1px white;
-                width: 90%;
-                height: 100vh;
-            }
         }
 
         footer {
@@ -355,34 +351,63 @@ html {
                                       rgba(22, 22, 29, 0.5));
             height: max-content;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            
+            
+            section{
+                &:first-child {
+                    height: 50%;
 
-            p {
-                margin: 5px 0;
-
-                a {
-                    color: white;
-                    font-style: italic;
-
-                    img {
-                        width: 45px;
-                        background-color: white;
-                        border-radius: 5px;
+                    h1 {
+                        margin: 10px 0;
                     }
-                    &:visited {
-                        color: white;
+                    ul {
+                        margin-top: 0;
+                        padding-left: 10px;
+
+                        li {
+                            a {
+                                color: white;
+                                font-style: italic;
+                                
+                                &:visited {
+                                    color: white;
+                                }
+                            }
+                        }
                     }
                 }
-
                 &:last-child {
-                    text-decoration: none;
                     display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     gap: 10px;
-
-                    a {
-                        text-decoration: none;
+                    p {
+                        margin: 5px 0;
+                        
+                        a {
+                            color: white;
+                            font-style: italic;
+                            
+                            img {
+                                width: 45px;
+                                background-color: white;
+                                border-radius: 5px;
+                            }
+                            &:visited {
+                                color: white;
+                            }
+                        }
+                        
+                        &:last-child {
+                            text-decoration: none;
+                            display: flex;
+                            gap: 10px;
+                            
+                            a {
+                                text-decoration: none;
+                            }
+                        }
                     }
                 }
             }

@@ -190,7 +190,7 @@ html body header nav {
 }
 html body header nav ul {
   display: flex;
-  width: 70%;
+  width: 50%;
   justify-content: space-around;
   padding: 0 20px;
   border: solid 2px white;
@@ -337,7 +337,7 @@ html body main > section.active {
 }
 html body main .WhoIAm.active {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   -moz-column-gap: 0;
        column-gap: 0;
 }
@@ -362,6 +362,7 @@ html body main .WhoIAm.active div img {
 html body main .WhoIAm.active div p {
   font-size: larger;
   margin-top: 10px;
+  padding: 0 35px;
 }
 html body main .WhoIAm.active div:nth-child(2) {
   background-color: rgba(0, 0, 0, 0.7);
@@ -413,7 +414,7 @@ html body main .Projet.active {
   justify-items: center;
 }
 html body main .Projet.active div {
-  background-color: rgba(22, 22, 29, 0.7);
+  background-color: rgba(22, 22, 29, 0.95);
   border: solid;
   border-width: 1px 2px 2px 1px;
   border-radius: 10px;
@@ -438,6 +439,7 @@ html body main .Projet.active div section section {
 }
 html body main .Projet.active div section section h2 {
   margin: 0;
+  margin-top: 5px;
 }
 html body main .Projet.active div section section ul {
   border: dashed 1px white;
@@ -448,17 +450,12 @@ html body main .Projet.active div section section p {
   display: flex;
   flex-direction: row;
   text-align: center;
-  margin: 10px 0;
+  margin: 10px;
   border: dashed 1px white;
   padding: 5px;
 }
 html body main .Projet.active div section aside ul {
   padding-left: 25px;
-}
-html body main .Contacter.active {
-  border: solid 1px white;
-  width: 90%;
-  height: 100vh;
 }
 html body footer {
   padding: 0 15px;
@@ -466,31 +463,52 @@ html body footer {
   height: -moz-max-content;
   height: max-content;
   display: flex;
+  flex-direction: column;
+}
+html body footer section:first-child {
+  height: 50%;
+}
+html body footer section:first-child h1 {
+  margin: 10px 0;
+}
+html body footer section:first-child ul {
+  margin-top: 0;
+  padding-left: 10px;
+}
+html body footer section:first-child ul li a {
+  color: white;
+  font-style: italic;
+}
+html body footer section:first-child ul li a:visited {
+  color: white;
+}
+html body footer section:last-child {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-html body footer p {
+html body footer section:last-child p {
   margin: 5px 0;
 }
-html body footer p a {
+html body footer section:last-child p a {
   color: white;
   font-style: italic;
 }
-html body footer p a img {
+html body footer section:last-child p a img {
   width: 45px;
   background-color: white;
   border-radius: 5px;
 }
-html body footer p a:visited {
+html body footer section:last-child p a:visited {
   color: white;
 }
-html body footer p:last-child {
+html body footer section:last-child p:last-child {
   text-decoration: none;
   display: flex;
   gap: 10px;
 }
-html body footer p:last-child a {
+html body footer section:last-child p:last-child a {
   text-decoration: none;
 }
 
