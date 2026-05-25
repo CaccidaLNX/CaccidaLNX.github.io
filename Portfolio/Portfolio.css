@@ -461,6 +461,7 @@ html body footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 html body footer p {
   margin: 10px 0;
