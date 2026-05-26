@@ -15,7 +15,7 @@ html {
         overflow-x: hidden;
 
         hr {
-            color: white;
+            color: #6c0277;
             margin: 0;
         }
         
@@ -36,7 +36,7 @@ html {
                     width: 50%;
                     justify-content: space-around;
                     padding: 0 20px;
-                    border: solid 2px white;
+                    border: solid 2px #6c0277;
                     border-radius: 50px;
                     padding: 5px;
                     list-style: none;
@@ -118,7 +118,7 @@ html {
                 padding: 8px 20px;
                 margin: 0;
                 list-style: none;
-                border: solid 2px white;
+                border: solid 2px #6c0277;
                 border-radius: 50px;
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
                 backdrop-filter: blur(6px);
@@ -321,7 +321,7 @@ html {
                                 margin-top: 5px;
                             }
                             ul {
-                                border: dashed 1px white;
+                                border: dashed 1px #6c0277;
                                 padding: 5px;
                                 padding-left: 20px;
                             }
@@ -330,7 +330,7 @@ html {
                                 flex-direction: row;
                                 text-align: center;
                                 margin: 10px;
-                                border: dashed 1px white;
+                                border: dashed 1px #6c0277;
                                 padding: 5px;
                             }
                         }
