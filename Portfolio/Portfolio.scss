@@ -229,6 +229,14 @@ html {
                         font-size: larger;
                         margin-top: 10px;
                         padding: 0 35px;
+                        a {
+                            color: white;
+                            font-style: italic;
+                            
+                            &:visited {
+                                color: white;
+                            }
+                        }
                     }
                     &:nth-child(2) {
                         background-color: rgba(0, 0, 0, 0.7);
@@ -321,7 +329,7 @@ html {
                                 margin-top: 5px;
                             }
                             ul {
-                                border: dashed 1px #6c0277;
+                                border: dashed 1px white;
                                 padding: 5px;
                                 padding-left: 20px;
                             }
@@ -330,7 +338,7 @@ html {
                                 flex-direction: row;
                                 text-align: center;
                                 margin: 10px;
-                                border: dashed 1px #6c0277;
+                                border: dashed 1px white;
                                 padding: 5px;
                             }
                         }

@@ -364,6 +364,13 @@ html body main .WhoIAm.active div p {
   margin-top: 10px;
   padding: 0 35px;
 }
+html body main .WhoIAm.active div p a {
+  color: white;
+  font-style: italic;
+}
+html body main .WhoIAm.active div p a:visited {
+  color: white;
+}
 html body main .WhoIAm.active div:nth-child(2) {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
@@ -442,7 +449,7 @@ html body main .Projet.active div section section h2 {
   margin-top: 5px;
 }
 html body main .Projet.active div section section ul {
-  border: dashed 1px #6c0277;
+  border: dashed 1px white;
   padding: 5px;
   padding-left: 20px;
 }
@@ -451,7 +458,7 @@ html body main .Projet.active div section section p {
   flex-direction: row;
   text-align: center;
   margin: 10px;
-  border: dashed 1px #6c0277;
+  border: dashed 1px white;
   padding: 5px;
 }
 html body main .Projet.active div section aside ul {
