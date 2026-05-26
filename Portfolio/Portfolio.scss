@@ -7,7 +7,7 @@ html {
 
     body {
         margin: 0;
-        background-image: url("fond-Accueil.webp");
+        background-image: url("./fond-Accueil.webp");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -249,6 +249,9 @@ html {
                         h1 {
                             margin: 0;
                             font-size: 40px;
+                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
                         }
                     }
                     &:first-child {
@@ -256,6 +259,12 @@ html {
                         max-width: 90%;
                         justify-self: center;
                         background-color: rgba(22, 22, 29, 0.8);
+
+                        h1 {
+                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
                     }
                 }
             }
@@ -363,15 +372,20 @@ html {
             
             
             section{
+                display: flex;
+
                 &:first-child {
                     height: 50%;
+                    align-items: center;
 
                     h1 {
                         margin: 10px 0;
+                        background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
                     }
                     ul {
-                        margin-top: 0;
-                        padding-left: 10px;
+                        padding-left: 25px;
 
                         li {
                             a {
@@ -386,10 +400,11 @@ html {
                     }
                 }
                 &:last-child {
-                    display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    height: 40%;
                     gap: 10px;
+
                     p {
                         margin: 5px 0;
                         
@@ -478,6 +493,20 @@ html {
 
                 .Projet.active {
                     grid-template-columns: 1fr;
+                }
+            }
+
+            footer {
+                section {
+                    &:first-child {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+
+                        ul {
+                            margin-top: 0;
+                        }
+                    }
                 }
             }
         }

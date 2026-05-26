@@ -168,7 +168,7 @@ html {
 }
 html body {
   margin: 0;
-  background-image: url("fond-Accueil.webp");
+  background-image: url("./fond-Accueil.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -382,12 +382,20 @@ html body main .WhoIAm.active div:nth-child(2) {
 html body main .WhoIAm.active div:nth-child(2) h1 {
   margin: 0;
   font-size: 40px;
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .WhoIAm.active div:first-child {
   grid-column: 1/-1;
   max-width: 90%;
   justify-self: center;
   background-color: rgba(22, 22, 29, 0.8);
+}
+html body main .WhoIAm.active div:first-child h1 {
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .Cursus.active {
   border: none;
@@ -472,15 +480,21 @@ html body footer {
   display: flex;
   flex-direction: column;
 }
+html body footer section {
+  display: flex;
+}
 html body footer section:first-child {
   height: 50%;
+  align-items: center;
 }
 html body footer section:first-child h1 {
   margin: 10px 0;
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body footer section:first-child ul {
-  margin-top: 0;
-  padding-left: 10px;
+  padding-left: 25px;
 }
 html body footer section:first-child ul li a {
   color: white;
@@ -490,9 +504,9 @@ html body footer section:first-child ul li a:visited {
   color: white;
 }
 html body footer section:last-child {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 40%;
   gap: 10px;
 }
 html body footer section:last-child p {
@@ -558,5 +572,13 @@ html body footer section:last-child p:last-child a {
   }
   html body main .Projet.active {
     grid-template-columns: 1fr;
+  }
+  html body footer section:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  html body footer section:first-child ul {
+    margin-top: 0;
   }
 }/*# sourceMappingURL=Portfolio.css.map */
