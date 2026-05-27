@@ -30,7 +30,6 @@ html {
                     display: flex;
                     width: 65%;
                     justify-content: space-around;
-                    padding: 0 20px;
                     border: solid 2px white;
                     border-radius: 50px;
                     padding: 5px;
@@ -56,7 +55,7 @@ html {
                         
                         &:hover {
                             transform: scale(1.1);
-                            box-shadow: 2px #00FFFF;
+                            box-shadow: 10px 2px #00FFFF;
                         }
 
                         a {
@@ -87,8 +86,7 @@ html {
 
             hr {
                 width: 50%;
-                margin: auto;
-                margin-top: 10px;
+                margin: 10px auto auto;
             }
 
             .whoIAm {
