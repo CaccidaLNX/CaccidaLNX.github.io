@@ -415,6 +415,13 @@ html body main .Cursus.active div {
   padding: 10px;
   overflow-wrap: break-word;
 }
+html body main .Cursus.active div h1 {
+  width: -moz-max-content;
+  width: max-content;
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 html body main .Projet.active {
   border: none;
   width: 90%;
@@ -442,6 +449,9 @@ html body main .Projet.active div {
 }
 html body main .Projet.active div h1 {
   margin: 15px 0;
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .Projet.active div section {
   display: flex;
