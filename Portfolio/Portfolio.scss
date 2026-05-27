@@ -94,7 +94,7 @@ html {
             h1 {
                 margin: 0;
                 text-align: center;
-                font-size: 50px;
+                font-size: 2rem;
             }
         }
 
@@ -266,7 +266,7 @@ html {
 
                         h1 {
                             margin: 0;
-                            font-size: 40px;
+                            font-size: 35px;
                             background: linear-gradient(45deg, rgb(108, 2, 119), white);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
@@ -282,6 +282,7 @@ html {
                             background: linear-gradient(45deg, rgb(108, 2, 119), white);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
+                            font-size: 2rem;
                         }
                     }
                 }
@@ -316,6 +317,7 @@ html {
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                             margin: 10px;
+                            font-size: 2rem;
                             
                             &:last-child {
                                 background: white;
@@ -385,6 +387,7 @@ html {
                         background: linear-gradient(45deg, rgb(108, 2, 119), white);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
+                        font-size: 2rem;
                     }
                     section {
                         // content adjustment
@@ -457,6 +460,7 @@ html {
                         background: linear-gradient(45deg, rgb(108, 2, 119), white);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
+                        font-size: 2rem;
                     }
                     ul {
                         padding-left: 25px;

@@ -244,7 +244,7 @@ html body header nav ul li a.active {
 html body header h1 {
   margin: 0;
   text-align: center;
-  font-size: 50px;
+  font-size: 2rem;
 }
 html body .FloatingNav {
   position: fixed;
@@ -396,7 +396,7 @@ html body main .WhoIAm.active div:nth-child(2) {
 }
 html body main .WhoIAm.active div:nth-child(2) h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 35px;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -411,6 +411,7 @@ html body main .WhoIAm.active div:first-child h1 {
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 2rem;
 }
 html body main .Cursus.active {
   border: none;
@@ -441,6 +442,7 @@ html body main .Cursus.active div section h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 10px;
+  font-size: 2rem;
 }
 html body main .Cursus.active div section h1:last-child {
   background: white;
@@ -496,6 +498,7 @@ html body main .Projet.active div h1 {
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 2rem;
 }
 html body main .Projet.active div section {
   display: flex;
@@ -556,6 +559,7 @@ html body footer section:first-child h1 {
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 2rem;
 }
 html body footer section:first-child ul {
   padding-left: 25px;
