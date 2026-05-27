@@ -450,11 +450,13 @@ html body main .Cursus.active div section h1:last-child {
 html body main .Cursus.active div section:last-child {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: start;
 }
 html body main .Cursus.active div section:last-child p {
   margin: 10px;
   margin-top: 0;
+  font-size: 17px;
 }
 html body main .Cursus.active div section:last-child p a {
   color: white;
@@ -514,12 +516,18 @@ html body main .Projet.active div section section ul {
   padding-left: 20px;
 }
 html body main .Projet.active div section section p {
-  display: flex;
-  flex-direction: row;
   text-align: center;
   margin: 10px;
   border: dashed 1px white;
   padding: 5px;
+}
+html body main .Projet.active div section section p a {
+  color: white;
+  font-style: italic;
+}
+html body main .Projet.active div section section p a:visited {
+  color: white;
+  font-style: italic;
 }
 html body main .Projet.active div section aside ul {
   padding-left: 25px;

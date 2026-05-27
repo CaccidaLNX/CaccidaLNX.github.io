@@ -327,11 +327,13 @@ html {
                         &:last-child {
                             width: 100%;
                             display: flex;
+                            flex-direction: column;
                             justify-content: start;
 
                             p {
                                 margin: 10px;
                                 margin-top: 0;
+                                font-size: 17px;
                                 
                                 a {
                                     color: white;
@@ -404,12 +406,20 @@ html {
                                 padding-left: 20px;
                             }
                             p {
-                                display: flex;
-                                flex-direction: row;
                                 text-align: center;
                                 margin: 10px;
                                 border: dashed 1px white;
                                 padding: 5px;
+
+                                a {
+                                    color: white;
+                                    font-style: italic;
+                                    
+                                    &:visited {
+                                        color: white;
+                                        font-style: italic;
+                                    }
+                                }
                             }
                         }
                         aside {
