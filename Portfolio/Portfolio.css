@@ -236,6 +236,11 @@ html body header nav ul li a img {
   width: 55px;
   height: 55px;
 }
+html body header nav ul li a.active {
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 html body header h1 {
   margin: 0;
   text-align: center;
@@ -302,6 +307,11 @@ html body .FloatingNav ul li a {
 html body .FloatingNav ul li a img {
   width: 45px;
   height: 45px;
+}
+html body .FloatingNav ul li a.active {
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main {
   position: relative;

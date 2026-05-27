@@ -7,13 +7,21 @@ links.forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
 
+        // Retire "active" de toutes les sections
         sections.forEach(section => section.classList.remove("active"));
 
-        const target = document.querySelector(link.getAttribute("href"));
+        // Retire "active" de tous les liens des deux navs
+        document.querySelectorAll("nav a").forEach(l => l.classList.remove("active"));
 
+        // Active la section cible
+        const target = document.querySelector(link.getAttribute("href"));
         if (target) {
             target.classList.add("active");
         }
+
+        // Active le lien cliqué + son équivalent dans l'autre nav
+        const href = link.getAttribute("href");
+        document.querySelectorAll(`nav a[href="${href}"]`).forEach(l => l.classList.add("active"));
     });
 });
 

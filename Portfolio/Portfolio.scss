@@ -80,6 +80,12 @@ html {
                                 width: 55px;
                                 height: 55px;
                             }
+
+                            &.active {
+                                background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                            }
                         }
                     }
                 }
@@ -157,6 +163,12 @@ html {
                             width: 45px;
                             height: 45px;
                         }
+                        
+                        &.active {
+                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            }
                     }
                 }
             }
