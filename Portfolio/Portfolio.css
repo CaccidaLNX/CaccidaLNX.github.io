@@ -529,8 +529,12 @@ html body main .Projet.active div section section p a:visited {
   color: white;
   font-style: italic;
 }
+html body main .Projet.active div section aside {
+  border: dashed 1px white;
+}
 html body main .Projet.active div section aside ul {
-  padding-left: 25px;
+  padding-left: 20px;
+  margin: 5px 5px 5px 0;
 }
 html body footer {
   padding: 0 15px;

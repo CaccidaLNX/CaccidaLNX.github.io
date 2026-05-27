@@ -423,8 +423,11 @@ html {
                             }
                         }
                         aside {
+                            border: dashed 1px white;
+
                             ul {
-                                padding-left: 25px;
+                                padding-left: 20px;
+                                margin: 5px 5px 5px 0;
                             }
                         }
                     }
