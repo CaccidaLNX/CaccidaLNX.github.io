@@ -192,7 +192,7 @@ html body header nav ul {
   width: 50%;
   justify-content: space-around;
   padding: 0 20px;
-  border: solid 2px #6c0277;
+  border: solid 2px white;
   border-radius: 50px;
   padding: 5px;
   list-style: none;
@@ -269,7 +269,7 @@ html body .FloatingNav ul {
   padding: 8px 20px;
   margin: 0;
   list-style: none;
-  border: solid 2px #6c0277;
+  border: solid 2px white;
   border-radius: 50px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
   backdrop-filter: blur(6px);
@@ -365,13 +365,19 @@ html body main .WhoIAm.active div {
   overflow-wrap: break-word;
   justify-self: center;
 }
-html body main .WhoIAm.active div img {
+html body main .WhoIAm.active div a {
+  transition: all 0.5s ease;
+}
+html body main .WhoIAm.active div a img {
   width: 70%;
+}
+html body main .WhoIAm.active div a:hover {
+  transform: scale(1.05);
 }
 html body main .WhoIAm.active div p {
   font-size: larger;
   margin-top: 10px;
-  padding: 0 35px;
+  margin: 10px 10%;
 }
 html body main .WhoIAm.active div p a {
   color: white;
@@ -416,7 +422,7 @@ html body main .Cursus.active section {
 html body main .Cursus.active div {
   display: flex;
   flex-direction: column;
-  background-color: rgba(22, 22, 29, 0.7);
+  background-color: rgba(22, 22, 29, 0.8);
   border: solid 1px white;
   border-width: 1px 2px 2px 1px;
   border-radius: 10px;
@@ -424,12 +430,39 @@ html body main .Cursus.active div {
   padding: 10px;
   overflow-wrap: break-word;
 }
-html body main .Cursus.active div h1 {
+html body main .Cursus.active div section {
+  display: flex;
+  justify-content: space-between;
+}
+html body main .Cursus.active div section h1 {
   width: -moz-max-content;
   width: max-content;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 10px;
+}
+html body main .Cursus.active div section h1:last-child {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html body main .Cursus.active div section:last-child {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+html body main .Cursus.active div section:last-child p {
+  margin: 10px;
+  margin-top: 0;
+}
+html body main .Cursus.active div section:last-child p a {
+  color: white;
+  font-style: italic;
+}
+html body main .Cursus.active div section:last-child p a:visited {
+  color: white;
+  font-style: italic;
 }
 html body main .Projet.active {
   border: none;

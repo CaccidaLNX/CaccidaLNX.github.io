@@ -35,7 +35,7 @@ html {
                     width: 50%;
                     justify-content: space-around;
                     padding: 0 20px;
-                    border: solid 2px #6c0277;
+                    border: solid 2px white;
                     border-radius: 50px;
                     padding: 5px;
                     list-style: none;
@@ -122,7 +122,7 @@ html {
                 padding: 8px 20px;
                 margin: 0;
                 list-style: none;
-                border: solid 2px #6c0277;
+                border: solid 2px white;
                 border-radius: 50px;
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
                 backdrop-filter: blur(6px);
@@ -168,7 +168,7 @@ html {
                             background: linear-gradient(45deg, rgb(108, 2, 119), white);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
-                            }
+                        }
                     }
                 }
             }
@@ -232,13 +232,21 @@ html {
                     overflow-wrap: break-word;
                     justify-self: center;
 
-                    img {
-                        width: 70%;
+                    a {
+                        transition: all 0.5s ease;
+
+                        img {
+                            width: 70%;
+                        }
+                        &:hover {
+                            transform: scale(1.05);
+                        }
                     }
                     p {
                         font-size: larger;
                         margin-top: 10px;
-                        padding: 0 35px;
+                        margin: 10px 10%;
+                        
                         a {
                             color: white;
                             font-style: italic;
@@ -290,19 +298,52 @@ html {
                     display: flex;
                     flex-direction: column;
 
-                    background-color: rgba(22, 22, 29, 0.7);
+                    background-color: rgba(22, 22, 29, 0.8);
                     border: solid 1px white;
                     border-width: 1px 2px 2px 1px;
                     border-radius: 10px;
                     box-shadow: 2px 2px 10px #00FFFF;
                     padding: 10px;
                     overflow-wrap: break-word;
+                    
+                    section {
+                        display: flex;
+                        justify-content: space-between;
 
-                    h1 {
-                        width: max-content;
-                        background: linear-gradient(45deg, rgb(108, 2, 119), white);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
+                        h1 {
+                            width: max-content;
+                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            margin: 10px;
+                            
+                            &:last-child {
+                                background: white;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                            }
+                        }
+
+                        &:last-child {
+                            width: 100%;
+                            display: flex;
+                            justify-content: start;
+
+                            p {
+                                margin: 10px;
+                                margin-top: 0;
+                                
+                                a {
+                                    color: white;
+                                    font-style: italic;
+                                    
+                                    &:visited {
+                                        color: white;
+                                        font-style: italic;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
