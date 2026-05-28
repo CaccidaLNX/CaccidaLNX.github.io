@@ -572,6 +572,25 @@ html {
                     }
                 }
 
+                .Cursus.active {
+                    div {
+                        section {
+                            display: flex;
+                            flex-direction: column;
+
+                            h1 {
+                                &:first-child {
+                                    margin: 10px 10px 0 10px;
+                                }
+                                &:nth-child(2) {
+                                    margin: 0 10px 15px 10px;
+                                    font-size: 1.7rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .Projet.active {
                     grid-template-columns: 1fr;
                 }

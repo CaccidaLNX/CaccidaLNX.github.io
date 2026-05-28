@@ -631,6 +631,17 @@ html body footer section:last-child p:last-child a {
   html body main .WhoIAm.active div:first-child h1 {
     margin: 10px 0;
   }
+  html body main .Cursus.active div section {
+    display: flex;
+    flex-direction: column;
+  }
+  html body main .Cursus.active div section h1:first-child {
+    margin: 10px 10px 0 10px;
+  }
+  html body main .Cursus.active div section h1:nth-child(2) {
+    margin: 0 10px 15px 10px;
+    font-size: 1.7rem;
+  }
   html body main .Projet.active {
     grid-template-columns: 1fr;
   }
