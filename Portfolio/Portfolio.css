@@ -409,6 +409,14 @@ html body main .WhoIAm.active div:first-child h1 {
   font-size: 2rem;
   margin: 10px 0;
 }
+html body main .WhoIAm.active div:last-child {
+  grid-column: 1/-1;
+}
+html body main .WhoIAm.active div:last-child a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 html body main .Cursus.active {
   border: none;
   width: 90%;
