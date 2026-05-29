@@ -467,9 +467,8 @@ html body main .Projet.active {
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  -moz-column-gap: 35px;
-       column-gap: 35px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   row-gap: 20px;
   grid-template-rows: auto auto;
   align-items: center;
@@ -531,10 +530,11 @@ html body main .Projet.active div section:first-child {
   justify-content: start;
 }
 html body main .Projet.active div section:last-child {
+  width: 100%;
   justify-content: end;
 }
 html body main .Projet.active div section aside {
-  justify-self: end;
+  align-self: start;
 }
 html body main .Projet.active div section aside ul {
   border: dashed 1px white;
