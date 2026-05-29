@@ -515,7 +515,6 @@ html body main .Projet.active div section section ul {
   margin: 10px;
 }
 html body main .Projet.active div section section p {
-  text-align: center;
   margin: 10px;
   border: dashed 1px white;
   padding: 5px;
@@ -535,11 +534,11 @@ html body main .Projet.active div section:last-child {
   justify-content: end;
 }
 html body main .Projet.active div section aside {
-  border: dashed 1px white;
+  justify-self: end;
 }
 html body main .Projet.active div section aside ul {
-  padding-left: 20px;
-  margin: 5px 5px 5px 0;
+  border: dashed 1px white;
+  padding: 5px 5px 5px 20px;
 }
 html body footer {
   padding: 0 15px;

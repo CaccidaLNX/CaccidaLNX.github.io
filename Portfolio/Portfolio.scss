@@ -406,7 +406,6 @@ html {
                                 margin: 10px;
                             }
                             p {
-                                text-align: center;
                                 margin: 10px;
                                 border: dashed 1px white;
                                 padding: 5px;
@@ -429,11 +428,11 @@ html {
                             justify-content: end;
                         }
                         aside {
-                            border: dashed 1px white;
+                            justify-self: end;
 
                             ul {
-                                padding-left: 20px;
-                                margin: 5px 5px 5px 0;
+                                border: dashed 1px white;
+                                padding: 5px 5px 5px 20px;
                             }
                         }
                     }
