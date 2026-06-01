@@ -224,7 +224,7 @@ html {
                     border-radius: 10px;
                     box-shadow: 2px 2px 10px #00FFFF;
                     padding: 10px;
-                    max-width: 60%;
+                    max-width: 80%;
                     overflow-wrap: break-word;
                     justify-self: center;
 
@@ -282,12 +282,7 @@ html {
                         }
                     }
                     &:last-child {
-                        grid-column: 1 / -1;
-                        a {
-                            display: flex;
-                            justify-content: center;
-                            align-content: center;
-                        }
+                        grid-column: 2;
                     }
                 }
             }
@@ -361,7 +356,7 @@ html {
 
                 // box position
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 column-gap: 30px;
                 row-gap: 20px;
                 grid-template-rows: auto auto;
@@ -436,7 +431,7 @@ html {
                             justify-content: end;
                         }
                         aside {
-                            align-self: start;
+                            align-self: center;
 
                             ul {
                                 border: dashed 1px white;
