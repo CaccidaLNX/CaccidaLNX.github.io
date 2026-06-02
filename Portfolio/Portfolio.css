@@ -653,6 +653,9 @@ html body footer section:last-child p:last-child a {
   html body main .WhoIAm.active div:first-child h1 {
     margin: 10px 0;
   }
+  html body main .WhoIAm.active div:last-child {
+    grid-column: 1/-1;
+  }
   html body main .Cursus.active div section {
     display: flex;
     flex-direction: column;

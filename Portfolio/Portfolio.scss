@@ -567,7 +567,7 @@ html {
 
             main {
                 .WhoIAm.active {
-                    grid-template-columns: 1fr;
+                    grid-template-columns:1fr;
 
                     div {
                         max-width: 70%;
@@ -582,6 +582,9 @@ html {
                             h1 {
                                 margin: 10px 0;
                             }
+                        }
+                        &:last-child {
+                            grid-column: 1 / -1;
                         }
                     }
                 }
