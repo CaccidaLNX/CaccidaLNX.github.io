@@ -45,7 +45,6 @@ html body header nav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px;
   font-size: 30px;
-  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -82,8 +81,7 @@ html body main .whoIAm {
   gap: 30px;
   max-width: 90%;
   margin: auto;
-  -moz-column-gap: 70px;
-       column-gap: 70px;
+  column-gap: 70px;
 }
 html body main .whoIAm div {
   display: flex;
@@ -131,8 +129,7 @@ html body main .whoIAm .html-css {
   align-items: center;
   justify-items: center;
   gap: 15px;
-  -moz-column-gap: 0;
-       column-gap: 0;
+  column-gap: 0;
   width: 323px;
 }
 html body main .whoIAm .html-css img {
@@ -207,7 +204,6 @@ html body header nav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px;
   font-size: 30px;
-  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -252,6 +248,7 @@ html body .FloatingNav {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 25%;
 }
 html body .FloatingNav.visible {
   opacity: 1;
@@ -285,7 +282,6 @@ html body .FloatingNav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px 10px;
   font-size: 22px;
-  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -293,6 +289,9 @@ html body .FloatingNav ul li {
 html body .FloatingNav ul li:hover {
   transform: scale(1.08);
   box-shadow: 0 2px #00FFFF;
+}
+html body .FloatingNav ul li:first-child {
+  box-shadow: none;
 }
 html body .FloatingNav ul li a {
   color: white;
@@ -343,8 +342,7 @@ html body main > section.active {
 html body main .WhoIAm.active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  -moz-column-gap: 0;
-       column-gap: 0;
+  column-gap: 0;
 }
 html body main .WhoIAm.active div {
   display: flex;
@@ -434,7 +432,6 @@ html body main .Cursus.active div section {
   justify-content: space-between;
 }
 html body main .Cursus.active div section h1 {
-  width: -moz-max-content;
   width: max-content;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
@@ -470,8 +467,7 @@ html body main .Projet.active {
   width: 90%;
   display: grid;
   grid-template-columns: 1fr;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
   row-gap: 20px;
   grid-template-rows: auto auto;
   align-items: center;
@@ -486,6 +482,7 @@ html body main .Projet.active div {
   padding: 0 10px;
   overflow-wrap: break-word;
   height: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -507,6 +504,7 @@ html body main .Projet.active div section section {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 html body main .Projet.active div section section h2 {
   margin: 5px 0 0;
@@ -542,11 +540,11 @@ html body main .Projet.active div section aside {
 html body main .Projet.active div section aside ul {
   border: dashed 1px white;
   padding: 5px 5px 5px 20px;
+  width: 90px;
 }
 html body footer {
   padding: 0 15px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
-  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -678,4 +676,6 @@ html body footer section:last-child p:last-child a {
   html body footer section:first-child ul {
     margin-top: 0;
   }
-}/*# sourceMappingURL=Portfolio.css.map */
+}
+
+/*# sourceMappingURL=Portfolio.css.map */
