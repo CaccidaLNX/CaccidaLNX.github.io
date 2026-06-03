@@ -51,7 +51,6 @@ html {
                         box-shadow: 1px 1px 3px #00FFFF;
                         padding: 4px;
                         font-size: 30px;
-                        height: max-content;
                         align-self: center;
                         transition: transform 0.3s ease;
                         list-style: none;
@@ -64,6 +63,7 @@ html {
                             box-shadow: none;
                             border: none;
                             background-color: transparent;
+                            width: max-content;
                         }
 
                         a {
@@ -104,7 +104,6 @@ html {
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease, transform 0.3s ease;
-            width: 25%;
             
             &.visible {
                 opacity: 1;
@@ -235,7 +234,7 @@ html {
                         transition: all 0.5s ease;
 
                         img {
-                            width: 70%;
+                            max-width: 60%;
                         }
                         &:hover {
                             transform: scale(1.05);
@@ -537,15 +536,17 @@ html {
                 nav {
                     ul {
                         width: 100%;
-                        gap: 10px;
 
                         li {
-                            width: 100%;
+                            width: 30%;
+                            padding: 5px;
+
                             a {
                                 font-size: 60%;
+
                                 img {
-                                    width: 40px;
-                                    height: 40px;
+                                    width: 50px;
+                                    height: 50px;
                                 }
                             }
 
@@ -558,7 +559,7 @@ html {
             }
 
             .FloatingNav {
-                width: 90%;
+                width: 85%;
 
                 ul {   
                     display: flex;
@@ -566,6 +567,13 @@ html {
 
                     li {
                         padding: 5px;
+
+                        a {
+                            img {
+                                width: 50px;
+                                height: 50px;
+                            }
+                        }
                     }
                 }
             }        
