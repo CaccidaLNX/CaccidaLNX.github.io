@@ -722,6 +722,10 @@ html footer section:last-child p:last-child a {
   html body main .Competences.active section section {
     grid-template-columns: 1fr;
   }
+  html body footer {
+    height: -moz-max-content;
+    height: max-content;
+  }
   html body footer section:first-child {
     display: flex;
     flex-direction: column;

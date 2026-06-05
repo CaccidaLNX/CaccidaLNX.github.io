@@ -688,6 +688,8 @@ html {
             }
 
             footer {
+                height: max-content;
+
                 section {
                     &:first-child {
                         display: flex;
