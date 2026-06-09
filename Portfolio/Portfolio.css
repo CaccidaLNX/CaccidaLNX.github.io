@@ -514,7 +514,6 @@ html body main .Projet.active div section section ul {
   margin: 10px;
 }
 html body main .Projet.active div section section p {
-  margin: 10px;
   border: dashed 1px white;
   padding: 5px;
 }
@@ -648,6 +647,7 @@ html footer section:last-child p:last-child a {
 @media (max-width: 768px) {
   html body header nav ul {
     width: 100%;
+    gap: 10px;
   }
   html body header nav ul li {
     width: 30%;
@@ -709,7 +709,26 @@ html footer section:last-child p:last-child a {
   html body main .Projet.active {
     grid-template-columns: 1fr;
   }
-  html body main .Competences.active section section {
+  html body main .Projet.active div section section {
+    padding: 0 10px;
+  }
+  html body main .Projet.active div section section section {
+    width: 100%;
+    min-width: 0;
+  }
+  html body main .Projet.active div section section section ul {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  html body main .Projet.active div section section section ul li {
+    padding-right: 5px;
+  }
+  html body main .Projet.active div section section section ul li .competence-link {
+    display: inline-block;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+  html body main .Competences.active {
     grid-template-columns: 1fr;
   }
   html body footer {
@@ -772,7 +791,9 @@ html footer section:last-child p:last-child a {
   font: inherit;
   color: inherit;
   cursor: pointer;
-  text-decoration: underline dotted;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: start;
 }
 .competence-link:hover {
   color: white;

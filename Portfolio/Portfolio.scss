@@ -412,7 +412,6 @@ html {
                                 margin: 10px;
                             }
                             p {
-                                margin: 10px;
                                 border: dashed 1px white;
                                 padding: 5px;
 
@@ -589,6 +588,7 @@ html {
                 nav {
                     ul {
                         width: 100%;
+                        gap: 10px;
 
                         li {
                             width: 30%;
@@ -676,14 +676,37 @@ html {
 
                 .Projet.active {
                     grid-template-columns: 1fr;
+
+                    div {
+                        section {
+                            section {
+                                padding: 0 10px;
+
+                                section {
+                                    width: 100%;
+                                    min-width: 0;
+
+                                    ul {
+                                        width: 100%;
+                                        box-sizing: border-box;
+
+                                        li {
+                                            padding-right: 5px;
+                                            .competence-link {
+                                                display: inline-block;
+                                                line-height: 1.4;
+                                                vertical-align: top;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .Competences.active {
-                    section {
-                        section {
-                            grid-template-columns: 1fr;
-                        }
-                    }
+                    grid-template-columns: 1fr;
                 }
             }
 
@@ -759,7 +782,9 @@ html {
     font: inherit;
     color: inherit;
     cursor: pointer;
-    text-decoration: underline dotted;
+    font-style: italic;
+    text-decoration: underline;
+    text-align: start;
 
     &:hover {
         color: white;
