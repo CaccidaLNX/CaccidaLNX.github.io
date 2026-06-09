@@ -7,28 +7,30 @@ html {
 
     body {
         margin: 0;
-        background-image: url("./fond-Accueil.webp");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        overflow-x: hidden;
+
+        .bg-fixed {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: url("./fond-Accueil.webp");
+            background-size: cover;
+            background-position: center;
+        }
 
         hr {
             margin: 0;
         }
-        
+
         header {
-            background: linear-gradient(0deg, 
-                                      rgba(0, 0, 0, 0.5), 
-                                      rgba(22, 22, 29, 0.5));
-            backdrop-filter: blur(2px);
+            background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(22, 22, 29, 0.5));
             padding: 0 15px;
-            
+
             nav {
                 display: flex;
                 justify-content: center;
-                
+
                 ul {
                     display: flex;
                     width: 50%;
@@ -37,7 +39,7 @@ html {
                     border-radius: 50px;
                     padding: 5px;
                     list-style: none;
-                    
+
                     .logo-accueil {
                         border: none;
                         box-shadow: none;
@@ -54,7 +56,7 @@ html {
                         align-self: center;
                         transition: transform 0.3s ease;
                         list-style: none;
-                        
+
                         &:hover {
                             transform: scale(1.1);
                             box-shadow: 1px 1px 3px #00FFFF;
@@ -104,7 +106,7 @@ html {
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease, transform 0.3s ease;
-            
+
             &.visible {
                 opacity: 1;
                 pointer-events: auto;
@@ -122,14 +124,13 @@ html {
                 border: solid 2px white;
                 border-radius: 50px;
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
-                backdrop-filter: blur(6px);
-                
+
                 .logo-accueil {
                     border: none;
                     box-shadow: none;
                     background-color: transparent;
                 }
-                
+
                 li {
                     list-style: none;
                     background-color: #16161d;
@@ -142,7 +143,7 @@ html {
                     height: max-content;
                     align-self: center;
                     transition: transform 0.3s ease;
-                    
+
                     &:hover {
                         transform: scale(1.08);
                         box-shadow: 1px 1px 3px #00FFFF;
@@ -156,13 +157,13 @@ html {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        
+
 
                         img {
                             width: 45px;
                             height: 45px;
                         }
-                        
+
                         &.active {
                             background: linear-gradient(45deg, rgb(108, 2, 119), white);
                             -webkit-background-clip: text;
@@ -172,11 +173,11 @@ html {
                 }
             }
         }
-        
+
         main {
-        position: relative;
-        overflow: hidden;
-        padding: 30px 15px;
+            position: relative;
+            overflow: hidden;
+            padding: 30px 15px;
 
             hr {
                 width: 50%;
@@ -205,7 +206,7 @@ html {
                     gap: 30px;
                     width: 100%;
                     max-width: 83rem;
-                }                
+                }
             }
 
             .WhoIAm.active {
@@ -243,11 +244,11 @@ html {
                     p {
                         font-size: larger;
                         margin: 10px 10%;
-                        
+
                         a {
                             color: white;
                             font-style: italic;
-                            
+
                             &:visited {
                                 color: white;
                             }
@@ -288,7 +289,7 @@ html {
                     }
                 }
             }
-            
+
             .Cursus.active {
                 border: none;
                 width: 90%;
@@ -306,7 +307,7 @@ html {
                     box-shadow: 2px 2px 10px #00FFFF;
                     padding: 10px;
                     overflow-wrap: break-word;
-                    
+
                     section {
                         display: flex;
                         justify-content: space-between;
@@ -318,7 +319,7 @@ html {
                             -webkit-text-fill-color: transparent;
                             margin: 10px;
                             font-size: 2rem;
-                            
+
                             &:last-child {
                                 background: white;
                                 -webkit-background-clip: text;
@@ -335,11 +336,11 @@ html {
                             p {
                                 margin: 0 10px 10px;
                                 font-size: 17px;
-                                
+
                                 a {
                                     color: white;
                                     font-style: italic;
-                                    
+
                                     &:visited {
                                         color: white;
                                         font-style: italic;
@@ -376,7 +377,7 @@ html {
                     overflow-wrap: break-word;
                     height: 100%;
                     width: 90%;
-                    
+
                     // content adjustment
                     display: flex;
                     flex-direction: column;
@@ -395,7 +396,7 @@ html {
                         flex-direction: row;
                         align-items: center;
                         height: 100%;
-                                                
+
                         section {
                             display: flex;
                             flex-direction: column;
@@ -418,7 +419,7 @@ html {
                                 a {
                                     color: white;
                                     font-style: italic;
-                                    
+
                                     &:visited {
                                         color: white;
                                         font-style: italic;
@@ -468,7 +469,7 @@ html {
                     overflow-wrap: break-word;
                     height: 100%;
                     width: 80%;
-                    
+
                     // content adjustment
                     display: flex;
                     flex-direction: column;
@@ -492,7 +493,7 @@ html {
 
                         li {
 
-                        }   
+                        }
                     }
                 }
             }
@@ -501,13 +502,12 @@ html {
 
     footer {
         padding: 0 15px;
-        background: linear-gradient(0deg, 
-                                    rgba(0, 0, 0, 0.5), 
-                                    rgba(22, 22, 29, 0.5));
+        background: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(22, 22, 29, 0.5));
         height: max-content;
         display: flex;
         flex-direction: column;
-        height: max-content;
 
         section{
             display: flex;
@@ -534,7 +534,7 @@ html {
                         a {
                             color: white;
                             font-style: italic;
-                            
+
                             &:visited {
                                 color: white;
                             }
@@ -550,11 +550,11 @@ html {
 
                 p {
                     margin: 5px 0;
-                    
+
                     a {
                         color: white;
                         font-style: italic;
-                        
+
                         img {
                             width: 50px;
                             background-color: white;
@@ -564,7 +564,7 @@ html {
                             color: white;
                         }
                     }
-                    
+
                     &:last-child {
                         text-decoration: none;
                         display: flex;
@@ -614,7 +614,7 @@ html {
             .FloatingNav {
                 width: 85%;
 
-                ul {   
+                ul {
                     display: flex;
                     gap: 0;
 
@@ -629,7 +629,7 @@ html {
                         }
                     }
                 }
-            }        
+            }
 
             main {
                 .WhoIAm.active {
@@ -703,5 +703,65 @@ html {
                 }
             }
         }
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    &.hidden {
+        display: none !important;
+    }
+
+    .modal-box {
+        background-color: rgba(22, 22, 29, 1);
+        border-radius: 12px;
+        border: solid 1px white;
+        padding: 2rem;
+        max-width: 480px;
+        width: 90%;
+        position: relative;
+
+        h2 {
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, rgb(108, 2, 119), white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        ul li {
+            margin: 0.4rem 0;
+        }
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: white;
+    }
+}
+
+.competence-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline dotted;
+
+    &:hover {
+        color: white;
     }
 }

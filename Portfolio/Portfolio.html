@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>Accueil | Portfolio</title>
 </head>
 
 <body>
+    <div class="bg-fixed"></div>
+
     <header id="MainHeader">
         <nav>
             <ul>
-                <li><a href="#WhoIAm" id="LinkWhoIAm"><img src="./logo_Accueil.png" alt="Benjamin CACCIATORE"></a></li>
+                <li><a href="#WhoIAm" id="LinkWhoIAm"><img src="./logo_Accueil.webp" alt="Benjamin CACCIATORE"></a></li>
                 <li><a href="#Cursus" id="LinkCursus">Cursus</a></li>
                 <li><a href="#Projet" id="LinkProjet">Projets</a></li>
                 <li><a href="#Competences" id="LinkCompétences">Compétences</a></li>
@@ -21,11 +26,11 @@
 
     <nav class="FloatingNav" id="FloatingNav">
         <ul>
-        <li class="logo-accueil"><a href="#WhoIAm"><img src="./logo_Accueil.png" alt="Benjamin CACCIATORE"></a></li>
-        <li><a href="#Cursus">Cursus</a></li>
-        <li><a href="#Projet">Projets</a></li>
-        <li><a href="#Competences">Compétences</a></li>
-    </ul>
+            <li class="logo-accueil"><a href="#WhoIAm"><img src="./logo_Accueil.webp" alt="Benjamin CACCIATORE"></a></li>
+            <li><a href="#Cursus">Cursus</a></li>
+            <li><a href="#Projet">Projets</a></li>
+            <li><a href="#Competences">Compétences</a></li>
+        </ul>
     </nav>
     <hr>
     <main>
@@ -160,10 +165,14 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Administrer des systèmes informatiques communicants complexes
+                                    <button class="competence-link" data-competence="Administrer des systèmes informatiques communicants complexes">
+                                        Administrer des systèmes informatiques communicants complexes
+                                    </button>
                                 </li>
                                 <li>
-                                    Optimiser des applications informatiques
+                                    <button class="competence-link" data-competence="Optimiser des applications informatiques">
+                                        Optimiser des applications informatiques
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -193,10 +202,14 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Conduire un projet
+                                    <button class="competence-link" data-competence="Conduire un projet">
+                                        Conduire un projet
+                                    </button>
                                 </li>
                                 <li>
-                                    Travailler dans une équipe informatique
+                                    <button class="competence-link" data-competence="Travailler dans une équipe informatique">
+                                        Travailler dans une équipe informatique
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -229,7 +242,9 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Gérer des données de l'information
+                                    <button class="competence-link" data-competence="Gérer des données de l'information">
+                                        Gérer des données de l'information
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -260,7 +275,9 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Gérer des données de l'information
+                                    <button class="competence-link" data-competence="Gérer des données de l'information">
+                                        Gérer des données de l'information
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -292,10 +309,14 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Réaliser un développement d'application
+                                    <button class="competence-link" data-competence="Réaliser un développement d'application">
+                                        Réaliser un développement d'application
+                                    </button>
                                 </li>
                                 <li>
-                                    Optimiser des applications informatiques
+                                    <button class="competence-link" data-competence="Optimiser des applications informatiques">
+                                        Optimiser des applications informatiques
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -325,10 +346,14 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Réaliser un développement d'application
+                                    <button class="competence-link" data-competence="Réaliser un développement d'application">
+                                        Réaliser un développement d'application
+                                    </button>
                                 </li>
                                 <li>
-                                    Optimiser des applications informatiques
+                                    <button class="competence-link" data-competence="Optimiser des applications informatiques">
+                                        Optimiser des applications informatiques
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -358,10 +383,14 @@
                             <h2>Compétences</h2>
                             <ul>
                                 <li>
-                                    Réaliser un développement d'application
+                                    <button class="competence-link" data-competence="Réaliser un développement d'application">
+                                        Réaliser un développement d'application
+                                    </button>
                                 </li>
                                 <li>
-                                    Optimiser des applications informatiques
+                                    <button class="competence-link" data-competence="Optimiser des applications informatiques">
+                                        Optimiser des applications informatiques
+                                    </button>
                                 </li>
                             </ul>
                         </section>
@@ -383,16 +412,16 @@
                     <li>Implémenter des conceptions simples</li>
                     <li>Élaborer des conceptions simples</li>
                     <li>Développer des interfaces utilisateur</li>
-                    <li>Faire des essaie et évaluer les resultat en regard des spécifications</li>
+                    <li>Faire des essais et évaluer les résultats en regard des spécifications</li>
                 </ul>
             </div>
             <div>
                 <h1>Optimiser des applications informatiques</h1>
                 <ul>
                     <li>Annaliser un problème avec méthodes</li>
-                    <li>Comparer des algorithmes pour des problèmes calssique</li>
+                    <li>Comparer des algorithmes pour des problèmes classique</li>
                     <li>Experimenter la notion de compilation et des représentations bas niveau des données</li>
-                    <li>Formaliser et mettre en oeuvre des outil mathematiques pour l'informatique</li>
+                    <li>Formaliser et mettre en œuvre des outils mathématiques pour l'informatique</li>
                 </ul>
             </div>
             <div>
@@ -430,8 +459,6 @@
                 </ul>
             </div>
         </section>
-
-        <script src="script.js"></script>
     </main>
     <hr>
     <footer>
@@ -464,5 +491,15 @@
             </p>
         </section>
     </footer>
+
+    <div id="CompetenceModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button class="modal-close" id="ModalClose">✕</button>
+            <h2 id="ModalTitle"></h2>
+            <ul id="ModalList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

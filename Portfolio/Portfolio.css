@@ -45,7 +45,6 @@ html body header nav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px;
   font-size: 30px;
-  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -82,8 +81,7 @@ html body main .whoIAm {
   gap: 30px;
   max-width: 90%;
   margin: auto;
-  -moz-column-gap: 70px;
-       column-gap: 70px;
+  column-gap: 70px;
 }
 html body main .whoIAm div {
   display: flex;
@@ -131,8 +129,7 @@ html body main .whoIAm .html-css {
   align-items: center;
   justify-items: center;
   gap: 15px;
-  -moz-column-gap: 0;
-       column-gap: 0;
+  column-gap: 0;
   width: 323px;
 }
 html body main .whoIAm .html-css img {
@@ -166,19 +163,20 @@ html {
 }
 html body {
   margin: 0;
+}
+html body .bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image: url("./fond-Accueil.webp");
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
 }
 html body hr {
   margin: 0;
 }
 html body header {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
-  backdrop-filter: blur(2px);
   padding: 0 15px;
 }
 html body header nav {
@@ -219,7 +217,6 @@ html body header nav ul li:first-child {
   box-shadow: none;
   border: none;
   background-color: transparent;
-  width: -moz-max-content;
   width: max-content;
 }
 html body header nav ul li a {
@@ -269,7 +266,6 @@ html body .FloatingNav ul {
   border: solid 2px white;
   border-radius: 50px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
-  backdrop-filter: blur(6px);
 }
 html body .FloatingNav ul .logo-accueil {
   border: none;
@@ -285,7 +281,6 @@ html body .FloatingNav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px 10px;
   font-size: 22px;
-  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -346,8 +341,7 @@ html body main > section.active {
 html body main .WhoIAm.active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  -moz-column-gap: 0;
-       column-gap: 0;
+  column-gap: 0;
 }
 html body main .WhoIAm.active div {
   display: flex;
@@ -437,7 +431,6 @@ html body main .Cursus.active div section {
   justify-content: space-between;
 }
 html body main .Cursus.active div section h1 {
-  width: -moz-max-content;
   width: max-content;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
@@ -473,8 +466,7 @@ html body main .Projet.active {
   width: 90%;
   display: grid;
   grid-template-columns: 1fr;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
   row-gap: 20px;
   grid-template-rows: auto auto;
   align-items: center;
@@ -590,11 +582,9 @@ html body main .Competences.active div ul {
 html footer {
   padding: 0 15px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
-  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: column;
-  height: max-content;
 }
 html footer section {
   display: flex;
@@ -723,7 +713,6 @@ html footer section:last-child p:last-child a {
     grid-template-columns: 1fr;
   }
   html body footer {
-    height: -moz-max-content;
     height: max-content;
   }
   html body footer section:first-child {
@@ -734,4 +723,59 @@ html footer section:last-child p:last-child a {
   html body footer section:first-child ul {
     margin-top: 0;
   }
-}/*# sourceMappingURL=Portfolio.css.map */
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-overlay.hidden {
+  display: none !important;
+}
+.modal-overlay .modal-box {
+  background-color: rgb(22, 22, 29);
+  border-radius: 12px;
+  border: solid 1px white;
+  padding: 2rem;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+}
+.modal-overlay .modal-box h2 {
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.modal-overlay .modal-box ul li {
+  margin: 0.4rem 0;
+}
+.modal-overlay .modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.competence-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.competence-link:hover {
+  color: white;
+}
+
+/*# sourceMappingURL=Portfolio.css.map */
