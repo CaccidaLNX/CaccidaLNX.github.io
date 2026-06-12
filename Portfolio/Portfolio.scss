@@ -501,81 +501,84 @@ html {
                 }
             }
         }
-    }
 
-    footer {
-        padding: 0 15px;
-        background: linear-gradient(0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(22, 22, 29, 0.5));
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-
-        section{
+        footer {
+            padding: 0 15px;
+            margin: 0;
+            background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(22, 22, 29, 0.5));
+            height: max-content;
             display: flex;
+            flex-direction: column;
 
-            &:first-child {
-                height: 50%;
-                align-items: center;
+            section{
+                display: flex;
 
-                h1 {
-                    margin: 10px 0;
-                    background: linear-gradient(45deg, rgb(108, 2, 119), white);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-size: 2rem;
-                }
-                ul {
-                    padding-left: 25px;
-                    margin: 10px 0;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2px;
+                &:first-child {
+                    height: max-content;
+                    align-items: center;
 
-                    li {
-                        a {
-                            color: white;
-                            font-style: italic;
+                    h1 {
+                        margin: 10px 0 0 0;
+                        background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 2rem;
+                    }
+                    ul {
+                        padding-left: 25px;
+                        margin: 10px 0 0 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
 
-                            &:visited {
+                        li {
+                            a {
                                 color: white;
+                                font-style: italic;
+
+                                &:visited {
+                                    color: white;
+                                }
                             }
                         }
                     }
                 }
-            }
-            &:last-child {
-                justify-content: space-between;
-                align-items: center;
-                height: 40%;
-                gap: 15px;
-
-                p {
+                &:last-child {
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 40%;
+                    gap: 15px;
                     margin: 5px 0;
 
-                    a {
-                        color: white;
-                        font-style: italic;
-
-                        img {
-                            width: 50px;
-                            background-color: white;
-                            border-radius: 5px;
-                        }
-                        &:visited {
-                            color: white;
-                        }
-                    }
-
-                    &:last-child {
-                        text-decoration: none;
-                        display: flex;
-                        gap: 10px;
-                        margin: 0;
+                    p {
+                        margin: 5px 0;
 
                         a {
+                            color: white;
+                            font-style: italic;
+
+                            img {
+                                width: 50px;
+                                background-color: white;
+                                border-radius: 5px;
+                            }
+                            &:visited {
+                                color: white;
+                            }
+                        }
+
+                        &:last-child {
                             text-decoration: none;
+                            display: flex;
+                            gap: 10px;
+                            margin: 5px 0;
+
+                            a {
+                                text-decoration: none;
+                                height: 50px;
+                            }
                         }
                     }
                 }

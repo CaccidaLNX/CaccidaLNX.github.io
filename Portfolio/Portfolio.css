@@ -582,70 +582,73 @@ html body main .Competences.active div ul {
   gap: 5px;
   margin: 10px 0;
 }
-html footer {
+html body footer {
   padding: 0 15px;
+  margin: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
   height: max-content;
   display: flex;
   flex-direction: column;
 }
-html footer section {
+html body footer section {
   display: flex;
 }
-html footer section:first-child {
-  height: 50%;
+html body footer section:first-child {
+  height: max-content;
   align-items: center;
 }
-html footer section:first-child h1 {
-  margin: 10px 0;
+html body footer section:first-child h1 {
+  margin: 10px 0 0 0;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
 }
-html footer section:first-child ul {
+html body footer section:first-child ul {
   padding-left: 25px;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-html footer section:first-child ul li a {
+html body footer section:first-child ul li a {
   color: white;
   font-style: italic;
 }
-html footer section:first-child ul li a:visited {
+html body footer section:first-child ul li a:visited {
   color: white;
 }
-html footer section:last-child {
+html body footer section:last-child {
   justify-content: space-between;
   align-items: center;
   height: 40%;
   gap: 15px;
-}
-html footer section:last-child p {
   margin: 5px 0;
 }
-html footer section:last-child p a {
+html body footer section:last-child p {
+  margin: 5px 0;
+}
+html body footer section:last-child p a {
   color: white;
   font-style: italic;
 }
-html footer section:last-child p a img {
+html body footer section:last-child p a img {
   width: 50px;
   background-color: white;
   border-radius: 5px;
 }
-html footer section:last-child p a:visited {
+html body footer section:last-child p a:visited {
   color: white;
 }
-html footer section:last-child p:last-child {
+html body footer section:last-child p:last-child {
   text-decoration: none;
   display: flex;
   gap: 10px;
-  margin: 0;
+  margin: 5px 0;
 }
-html footer section:last-child p:last-child a {
+html body footer section:last-child p:last-child a {
   text-decoration: none;
+  height: 50px;
 }
 
 @media (max-width: 768px) {
