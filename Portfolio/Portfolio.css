@@ -185,7 +185,7 @@ html body header nav {
 }
 html body header nav ul {
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: space-around;
   border: solid 2px white;
   border-radius: 50px;
