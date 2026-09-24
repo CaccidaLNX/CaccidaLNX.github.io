@@ -265,7 +265,7 @@ html body .FloatingNav ul {
   list-style: none;
   border: solid 2px white;
   border-radius: 50px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
+  background: linear-gradient(0deg, rgb(0, 0, 0), rgb(22, 22, 29));
 }
 html body .FloatingNav ul .logo-accueil {
   border: none;
@@ -340,7 +340,7 @@ html body main > section.active {
 }
 html body main .WhoIAm.active {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 0;
 }
 html body main .WhoIAm.active div {
@@ -348,7 +348,8 @@ html body main .WhoIAm.active div {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background-color: rgba(22, 22, 29, 0.7);
+  justify-content: center;
+  background-color: rgba(22, 22, 29, 0.8);
   border: solid;
   border-width: 1px 2px 2px 1px;
   border-radius: 10px;
@@ -378,7 +379,26 @@ html body main .WhoIAm.active div p a {
 html body main .WhoIAm.active div p a:visited {
   color: white;
 }
-html body main .WhoIAm.active div:nth-child(2) {
+html body main .WhoIAm.active div:last-child {
+  grid-column: 2;
+}
+html body main .WhoIAm.active div:last-child a img {
+  max-width: 80%;
+}
+html body main .WhoIAm.active .aPropos {
+  grid-column: 1/-1;
+  max-width: 90%;
+  justify-self: center;
+  background-color: rgba(22, 22, 29, 0.8);
+}
+html body main .WhoIAm.active .aPropos h1 {
+  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+html body main .WhoIAm.active .compTechTitle {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
   grid-column: 1/-1;
@@ -386,31 +406,21 @@ html body main .WhoIAm.active div:nth-child(2) {
   padding: 0;
   margin-top: 10px;
 }
-html body main .WhoIAm.active div:nth-child(2) h1 {
+html body main .WhoIAm.active .compTechTitle h1 {
   margin: 5px 7px;
   font-size: 35px;
   background: linear-gradient(45deg, rgb(108, 2, 119), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-html body main .WhoIAm.active div:first-child {
-  grid-column: 1/-1;
-  max-width: 90%;
-  justify-self: center;
-  background-color: rgba(22, 22, 29, 0.8);
+html body main .WhoIAm.active section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
-html body main .WhoIAm.active div:first-child h1 {
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2rem;
-  margin: 10px 0;
-}
-html body main .WhoIAm.active div:last-child {
-  grid-column: 2;
-}
-html body main .WhoIAm.active div:last-child a img {
-  max-width: 80%;
+html body main .WhoIAm.active section div {
+  flex: 0 0 calc((100% - 20px) / 4);
 }
 html body main .Cursus.active {
   border: none;
@@ -710,9 +720,6 @@ html body footer section:last-child p:last-child a {
   html body main .WhoIAm.active {
     grid-template-columns: 1fr;
   }
-  html body main .WhoIAm.active div {
-    max-width: 70%;
-  }
   html body main .WhoIAm.active div p {
     margin: 10px 5px;
   }
@@ -724,6 +731,13 @@ html body footer section:last-child p:last-child a {
   }
   html body main .WhoIAm.active div:last-child {
     grid-column: 1/-1;
+  }
+  html body main .WhoIAm.active section {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  html body main .WhoIAm.active section > div {
+    max-width: 70%;
   }
   html body main .Cursus.active div section {
     display: flex;

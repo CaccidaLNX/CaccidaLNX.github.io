@@ -123,7 +123,7 @@ html {
                 list-style: none;
                 border: solid 2px white;
                 border-radius: 50px;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(22, 22, 29, 0.85));
+                background: linear-gradient(0deg, rgb(0, 0, 0), rgba(22, 22, 29));
 
                 .logo-accueil {
                     border: none;
@@ -211,7 +211,7 @@ html {
 
             .WhoIAm.active {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
                 column-gap: 0;
 
                 div {
@@ -222,7 +222,7 @@ html {
                     justify-content: center;
 
                     // box & text
-                    background-color: rgba(22, 22, 29, 0.7);
+                    background-color: rgba(22, 22, 29, 0.8);
                     border: solid;
                     border-width: 1px 2px 2px 1px;
                     border-radius: 10px;
@@ -255,36 +255,6 @@ html {
                             }
                         }
                     }
-                    &:nth-child(2) {
-                        background-color: rgba(0, 0, 0, 0.7);
-                        box-shadow: none;
-                        grid-column: 1/-1;
-                        justify-self: center;
-                        padding: 0;
-                        margin-top: 10px;
-
-                        h1 {
-                            margin: 5px 7px;
-                            font-size: 35px;
-                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                        }
-                    }
-                    &:first-child {
-                        grid-column: 1 / -1;
-                        max-width: 90%;
-                        justify-self: center;
-                        background-color: rgba(22, 22, 29, 0.8);
-
-                        h1 {
-                            background: linear-gradient(45deg, rgb(108, 2, 119), white);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                            font-size: 2rem;
-                            margin: 10px 0;
-                        }
-                    }
                     &:last-child {
                         grid-column: 2;
 
@@ -293,6 +263,46 @@ html {
                                 max-width: 80%;
                             }
                         }
+                    }
+                }
+                .aPropos {
+                    grid-column: 1 / -1;
+                    max-width: 90%;
+                    justify-self: center;
+                    background-color: rgba(22, 22, 29, 0.8);
+
+                    h1 {
+                        background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 2rem;
+                        margin: 10px 0;
+                    }
+                }
+                .compTechTitle {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    box-shadow: none;
+                    grid-column: 1/-1;
+                    justify-self: center;
+                    padding: 0;
+                    margin-top: 10px;
+
+                    h1 {
+                        margin: 5px 7px;
+                        font-size: 35px;
+                        background: linear-gradient(45deg, rgb(108, 2, 119), white);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+                section {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 20px;
+
+                    div {
+                        flex: 0 0 calc((100% - 2 * 10px)/4);
                     }
                 }
             }
@@ -682,7 +692,6 @@ html {
                     grid-template-columns:1fr;
 
                     div {
-                        max-width: 70%;
 
                         p {
                             margin: 10px 5px;
@@ -691,12 +700,21 @@ html {
                             width: 50%;
                         }
                         &:first-child {
+
                             h1 {
                                 margin: 10px 0;
                             }
                         }
                         &:last-child {
                             grid-column: 1 / -1;
+                        }
+                    }
+                    section {
+                        display: grid;
+                        grid-template-columns:1fr;
+
+                        > div {
+                            max-width: 70%;
                         }
                     }
                 }
