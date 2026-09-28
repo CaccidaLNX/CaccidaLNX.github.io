@@ -355,6 +355,7 @@ html body main .WhoIAm.active div {
   border-radius: 10px;
   box-shadow: 2px 2px 10px #00FFFF;
   padding: 10px;
+  width: 67%;
   max-width: 80%;
   overflow-wrap: break-word;
   justify-self: center;
@@ -727,7 +728,7 @@ html body footer section:last-child p:last-child a {
   html body main .WhoIAm.active div p {
     margin: 10px 5px;
   }
-  html body main .WhoIAm.active div img {
+  html body main .WhoIAm.active div a img {
     width: 50%;
   }
   html body main .WhoIAm.active div:first-child h1 {
