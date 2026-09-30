@@ -156,6 +156,12 @@ html body footer {
   height: 150px;
 }
 
+:root {
+  --zinzolin: #6C0277;
+  --froid: #B79BFE;
+  --chaud: #FD9465;
+}
+
 html {
   background-color: black;
   color: white;
@@ -231,7 +237,7 @@ html body header nav ul li a img {
   height: 55px;
 }
 html body header nav ul li a.active {
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -265,7 +271,7 @@ html body .FloatingNav ul {
   list-style: none;
   border: solid 2px white;
   border-radius: 50px;
-  background: linear-gradient(0deg, rgb(0, 0, 0), rgb(22, 22, 29));
+  background: linear-gradient(0deg, black, rgb(22, 22, 29));
 }
 html body .FloatingNav ul .logo-accueil {
   border: none;
@@ -304,7 +310,7 @@ html body .FloatingNav ul li a img {
   height: 45px;
 }
 html body .FloatingNav ul li a.active {
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -393,7 +399,7 @@ html body main .WhoIAm.active .aPropos {
   background-color: rgba(22, 22, 29, 0.8);
 }
 html body main .WhoIAm.active .aPropos h1 {
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
@@ -410,7 +416,7 @@ html body main .WhoIAm.active .compTechTitle {
 html body main .WhoIAm.active .compTechTitle h1 {
   margin: 5px 7px;
   font-size: 35px;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -446,7 +452,7 @@ html body main .Cursus.active div section {
 }
 html body main .Cursus.active div section h1 {
   width: max-content;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 10px;
@@ -506,7 +512,7 @@ html body main .Projet.active div hr {
 }
 html body main .Projet.active div h1 {
   margin: 15px 0;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
@@ -587,7 +593,7 @@ html body main .Competences.active div {
 }
 html body main .Competences.active div h1 {
   margin: 10px 0 0 0;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -617,7 +623,7 @@ html body footer section:first-child {
 }
 html body footer section:first-child h1 {
   margin: 10px 0 0 0;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
@@ -815,7 +821,7 @@ html body footer section:last-child p:last-child a {
 }
 .modal-overlay .modal-box h2 {
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, rgb(108, 2, 119), white);
+  background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
