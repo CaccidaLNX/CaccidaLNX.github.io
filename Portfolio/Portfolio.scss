@@ -422,12 +422,13 @@ html {
                         // content adjustment
                         display: flex;
                         flex-direction: row;
-                        align-items: center;
+                        align-items: start;
                         height: 100%;
 
                         section {
                             display: flex;
                             flex-direction: column;
+                            align-items: center;
                             height: 100%;
                             width: 100%;
 
@@ -465,13 +466,35 @@ html {
                             justify-content: end;
                         }
                         aside {
-                            align-self: center;
+                            display: flex;
+                            flex-direction: column;
+                            justify-self: start;
+                            align-items: center;
+                            gap: 15px;
+                            width: min-content;
+                            margin-top: 20px;
 
-                            ul {
-                                border: dashed 1px white;
-                                padding: 5px 5px 5px 20px;
-                                width: 90px;
-                                margin: 10px;
+                            div {
+                                flex-direction: column;
+                                border: none;
+                                box-shadow: none;
+                                background: transparent;
+
+                                &:nth-child(2) {
+                                    gap: 5px;
+                                }
+                                img {
+                                    width: 55px;
+                                }
+                                p {
+                                    margin: 0;
+                                }
+                                ul {
+                                    border: dashed 1px white;
+                                    padding: 5px 5px 5px 20px;
+                                    width: 90px;
+                                    margin: 10px;
+                                }
                             }
                         }
                     }
@@ -629,7 +652,7 @@ html {
                             padding: 5px;
 
                             a {
-                                font-size: 65%;
+                                font-size: 75%;
 
                                 img {
                                     width: 50px;

@@ -520,12 +520,13 @@ html body main .Projet.active div h1 {
 html body main .Projet.active div section {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   height: 100%;
 }
 html body main .Projet.active div section section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 100%;
 }
@@ -560,9 +561,30 @@ html body main .Projet.active div section:last-child {
   justify-content: end;
 }
 html body main .Projet.active div section aside {
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  align-items: center;
+  gap: 15px;
+  width: min-content;
+  margin-top: 20px;
 }
-html body main .Projet.active div section aside ul {
+html body main .Projet.active div section aside div {
+  flex-direction: column;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+html body main .Projet.active div section aside div:nth-child(2) {
+  gap: 5px;
+}
+html body main .Projet.active div section aside div img {
+  width: 55px;
+}
+html body main .Projet.active div section aside div p {
+  margin: 0;
+}
+html body main .Projet.active div section aside div ul {
   border: dashed 1px white;
   padding: 5px 5px 5px 20px;
   width: 90px;
@@ -685,7 +707,7 @@ html body footer section:last-child p:last-child a {
     padding: 5px;
   }
   html body header nav ul li a {
-    font-size: 65%;
+    font-size: 75%;
   }
   html body header nav ul li a img {
     width: 50px;
