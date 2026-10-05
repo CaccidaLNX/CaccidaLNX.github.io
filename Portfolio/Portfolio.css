@@ -373,7 +373,7 @@ html body main .WhoIAm.active div a img {
   max-width: 60%;
 }
 html body main .WhoIAm.active div a:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 html body main .WhoIAm.active div p {
   font-size: larger;
@@ -385,12 +385,6 @@ html body main .WhoIAm.active div p a {
 }
 html body main .WhoIAm.active div p a:visited {
   color: white;
-}
-html body main .WhoIAm.active div:last-child {
-  transition: all 0.5s ease;
-}
-html body main .WhoIAm.active div:last-child:hover {
-  transform: scale(1.05);
 }
 html body main .WhoIAm.active .aPropos {
   grid-column: 1/-1;
@@ -421,16 +415,17 @@ html body main .WhoIAm.active .compTechTitle h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-html body main .WhoIAm.active section {
+html body main .WhoIAm.active .competenceTechnique {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
-html body main .WhoIAm.active section div {
-  flex: 0 0 calc((100% - 20px) / 5);
+html body main .WhoIAm.active .competenceTechnique div {
+  flex: 0 0 calc((100% - 60px) / 4);
+  box-sizing: border-box;
 }
-html body main .WhoIAm.active .technologieTitle {
+html body main .WhoIAm.active .outilsUtilises {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
   grid-column: 1/-1;
@@ -439,12 +434,29 @@ html body main .WhoIAm.active .technologieTitle {
   margin-top: 10px;
   width: auto;
 }
-html body main .WhoIAm.active .technologieTitle h1 {
+html body main .WhoIAm.active .outilsUtilises h1 {
   margin: 5px 7px;
   font-size: 35px;
   background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+html body main .WhoIAm.active .outils {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+html body main .WhoIAm.active .outils div {
+  flex: 0 0 calc((100% - 80px) / 5);
+  box-sizing: border-box;
+  width: min-content;
+}
+html body main .WhoIAm.active .outils div a {
+  min-width: 60%;
+}
+html body main .WhoIAm.active .outils div a img {
+  height: auto;
 }
 html body main .Cursus.active {
   border: none;
@@ -782,12 +794,16 @@ html body footer section:last-child p:last-child a {
   html body main .WhoIAm.active div:last-child {
     grid-column: 1/-1;
   }
-  html body main .WhoIAm.active section {
+  html body main .WhoIAm.active .competenceTechnique {
     display: flex;
-    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  html body main .WhoIAm.active section > div {
-    flex: 0 0 calc((100% - 20px) / 3);
+  html body main .WhoIAm.active .competenceTechnique div {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+  html body main .WhoIAm.active .outils div {
+    flex: 0 0 calc((100% - 40px) / 2);
+    box-sizing: border-box;
   }
   html body main .Cursus.active div section {
     display: flex;

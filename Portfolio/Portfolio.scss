@@ -51,6 +51,7 @@ html {
                         box-shadow: none;
                         background-color: transparent;
                     }
+
                     li {
                         background-color: #16161d;
                         border: solid;
@@ -67,6 +68,7 @@ html {
                             transform: scale(1.1);
                             box-shadow: 1px 1px 3px #00FFFF;
                         }
+
                         &:first-child {
                             box-shadow: none;
                             border: none;
@@ -154,9 +156,11 @@ html {
                         transform: scale(1.08);
                         box-shadow: 1px 1px 3px #00FFFF;
                     }
+
                     &:first-child {
                         box-shadow: none;
                     }
+
                     a {
                         color: white;
                         text-decoration: none;
@@ -245,10 +249,12 @@ html {
                         img {
                             max-width: 60%;
                         }
+
                         &:hover {
-                            transform: scale(1.05);
+                            transform: scale(1.1);
                         }
                     }
+
                     p {
                         font-size: larger;
                         margin: 10px 10%;
@@ -262,16 +268,8 @@ html {
                             }
                         }
                     }
-                    &:last-child {
-                        transition: all 0.5s ease;
-
-                        img {
-                        }
-                        &:hover {
-                            transform: scale(1.05);
-                        }
-                    }
                 }
+
                 .aPropos {
                     grid-column: 1 / -1;
                     max-width: 90%;
@@ -286,6 +284,7 @@ html {
                         margin: 10px 0;
                     }
                 }
+
                 .compTechTitle {
                     background-color: rgba(0, 0, 0, 0.7);
                     box-shadow: none;
@@ -303,17 +302,20 @@ html {
                         -webkit-text-fill-color: transparent;
                     }
                 }
-                section {
+
+                .competenceTechnique {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
                     gap: 20px;
 
                     div {
-                        flex: 0 0 calc((100% - 2 * 10px)/5);
+                        flex: 0 0 calc((100% - 3 * 20px) / 4);
+                        box-sizing: border-box;
                     }
                 }
-                .technologieTitle {
+
+                .outilsUtilises {
                     background-color: rgba(0, 0, 0, 0.7);
                     box-shadow: none;
                     grid-column: 1/-1;
@@ -330,6 +332,27 @@ html {
                         -webkit-text-fill-color: transparent;
                     }
                 }
+
+                .outils {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 20px;
+
+                    div {
+                        flex: 0 0 calc((100% - 4 * 20px) / 5);
+                        box-sizing: border-box;
+                        width: min-content;
+
+                        a {
+                            min-width: 60%;
+
+                            img {
+                                height: auto;
+                            }
+                        }
+                    }
+                }
             }
 
             .Cursus.active {
@@ -339,6 +362,7 @@ html {
                 section {
                     display: grid;
                 }
+
                 div {
                     display: flex;
                     flex-direction: column;
@@ -429,6 +453,7 @@ html {
                         width: 100%;
                         margin: 0;
                     }
+
                     h1 {
                         margin: 15px 0;
                         background: linear-gradient(45deg, var(--zinzolin), white);
@@ -436,6 +461,7 @@ html {
                         -webkit-text-fill-color: transparent;
                         font-size: 2rem;
                     }
+
                     section {
                         // content adjustment
                         display: flex;
@@ -453,6 +479,7 @@ html {
                             h2 {
                                 margin: 10px 0 0 0;
                             }
+
                             ul {
                                 border: dashed 1px white;
                                 padding: 5px 7px 5px 20px;
@@ -461,6 +488,7 @@ html {
                                 flex-direction: column;
                                 gap: 3px;
                             }
+
                             p {
                                 border: dashed 1px white;
                                 padding: 5px;
@@ -476,13 +504,16 @@ html {
                                 }
                             }
                         }
+
                         &:first-child {
                             justify-content: start;
                         }
+
                         &:last-child {
                             width: 100%;
                             justify-content: end;
                         }
+
                         aside {
                             display: flex;
                             flex-direction: column;
@@ -501,12 +532,15 @@ html {
                                 &:nth-child(2) {
                                     gap: 5px;
                                 }
+
                                 img {
                                     width: 55px;
                                 }
+
                                 p {
                                     margin: 0;
                                 }
+
                                 ul {
                                     border: dashed 1px white;
                                     padding: 5px 5px 5px 20px;
@@ -556,6 +590,7 @@ html {
                         text-align: center;
                         font-size: 1.8rem;
                     }
+
                     ul {
                         display: flex;
                         flex-direction: column;
@@ -581,7 +616,7 @@ html {
             display: flex;
             flex-direction: column;
 
-            section{
+            section {
                 display: flex;
 
                 &:first-child {
@@ -595,6 +630,7 @@ html {
                         -webkit-text-fill-color: transparent;
                         font-size: 2rem;
                     }
+
                     ul {
                         padding-left: 25px;
                         margin: 10px 0 0 0;
@@ -614,6 +650,7 @@ html {
                         }
                     }
                 }
+
                 &:last-child {
                     justify-content: space-between;
                     align-items: center;
@@ -633,6 +670,7 @@ html {
                                 background-color: white;
                                 border-radius: 5px;
                             }
+
                             &:visited {
                                 color: white;
                             }
@@ -748,28 +786,39 @@ html {
                         p {
                             margin: 10px 5px;
                         }
+
                         a {
 
                             img {
                                 width: 50%;
                             }
                         }
+
                         &:first-child {
 
                             h1 {
                                 margin: 10px 0;
                             }
                         }
+
                         &:last-child {
                             grid-column: 1 / -1;
                         }
                     }
-                    section {
-                        display: flex;
-                        grid-template-columns: 1fr;
 
-                        > div {
-                            flex: 0 0 calc((100% - 2 * 10px)/3);
+                    .competenceTechnique {
+                        display: flex;
+                        gap: 20px;
+
+                        div {
+                            flex: 0 0 calc((100% - 1 * 20px) / 2);
+                        }
+                    }
+
+                    .outils {
+                        div {
+                            flex: 0 0 calc((100% - 2 * 20px) / 2);
+                            box-sizing: border-box;
                         }
                     }
                 }
@@ -784,6 +833,7 @@ html {
                                 &:first-child {
                                     margin: 10px 10px 0 10px;
                                 }
+
                                 &:nth-child(2) {
                                     margin: 0 10px 15px 10px;
                                     font-size: 1.7rem;
@@ -811,6 +861,7 @@ html {
 
                                         li {
                                             padding-right: 5px;
+
                                             .competence-link {
                                                 display: inline-block;
                                                 line-height: 1.4;
