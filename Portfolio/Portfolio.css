@@ -387,10 +387,10 @@ html body main .WhoIAm.active div p a:visited {
   color: white;
 }
 html body main .WhoIAm.active div:last-child {
-  grid-column: 2;
+  transition: all 0.5s ease;
 }
-html body main .WhoIAm.active div:last-child a img {
-  max-width: 80%;
+html body main .WhoIAm.active div:last-child:hover {
+  transform: scale(1.05);
 }
 html body main .WhoIAm.active .aPropos {
   grid-column: 1/-1;
@@ -410,8 +410,9 @@ html body main .WhoIAm.active .compTechTitle {
   box-shadow: none;
   grid-column: 1/-1;
   justify-self: center;
-  padding: 0;
+  padding: 0 20px;
   margin-top: 10px;
+  width: auto;
 }
 html body main .WhoIAm.active .compTechTitle h1 {
   margin: 5px 7px;
@@ -427,7 +428,23 @@ html body main .WhoIAm.active section {
   gap: 20px;
 }
 html body main .WhoIAm.active section div {
-  flex: 0 0 calc((100% - 20px) / 4);
+  flex: 0 0 calc((100% - 20px) / 5);
+}
+html body main .WhoIAm.active .technologieTitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: none;
+  grid-column: 1/-1;
+  justify-self: center;
+  padding: 0 20px;
+  margin-top: 10px;
+  width: auto;
+}
+html body main .WhoIAm.active .technologieTitle h1 {
+  margin: 5px 7px;
+  font-size: 35px;
+  background: linear-gradient(45deg, var(--zinzolin), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .Cursus.active {
   border: none;
@@ -766,11 +783,11 @@ html body footer section:last-child p:last-child a {
     grid-column: 1/-1;
   }
   html body main .WhoIAm.active section {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr;
   }
   html body main .WhoIAm.active section > div {
-    max-width: 70%;
+    flex: 0 0 calc((100% - 20px) / 3);
   }
   html body main .Cursus.active div section {
     display: flex;
