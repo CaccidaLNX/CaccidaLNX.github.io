@@ -214,16 +214,12 @@ html {
                     left: 0;
                     margin-inline: auto;
                     transform: translateX(0);
-                    left: 0;
-                    margin-inline: auto;
-                    transform: translateX(0);
                     opacity: 1;
                     pointer-events: auto;
 
                     gap: 30px;
                     width: 100%;
                     max-width: 83rem;
-                    box-sizing: border-box;
                     box-sizing: border-box;
                 }
             }
@@ -446,17 +442,12 @@ html {
 
                 // Dimensions et débordement du contenu.
                 padding: 0 10px 5px 10px;
-                width: 90%;
                 overflow-wrap: break-word;
-
-                // Alignement des cartes dans la grille.
-                align-items: center;
 
                 > div {
                     // Résumé et bouton d'ouverture de la fiche détaillée.
                     .project-preview {
                         align-self: stretch;
-                        margin: 0.5rem 0 1rem;
                         line-height: 1.45;
                         text-align: left;
                     }
@@ -923,10 +914,9 @@ html {
     overflow-y: auto;
     padding: 1rem;
     box-sizing: border-box;
-    overflow-y: auto;
-    padding: 1rem;
-    box-sizing: border-box;
     z-index: 9999;
+    width: 90%;
+    justify-self: center;
 
     &.hidden {
         display: none !important;
@@ -939,9 +929,6 @@ html {
         padding: 2rem;
         max-width: 480px;
         width: 90%;
-        max-height: calc(100vh - 2rem);
-        overflow-y: auto;
-        box-sizing: border-box;
         max-height: calc(100vh - 2rem);
         overflow-y: auto;
         box-sizing: border-box;
