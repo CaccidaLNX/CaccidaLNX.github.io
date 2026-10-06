@@ -39,6 +39,10 @@ function updateFloatingNav() {
 
 window.addEventListener("scroll", updateFloatingNav);
 updateFloatingNav();
+}
+
+window.addEventListener("scroll", updateFloatingNav);
+updateFloatingNav();
 
 // Correspondance entre chaque compétence et les éléments à présenter.
 const competencesData = {
