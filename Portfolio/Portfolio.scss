@@ -1008,26 +1008,23 @@ html {
 // Mise en page détaillée d'un projet affiché dans sa fenêtre modale.
 .project-modal-content {
     .project-full-details {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
+        display: flex;
         align-items: start;
         gap: 1.5rem;
-        width: 100%;
         height: auto;
         min-width: 0;
 
         > section {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.8fr);
+            display: flex;
             align-items: start;
             gap: 1.5rem;
-            width: 100%;
+            width: fit-content;
             height: auto;
             min-width: 0;
 
             > section {
                 display: block;
-                width: auto;
+                width: fit-content;
                 height: auto;
                 min-width: 0;
 
