@@ -368,7 +368,7 @@
 
             <section class="Projet" id="Projet">
                 <div>
-                    <h1>Création d'une application d'événement sportif</h1>
+                    <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">Création d'une application d'événement sportif</h1>
                     <hr>
                     <section>
                         <section>
@@ -448,7 +448,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Création d'un Chat Bot</h1>
+                    <h1 data-summary="Chatbot Java de culture générale capable de reconnaître et de mémoriser des questions et leurs réponses.">Création d'un Chat Bot</h1>
                     <hr>
                     <section>
                         <section>
@@ -511,7 +511,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Création d'un casse-brique</h1>
+                    <h1 data-summary="Casse-brique réalisé progressivement en assembleur, avec gestion de la mémoire et de la pile.">Création d'un casse-brique</h1>
                     <hr>
                     <section>
                         <section>
@@ -570,7 +570,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Les Tours de Hanoï</h1>
+                    <h1 data-summary="Jeu des Tours de Hanoï développé en Python avec la bibliothèque graphique Turtle.">Les Tours de Hanoï</h1>
                     <hr>
                     <section>
                         <section>
@@ -632,7 +632,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Le labyrinthe</h1>
+                    <h1 data-summary="Labyrinthe développé en Python, affiché avec Turtle et construit à partir d'un fichier.">Le labyrinthe</h1>
                     <hr>
                     <section>
                         <section>
@@ -694,7 +694,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>
+                    <h1 data-summary="Nettoyage et analyse des données Open Food Facts à l'aide de SQL, PostgreSQL et R.">
                         Exploitation d'une base de données - Open Food Facts
                     </h1>
                     <hr>
@@ -749,7 +749,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Création d'une base de données - Le Tourmentin</h1>
+                    <h1 data-summary="Conception et alimentation d'une base PostgreSQL, puis tests de recherche et de modification des données.">Création d'une base de données - Le Tourmentin</h1>
                     <hr>
                     <section>
                         <section>
@@ -799,7 +799,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Développement d'un site internet</h1>
+                    <h1 data-summary="Site web créé en équipe pour aider des élèves de 3e à trouver un stage, selon un cahier des charges client.">Développement d'un site internet</h1>
                     <hr>
                     <section>
                         <section>
@@ -859,7 +859,7 @@
                     </section>
                 </div>
                 <div>
-                    <h1>Installation d'un dual boot</h1>
+                    <h1 data-summary="Installation de Linux en dual boot Windows/Arch Linux, puis découverte de Debian en machine virtuelle.">Installation d'un dual boot</h1>
                     <hr>
                     <section>
                         <section>
@@ -972,9 +972,16 @@
             </section>
         </footer>
 
-        <div id="CompetenceModal" class="modal-overlay hidden">
-            <div class="modal-box">
-                <button class="modal-close" id="ModalClose">✕</button>
+        <div id="ProjectModal" class="modal-overlay hidden" aria-hidden="true">
+            <div class="modal-box project-modal-box" role="dialog" aria-modal="true" aria-labelledby="ProjectModalTitle">
+                <button class="modal-close" id="ProjectModalClose" type="button" aria-label="Fermer">✕</button>
+                <h2 id="ProjectModalTitle"></h2>
+                <div id="ProjectModalContent" class="project-modal-content"></div>
+            </div>
+        </div>
+        <div id="CompetenceModal" class="modal-overlay hidden" aria-hidden="true">
+            <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ModalTitle">
+                <button class="modal-close" id="ModalClose" type="button" aria-label="Fermer">✕</button>
                 <h2 id="ModalTitle"></h2>
                 <ul id="ModalList"></ul>
             </div>

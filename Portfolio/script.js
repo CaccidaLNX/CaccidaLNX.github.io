@@ -73,23 +73,114 @@ const competencesData = {
     ]
 };
 
-const modal = document.getElementById("CompetenceModal");
-const modalTitle = document.getElementById("ModalTitle");
-const modalList = document.getElementById("ModalList");
-const modalClose = document.getElementById("ModalClose");
+const projectModal = document.getElementById("ProjectModal");
+const projectModalTitle = document.getElementById("ProjectModalTitle");
+const projectModalContent = document.getElementById("ProjectModalContent");
+const projectModalClose = document.getElementById("ProjectModalClose");
+const competenceModal = document.getElementById("CompetenceModal");
+const competenceModalTitle = document.getElementById("ModalTitle");
+const competenceModalList = document.getElementById("ModalList");
+const competenceModalClose = document.getElementById("ModalClose");
+let lastProjectTrigger = null;
+let lastCompetenceTrigger = null;
 
-document.querySelectorAll(".competence-link").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const nom = btn.getAttribute("data-competence");
-        const items = competencesData[nom] || [];
+document.querySelectorAll("#Projet > div").forEach(card => {
+    const title = card.querySelector(":scope > h1");
+    const details = card.querySelector(":scope > section");
+    const summary = title?.dataset.summary;
 
-        modalTitle.textContent = nom;
-        modalList.innerHTML = items.map(i => `<li>${i}</li>`).join("");
-        modal.classList.remove("hidden");
+    if (!title || !details || !summary) {
+        throw new Error("Chaque projet doit avoir un titre, un résumé et ses détails.");
+    }
+
+    const preview = document.createElement("p");
+    preview.className = "project-preview";
+    preview.textContent = summary;
+
+    const button = document.createElement("button");
+    button.className = "project-details-button";
+    button.type = "button";
+    button.textContent = ">>";
+    button.setAttribute("aria-label", `Afficher les détails de « ${title.textContent.trim()} »`);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-controls", "ProjectModal");
+
+    details.classList.add("project-full-details");
+    details.hidden = true;
+    card.insertBefore(preview, details);
+    card.insertBefore(button, details);
+
+    button.addEventListener("click", () => {
+        lastProjectTrigger = button;
+        projectModalTitle.textContent = title.textContent.trim();
+        const modalDetails = details.cloneNode(true);
+        modalDetails.hidden = false;
+        projectModalContent.replaceChildren(modalDetails);
+        projectModal.classList.remove("hidden");
+        projectModal.setAttribute("aria-hidden", "false");
+        projectModalClose.focus();
     });
 });
 
-modalClose.addEventListener("click", () => modal.classList.add("hidden"));
-modal.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.add("hidden");
+function closeModal(modal, trigger) {
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    trigger?.focus();
+}
+
+function openCompetenceModal(button) {
+    const nom = button.getAttribute("data-competence");
+    const items = competencesData[nom];
+
+    if (!nom || !items) {
+        throw new Error("Compétence introuvable pour ce bouton.");
+    }
+
+    lastCompetenceTrigger = button;
+    competenceModalTitle.textContent = nom;
+    competenceModalList.replaceChildren(
+        ...items.map(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = item;
+            return listItem;
+        })
+    );
+    competenceModal.classList.remove("hidden");
+    competenceModal.setAttribute("aria-hidden", "false");
+    competenceModalClose.focus();
+}
+
+document.addEventListener("click", event => {
+    if (!(event.target instanceof Element)) return;
+
+    const competenceButton = event.target.closest(".competence-link");
+    if (competenceButton) {
+        openCompetenceModal(competenceButton);
+    }
+});
+
+projectModalClose.addEventListener("click", () => {
+    closeModal(projectModal, lastProjectTrigger);
+});
+projectModal.addEventListener("click", event => {
+    if (event.target === projectModal) {
+        closeModal(projectModal, lastProjectTrigger);
+    }
+});
+competenceModalClose.addEventListener("click", () => {
+    closeModal(competenceModal, lastCompetenceTrigger);
+});
+competenceModal.addEventListener("click", event => {
+    if (event.target === competenceModal) {
+        closeModal(competenceModal, lastCompetenceTrigger);
+    }
+});
+document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+
+    if (!competenceModal.classList.contains("hidden")) {
+        closeModal(competenceModal, lastCompetenceTrigger);
+    } else if (!projectModal.classList.contains("hidden")) {
+        closeModal(projectModal, lastProjectTrigger);
+    }
 });
