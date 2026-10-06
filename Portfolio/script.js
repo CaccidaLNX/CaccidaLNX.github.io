@@ -25,7 +25,7 @@ links.forEach(link => {
     });
 });
 
-window.addEventListener("scroll", () => {
+function updateFloatingNav() {
     const headerBottom = mainHeader.getBoundingClientRect().bottom;
 
     if (headerBottom < 0) {
@@ -33,7 +33,10 @@ window.addEventListener("scroll", () => {
     } else {
         floatingNav.classList.remove("visible");
     }
-});
+}
+
+window.addEventListener("scroll", updateFloatingNav);
+updateFloatingNav();
 
 // Données des compétences
 const competencesData = {
