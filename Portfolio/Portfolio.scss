@@ -976,23 +976,6 @@ html {
         }
     }
 
-    .project-modal-box {
-        width: min(1100px, 100%);
-        max-width: 1100px;
-
-        > h2 {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-    }
-
     .modal-close {
         position: absolute;
         top: 0.75rem;
@@ -1008,8 +991,7 @@ html {
 // Mise en page détaillée d'un projet affiché dans sa fenêtre modale.
 .project-modal-content {
     .project-full-details {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
+        display: flex;
         align-items: start;
         gap: 1.5rem;
         width: 100%;
@@ -1017,19 +999,20 @@ html {
         min-width: 0;
 
         > section {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.8fr);
+            display: flex;
             align-items: start;
             gap: 1.5rem;
-            width: 100%;
+            flex: 1 1 0;
+            width: auto;
             height: auto;
             min-width: 0;
 
             > section {
                 display: block;
+                flex: 1 1 0;
+                min-width: 0;
                 width: auto;
                 height: auto;
-                min-width: 0;
 
                 h2 {
                     margin: 0 0 0.75rem;
@@ -1064,7 +1047,9 @@ html {
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            width: auto;
+            flex: 0 0 auto;
+            width: fit-content;
+            max-width: 220px;
             min-width: 0;
             margin: 0;
 
@@ -1150,11 +1135,11 @@ html {
 
     .project-modal-content {
         .project-full-details {
-            grid-template-columns: minmax(0, 1fr);
+            flex-direction: column;
             gap: 1.25rem;
 
             > section {
-                grid-template-columns: minmax(0, 1fr);
+                flex-direction: column;
                 gap: 1.25rem;
             }
 
