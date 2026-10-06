@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
     <head>
+        <!-- Métadonnées, feuille de style et police du portfolio. -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="Portfolio.css" />
@@ -14,8 +15,10 @@
     </head>
 
     <body>
+        <!-- Arrière-plan décoratif fixé pendant le défilement. -->
         <div class="bg-fixed"></div>
 
+        <!-- Navigation principale, visible en haut de la page. -->
         <header id="MainHeader">
             <nav>
                 <ul>
@@ -32,6 +35,7 @@
             </nav>
         </header>
 
+        <!-- Navigation flottante, affichée après le défilement de l'en-tête. -->
         <nav class="FloatingNav" id="FloatingNav">
             <ul>
                 <li class="logo-accueil">
@@ -42,7 +46,9 @@
             </ul>
         </nav>
         <hr />
+        <!-- Contenu principal : présentation, formation et projets. -->
         <main>
+            <!-- Présentation personnelle et compétences techniques. -->
             <section class="WhoIAm active" id="WhoIAm">
                 <div class="aPropos" id="aPropos">
                     <h1>À propos</h1>
@@ -268,6 +274,7 @@
                 </section>
             </section>
 
+            <!-- Parcours scolaire et universitaire. -->
             <section class="Cursus" id="Cursus">
                 <div>
                     <section>
@@ -307,13 +314,13 @@
                             >
                         </p>
                         <p>
-                            J'ai suivie années de L1 PCMM (Physique Chimie,
-                            Mathématique et Mécanique), où je voulais me
+                            J'ai suivi le parcours L1 PCMM (physique, chimie,
+                            mathématiques et mécanique), où je voulais me
                             spécialiser dans la science, car ce domaine
                             m'attirait énormément. Mon projet professionnel
-                            étant de devenir astrophysicien, j'ai pu voir les bases de
-                            la physique-chimie, approfondir les mathématiques et
-                            découvrir la mécanique du point.
+                            étant de devenir astrophysicien, j'ai pu découvrir
+                            les bases de la physique-chimie, approfondir les
+                            mathématiques et étudier la mécanique du point.
                         </p>
                     </section>
                 </div>
@@ -334,7 +341,7 @@
                             >
                         </p>
                         <p>
-                            À la suite du Lycée, j'ai été admis en année de
+                            À la suite du lycée, j'ai été admis en année de
                             propédeutique scientifique où j'ai pu revoir toutes
                             les bases des mathématiques et de la
                             physique-chimie.
@@ -358,17 +365,19 @@
                             Obtention du bac <b>mention assez bien</b>
                         </p>
                         <p>
-                            J'ai fait un BAC STI2D option SIN (Sciences
-                            Informatiques et Numériques) où j'ai pu découvrir le
+                            J'ai fait un bac STI2D option SIN (sciences
+                            informatiques et numériques), où j'ai découvert le
                             monde de l'informatique.
                         </p>
                     </section>
                 </div>
             </section>
 
+            <!-- Projets réalisés pendant les études et en autonomie. -->
             <section class="Projet" id="Projet">
                 <div>
-                    <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">Création d'une application d'événement sportif</h1>
+                    <!-- Application de gestion d'événements sportifs en équipe. -->
+                    <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">Création d'une application de gestion d'événements sportifs</h1>
                     <hr>
                     <section>
                         <section>
@@ -380,8 +389,8 @@
                                     problématique : "Conception et développement d’un
                                     outil d’aide et de pilotage à destination
                                     d’organisateurs d’événements".<br />
-                                    Entre le persisteur, l'interface graphique, la
-                                    correspondance entre chaque page, les User Stories
+                                    Entre la couche de persistance, l'interface graphique, les
+                                    liens entre les pages, les user stories
                                     et la gestion des risques, nous avons mis en pratique
                                     toutes nos connaissances.
                                 </p>
@@ -447,25 +456,26 @@
                         </aside>
                     </section>
                 </div>
+                <!-- Chatbot Java de culture générale. -->
                 <div>
-                    <h1 data-summary="Chatbot Java de culture générale capable de reconnaître et de mémoriser des questions et leurs réponses.">Création d'un Chat Bot</h1>
+                    <h1 data-summary="Chatbot Java de culture générale capable de reconnaître et de mémoriser des questions et leurs réponses.">Création d'un chatbot</h1>
                     <hr>
                     <section>
                         <section>
                             <section>
                                 <h2>Description</h2>
                                 <p>
-                                    Nous avons dû créer un Chat Bot en Java
+                                    Nous avons dû créer un chatbot en Java
                                     qui répondait à des questions de culture générale.<br />
-                                    Nous avons dû confectionner chaque méthode pour
-                                    créer des formes canoniques de question/réponse
-                                    grâce à des mots outils, pour les mettre dans une
+                                    Nous avons dû concevoir les méthodes nécessaires
+                                    pour créer des formes canoniques de questions
+                                    et de réponses à l'aide de mots-outils, puis les enregistrer dans une
                                     <a
                                         href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
                                         target="_blank">
                                             HashMap
-                                    </a> et ajouter les questions/réponse qui n'étaient pas
-                                    encore connues du Chat Bot.
+                                    </a> et ajouter les questions et réponses qui n'étaient pas
+                                    encore connues du chatbot.
                                 </p>
                             </section>
                             <section>
@@ -511,20 +521,20 @@
                     </section>
                 </div>
                 <div>
-                    <h1 data-summary="Casse-brique réalisé progressivement en assembleur, avec gestion de la mémoire et de la pile.">Création d'un casse-brique</h1>
+                    <!-- Casse-briques développé progressivement en assembleur. -->
+                    <h1 data-summary="Casse-briques réalisé progressivement en assembleur, avec gestion de la mémoire et de la pile.">Création d'un casse-briques</h1>
                     <hr>
                     <section>
                         <section>
                             <section>
                                 <h2>Description</h2>
                                 <p>
-                                    J'ai dû, durant chaque TP d'assembleur, créer,
-                                    petit à petit, un casse-brique, au début de
-                                    chaque TP, nous avions des objectifs (créer un
-                                    bloc, en poser pour faire des formes, faire en
-                                    sorte que la balle rebondisse...) et j'utilisais
-                                    la mémoire et la pile pour réaliser chaque
-                                    objectif.
+                                    Durant les TP d'assembleur, j'ai développé
+                                    progressivement un casse-briques. À chaque
+                                    séance, nous avions des objectifs (créer un
+                                    bloc, en poser pour former des structures,
+                                    faire rebondir la balle...) et j'utilisais
+                                    la mémoire et la pile pour les atteindre.
                                 </p>
                             </section>
                             <section>
@@ -570,6 +580,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Jeu des Tours de Hanoï réalisé en Python avec Turtle. -->
                     <h1 data-summary="Jeu des Tours de Hanoï développé en Python avec la bibliothèque graphique Turtle.">Les Tours de Hanoï</h1>
                     <hr>
                     <section>
@@ -585,8 +596,8 @@
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         >Turtle</a
-                                    >, ça a été la première fois que j'ai pu
-                                    faire, et finir, un projet de cette envergure.
+                                    >. C'était la première fois que je réalisais
+                                    puis menais à bien un projet de cette envergure.
                                 </p>
                             </section>
                             <section>
@@ -632,6 +643,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Labyrinthe généré en Python à partir d'un fichier. -->
                     <h1 data-summary="Labyrinthe développé en Python, affiché avec Turtle et construit à partir d'un fichier.">Le labyrinthe</h1>
                     <hr>
                     <section>
@@ -639,7 +651,7 @@
                             <section>
                                 <h2>Description</h2>
                                 <p>
-                                    Nous avons dû créer, comme pour les Tours de Hanoï
+                                    Nous avons dû créer, comme pour les Tours de Hanoï,
                                     un labyrinthe en Python avec la bibliothèque
                                     <a
                                         href="https://docs.python.org/fr/3/library/turtle.html"
@@ -694,6 +706,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Analyse d'un jeu de données Open Food Facts. -->
                     <h1 data-summary="Nettoyage et analyse des données Open Food Facts à l'aide de SQL, PostgreSQL et R.">
                         Exploitation d'une base de données - Open Food Facts
                     </h1>
@@ -707,9 +720,9 @@
                                     base de données, Open Food Facts. Il y avait
                                     3 076 420 lignes structurées en 206 champs.
                                     Nous devions dans un premier temps la
-                                    nettoyer (pour garder seulement 300 lignes
-                                    environ).<br />
-                                    Puis, sur RStudio, nous avons réaliser des
+                                    nettoyer pour n'en conserver qu'environ
+                                    300 lignes.<br />
+                                    Puis, sur RStudio, nous avons réalisé des
                                     graphiques pour exploiter les données que
                                     nous avions.
                                 </p>
@@ -749,6 +762,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Création et exploitation d'une base de données relationnelle. -->
                     <h1 data-summary="Conception et alimentation d'une base PostgreSQL, puis tests de recherche et de modification des données.">Création d'une base de données - Le Tourmentin</h1>
                     <hr>
                     <section>
@@ -756,14 +770,11 @@
                             <section>
                                 <h2>Description</h2>
                                 <p>
-                                    Nous avons dû créer et alimenter
-                                    une base de données, ainsi que son
-                                    utilisation, pour faire des tests de
-                                    recherche et des modifications sur les
-                                    données. <br />
+                                    Nous avons dû créer et alimenter une base de
+                                    données, puis tester la recherche et la
+                                    modification des données.<br />
                                     Cela nous a permis de nous familiariser avec
-                                    SQL, et l'exploitation d'une base de
-                                    données.
+                                    SQL et l'exploitation d'une base de données.
                                 </p>
                             </section>
                             <section>
@@ -799,6 +810,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Site web conçu en équipe pour aider des élèves à trouver un stage. -->
                     <h1 data-summary="Site web créé en équipe pour aider des élèves de 3e à trouver un stage, selon un cahier des charges client.">Développement d'un site internet</h1>
                     <hr>
                     <section>
@@ -810,9 +822,9 @@
                                     jouait le rôle d'Econocom, le client. Nous devions
                                     réaliser un site web destiné à des élèves de 3e en
                                     recherche de stage.<br />
-                                    Cela nous a permis de voir plus en profondeur les bases
-                                    de l'HTML et du CSS, et à respecter en détail les
-                                    demandes d'un client.
+                                    Cela nous a permis d'approfondir les bases
+                                    du HTML et du CSS, ainsi que d'apprendre à
+                                    respecter les demandes d'un client.
                                 </p>
                             </section>
                             <section>
@@ -859,6 +871,7 @@
                     </section>
                 </div>
                 <div>
+                    <!-- Installation et découverte de distributions Linux. -->
                     <h1 data-summary="Installation de Linux en dual boot Windows/Arch Linux, puis découverte de Debian en machine virtuelle.">Installation d'un dual boot</h1>
                     <hr>
                     <section>
@@ -866,14 +879,13 @@
                             <section>
                                 <h2>Description</h2>
                                 <p>
-                                    Au lycée, j'ai installé un dual boot,
-                                    Windows/Arch Linux, sur mon PC portable,
-                                    j'ai pu apprendre les bases de l'univers
-                                    Linux.<br />
-                                    Puis, en BUT informatique, j'ai dû installer
+                                    Au lycée, j'ai installé Windows et Arch
+                                    Linux en dual boot sur mon PC portable. J'ai
+                                    ainsi appris les bases de Linux.<br />
+                                    Puis, en BUT informatique, j'ai installé
                                     un système d'exploitation Debian sur une
-                                    machine virtuelle, j'ai appris plus en
-                                    profondeur l'univers de Linux.
+                                    machine virtuelle et approfondi ma
+                                    connaissance de Linux.
                                 </p>
                             </section>
                             <section>
@@ -921,6 +933,7 @@
             </section>
         </main>
         <hr />
+        <!-- Coordonnées, liens externes et crédits de réalisation. -->
         <footer>
             <section>
                 <h1>Me contacter</h1>
@@ -972,6 +985,7 @@
             </section>
         </footer>
 
+        <!-- Fenêtre modale des détails d'un projet. -->
         <div id="ProjectModal" class="modal-overlay hidden" aria-hidden="true">
             <div class="modal-box project-modal-box" role="dialog" aria-modal="true" aria-labelledby="ProjectModalTitle">
                 <button class="modal-close" id="ProjectModalClose" type="button" aria-label="Fermer">✕</button>
@@ -979,6 +993,7 @@
                 <div id="ProjectModalContent" class="project-modal-content"></div>
             </div>
         </div>
+        <!-- Fenêtre modale des éléments associés à une compétence. -->
         <div id="CompetenceModal" class="modal-overlay hidden" aria-hidden="true">
             <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ModalTitle">
                 <button class="modal-close" id="ModalClose" type="button" aria-label="Fermer">✕</button>
@@ -987,6 +1002,7 @@
             </div>
         </div>
 
+        <!-- Comportements de navigation et gestion des fenêtres modales. -->
         <script src="script.js"></script>
     </body>
 </html>

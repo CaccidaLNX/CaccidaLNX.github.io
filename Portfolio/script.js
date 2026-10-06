@@ -1,3 +1,4 @@
+// Navigation principale et navigation flottante.
 const links = document.querySelectorAll("nav a");
 const sections = document.querySelectorAll("main > section");
 const mainHeader = document.getElementById("MainHeader");
@@ -25,7 +26,8 @@ links.forEach(link => {
     });
 });
 
-window.addEventListener("scroll", () => {
+// Affiche la navigation flottante lorsque l'en-tête sort de l'écran.
+function updateFloatingNav() {
     const headerBottom = mainHeader.getBoundingClientRect().bottom;
 
     if (headerBottom < 0) {
@@ -33,9 +35,12 @@ window.addEventListener("scroll", () => {
     } else {
         floatingNav.classList.remove("visible");
     }
-});
+}
 
-// Données des compétences
+window.addEventListener("scroll", updateFloatingNav);
+updateFloatingNav();
+
+// Correspondance entre chaque compétence et les éléments à présenter.
 const competencesData = {
     "Réaliser un développement d'application": [
         "Implémenter des conceptions simples",
@@ -73,6 +78,7 @@ const competencesData = {
     ]
 };
 
+// Éléments des deux fenêtres modales et boutons qui les ont ouvertes.
 const projectModal = document.getElementById("ProjectModal");
 const projectModalTitle = document.getElementById("ProjectModalTitle");
 const projectModalContent = document.getElementById("ProjectModalContent");
@@ -84,6 +90,7 @@ const competenceModalClose = document.getElementById("ModalClose");
 let lastProjectTrigger = null;
 let lastCompetenceTrigger = null;
 
+// Ajoute un résumé et un bouton qui ouvre les détails de chaque projet.
 document.querySelectorAll("#Projet > div").forEach(card => {
     const title = card.querySelector(":scope > h1");
     const details = card.querySelector(":scope > section");
@@ -100,7 +107,7 @@ document.querySelectorAll("#Projet > div").forEach(card => {
     const button = document.createElement("button");
     button.className = "project-details-button";
     button.type = "button";
-    button.textContent = ">>";
+    button.textContent = "En savoir plus";
     button.setAttribute("aria-label", `Afficher les détails de « ${title.textContent.trim()} »`);
     button.setAttribute("aria-haspopup", "dialog");
     button.setAttribute("aria-controls", "ProjectModal");
@@ -122,12 +129,14 @@ document.querySelectorAll("#Projet > div").forEach(card => {
     });
 });
 
+// Ferme une fenêtre modale et rend le focus au bouton d'ouverture.
 function closeModal(modal, trigger) {
     modal.classList.add("hidden");
     modal.setAttribute("aria-hidden", "true");
     trigger?.focus();
 }
 
+// Remplit puis ouvre la fenêtre modale de la compétence choisie.
 function openCompetenceModal(button) {
     const nom = button.getAttribute("data-competence");
     const items = competencesData[nom];
@@ -150,6 +159,7 @@ function openCompetenceModal(button) {
     competenceModalClose.focus();
 }
 
+// Délégation des clics pour prendre en charge tous les boutons de compétence.
 document.addEventListener("click", event => {
     if (!(event.target instanceof Element)) return;
 
@@ -159,6 +169,7 @@ document.addEventListener("click", event => {
     }
 });
 
+// Fermeture par bouton, clic sur l'arrière-plan ou touche Échap.
 projectModalClose.addEventListener("click", () => {
     closeModal(projectModal, lastProjectTrigger);
 });

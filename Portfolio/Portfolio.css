@@ -1,161 +1,3 @@
-html {
-  background-color: black;
-  color: white;
-}
-html body {
-  margin: 0;
-  background-image: url("fond-Accueil.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-html body hr {
-  color: white;
-  margin: 0;
-}
-html body header {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
-  backdrop-filter: blur(2px);
-  padding: 0 15px;
-}
-html body header nav {
-  display: flex;
-  justify-content: center;
-}
-html body header nav ul {
-  display: flex;
-  width: 65%;
-  justify-content: space-around;
-  border: solid 2px white;
-  border-radius: 50px;
-  padding: 5px;
-}
-html body header nav ul .logo-accueil {
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-}
-html body header nav ul li {
-  list-style: none;
-  background-color: #16161d;
-  border: solid;
-  border-width: 1px 2px 2px 1px;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px #00FFFF;
-  padding: 4px;
-  font-size: 30px;
-  height: max-content;
-  align-self: center;
-  transition: transform 0.3s ease;
-}
-html body header nav ul li:hover {
-  transform: scale(1.1);
-  box-shadow: 10px 2px #00FFFF;
-}
-html body header nav ul li a {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-html body header nav ul li a img {
-  width: 60px;
-  height: 60px;
-}
-html body header h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 50px;
-}
-html body main {
-  padding: 30px 15px;
-}
-html body main hr {
-  width: 50%;
-  margin: 10px auto auto;
-}
-html body main .whoIAm {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  max-width: 90%;
-  margin: auto;
-  column-gap: 70px;
-}
-html body main .whoIAm div {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  background-color: #16161d;
-  border: solid;
-  border-width: 1px 2px 2px 1px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px #00FFFF;
-  padding: 10px;
-  height: 200px;
-  max-width: 300px;
-  overflow-wrap: break-word;
-}
-html body main .whoIAm div img {
-  width: 40%;
-}
-html body main .whoIAm div p {
-  font-size: large;
-}
-html body main .whoIAm div:nth-child(even) {
-  background-color: #16161d;
-  justify-self: end;
-}
-html body main .whoIAm div:nth-child(odd) {
-  justify-self: start;
-  background-color: #16161d;
-}
-html body main .whoIAm div:first-child {
-  grid-column: 1/-1;
-  max-width: 90%;
-  justify-self: center;
-}
-html body main .whoIAm div:last-child {
-  grid-column: 1/-1;
-  background-color: #16161d;
-  justify-self: center;
-}
-html body main .whoIAm .html-css {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  align-items: center;
-  justify-items: center;
-  gap: 15px;
-  column-gap: 0;
-  width: 323px;
-}
-html body main .whoIAm .html-css img {
-  width: 120px;
-}
-html body main .whoIAm .html-css p {
-  grid-column: 1/-1;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 36px;
-}
-html body main .Cursus {
-  border: solid 1px white;
-}
-html body main .Projet {
-  border: solid 1px white;
-}
-html body main .Contacter {
-  border: solid 1px white;
-}
-html body footer {
-  padding: 0 15px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
-  height: 150px;
-}
-
 :root {
   --zinzolin: #6C0277;
   --froid: #B79BFE;
@@ -223,6 +65,7 @@ html body header nav ul li:first-child {
   box-shadow: none;
   border: none;
   background-color: transparent;
+  width: -moz-max-content;
   width: max-content;
 }
 html body header nav ul li a {
@@ -287,6 +130,7 @@ html body .FloatingNav ul li {
   box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px 10px;
   font-size: 22px;
+  height: -moz-max-content;
   height: max-content;
   align-self: center;
   transition: transform 0.3s ease;
@@ -336,19 +180,21 @@ html body main > section.active {
   display: grid;
   position: relative;
   top: 0;
-  left: auto;
-  transform: none;
+  left: 0;
   margin-inline: auto;
+  transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
   gap: 30px;
   width: 100%;
   max-width: 83rem;
+  box-sizing: border-box;
 }
 html body main .WhoIAm.active {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: 0;
+  -moz-column-gap: 0;
+       column-gap: 0;
 }
 html body main .WhoIAm.active div {
   display: flex;
@@ -451,6 +297,7 @@ html body main .WhoIAm.active .outils {
 html body main .WhoIAm.active .outils div {
   flex: 0 0 calc((100% - 40px) / 3);
   box-sizing: border-box;
+  width: -moz-min-content;
   width: min-content;
 }
 html body main .WhoIAm.active .outils div a {
@@ -482,6 +329,7 @@ html body main .Cursus.active div section {
   justify-content: space-between;
 }
 html body main .Cursus.active div section h1 {
+  width: -moz-max-content;
   width: max-content;
   background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
@@ -513,15 +361,47 @@ html body main .Cursus.active div section:last-child p a:visited {
   font-style: italic;
 }
 html body main .Projet.active {
-  border: none;
   width: 90%;
-  display: grid;
-  grid-template-columns: 1fr;
-  column-gap: 30px;
-  row-gap: 20px;
-  grid-template-rows: auto auto;
+  border: none;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: space-between;
+  padding: 0 10px 5px 10px;
+  width: 90%;
+  overflow-wrap: break-word;
+  align-items: center;
+}
+html body main .Projet.active > div .project-preview {
+  align-self: stretch;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.45;
+  text-align: left;
+}
+html body main .Projet.active > div .project-details-button {
+  align-self: center;
+  min-width: 3rem;
+  padding: 0.35rem 0.8rem;
+  color: white;
+  background: #16161d;
+  border: 1px solid #00FFFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #00FFFF;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+html body main .Projet.active > div .project-details-button:hover, html body main .Projet.active > div .project-details-button:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 8px #00FFFF;
+}
+html body main .Projet.active > div .project-details-button:hover {
+  background-color: #008cff;
+}
+html body main .Projet.active > div .project-details-button:focus-visible {
+  background-color: #008cff;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 html body main .Projet.active div {
   background-color: rgba(22, 22, 29, 0.95);
@@ -529,10 +409,10 @@ html body main .Projet.active div {
   border-width: 1px 2px 2px 1px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px #00FFFF;
-  padding: 0 10px;
-  overflow-wrap: break-word;
+  padding: 0 10px 10px 10px;
   height: 100%;
   width: 90%;
+  overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -542,7 +422,7 @@ html body main .Projet.active div hr {
   margin: 0;
 }
 html body main .Projet.active div h1 {
-  margin: 15px 0;
+  margin: 10px 0 15px 0;
   background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -597,6 +477,7 @@ html body main .Projet.active div section aside {
   justify-self: start;
   align-items: center;
   gap: 15px;
+  width: -moz-min-content;
   width: min-content;
   margin-top: 20px;
 }
@@ -621,48 +502,11 @@ html body main .Projet.active div section aside div ul {
   width: 90px;
   margin: 10px;
 }
-html body main .Competences.active {
-  border: none;
-  width: 90%;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-}
-html body main .Competences.active div {
-  background-color: rgba(22, 22, 29, 0.95);
-  border: solid;
-  border-width: 1px 2px 2px 1px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px #00FFFF;
-  padding: 0 10px;
-  overflow-wrap: break-word;
-  height: 100%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-html body main .Competences.active div h1 {
-  margin: 10px 0 0 0;
-  background: linear-gradient(45deg, var(--zinzolin), white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-size: 1.8rem;
-}
-html body main .Competences.active div ul {
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  gap: 5px;
-  margin: 10px 0;
-}
 html body footer {
   padding: 0 15px;
   margin: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(22, 22, 29, 0.5));
+  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -671,6 +515,7 @@ html body footer section {
   display: flex;
 }
 html body footer section:first-child {
+  height: -moz-max-content;
   height: max-content;
   align-items: center;
 }
@@ -734,6 +579,7 @@ html body footer section:last-child p:last-child a {
     gap: 10px;
   }
   html body header nav ul li {
+    width: -moz-max-content;
     width: max-content;
     padding: 5px;
   }
@@ -804,7 +650,7 @@ html body footer section:last-child p:last-child a {
     flex: 0 0 calc((100% - 20px) / 2);
   }
   html body main .WhoIAm.active .outils div {
-    flex: 0 0 calc((100% - 40px) / 2);
+    flex: 0 0 calc((100% - 40px) / 3);
     box-sizing: border-box;
   }
   html body main .Cursus.active div section {
@@ -844,6 +690,7 @@ html body footer section:last-child p:last-child a {
     grid-template-columns: 1fr;
   }
   html body footer {
+    height: -moz-max-content;
     height: max-content;
   }
   html body footer section:first-child {
@@ -862,6 +709,9 @@ html body footer section:last-child p:last-child a {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
   z-index: 9999;
 }
 .modal-overlay.hidden {
@@ -874,6 +724,9 @@ html body footer section:last-child p:last-child a {
   padding: 2rem;
   max-width: 480px;
   width: 90%;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  box-sizing: border-box;
   position: relative;
 }
 .modal-overlay .modal-box h2 {
@@ -885,6 +738,21 @@ html body footer section:last-child p:last-child a {
 .modal-overlay .modal-box ul li {
   margin: 0.4rem 0;
 }
+.modal-overlay .project-modal-box {
+  width: min(1100px, 100%);
+  max-width: 1100px;
+}
+.modal-overlay .project-modal-box > h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .modal-overlay .modal-close {
   position: absolute;
   top: 0.75rem;
@@ -894,6 +762,150 @@ html body footer section:last-child p:last-child a {
   font-size: 1.2rem;
   cursor: pointer;
   color: white;
+}
+
+.project-modal-content .project-full-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
+  align-items: start;
+  gap: 1.5rem;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+.project-modal-content .project-full-details > section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.8fr);
+  align-items: start;
+  gap: 1.5rem;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+.project-modal-content .project-full-details > section > section {
+  display: block;
+  width: auto;
+  height: auto;
+  min-width: 0;
+}
+.project-modal-content .project-full-details > section > section h2 {
+  margin: 0 0 0.75rem;
+  text-align: left;
+  color: white;
+  background: none;
+  -webkit-text-fill-color: white;
+}
+.project-modal-content .project-full-details > section > section p {
+  margin: 0;
+  border: 1px dashed rgba(255, 255, 255, 0.65);
+  padding: 0.75rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.project-modal-content .project-full-details > section > section ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.75rem 0.75rem 0.75rem 2rem;
+  border: 1px dashed rgba(255, 255, 255, 0.65);
+}
+.project-modal-content .project-full-details aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+}
+.project-modal-content .project-full-details aside > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.project-modal-content .project-full-details aside > div img {
+  display: block;
+  width: 64px;
+  max-width: 100%;
+  height: 64px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.project-modal-content .project-full-details aside > div p {
+  margin: 0;
+  text-align: center;
+}
+.project-modal-content .project-full-details aside > div ul {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6rem 0.6rem 0.6rem 1.8rem;
+  border: 1px dashed rgba(255, 255, 255, 0.65);
+  overflow-wrap: anywhere;
+}
+.project-modal-content .project-full-details a {
+  color: white;
+  font-style: italic;
+}
+.project-modal-content .project-full-details a:visited {
+  color: white;
+}
+
+#CompetenceModal .modal-box {
+  width: min(480px, 100%);
+}
+#CompetenceModal .modal-box ul {
+  padding-left: 1.5rem;
+}
+#CompetenceModal .modal-box li {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  .modal-overlay .modal-box {
+    width: 100%;
+    max-height: calc(100vh - 1rem);
+    padding: 1.25rem;
+  }
+  .modal-overlay .project-modal-box {
+    width: 100%;
+  }
+  .project-modal-content .project-full-details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .project-modal-content .project-full-details > section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .project-modal-content .project-full-details aside {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .project-modal-content .project-full-details aside > div:last-child {
+    grid-column: 1/-1;
+    justify-self: center;
+    width: min(100%, 260px);
+  }
+}
+.project-full-details[hidden] {
+  display: none !important;
 }
 
 .competence-link {
@@ -909,109 +921,4 @@ html body footer section:last-child p:last-child a {
 }
 .competence-link:hover {
   color: white;
-}
-
-.Projet.active > div > .project-preview {
-  margin: 10px 0;
-  line-height: 1.5;
-}
-.Projet.active > div > .project-details-button {
-  margin: 0 0 16px;
-  padding: 7px 14px;
-  border: 1px solid #00ffff;
-  border-radius: 6px;
-  background: transparent;
-  color: white;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
-}
-.Projet.active > div > .project-details-button:hover,
-.Projet.active > div > .project-details-button:focus-visible {
-  background: #00ffff;
-  color: rgb(22, 22, 29);
-}
-.Projet.active > div > .project-full-details[hidden] {
-  display: none !important;
-}
-.modal-overlay .project-modal-box {
-  max-width: 1000px;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-.project-modal-content .project-full-details {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 24px;
-}
-.project-modal-content .project-full-details > section {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-.project-modal-content .project-full-details > section > section {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  align-items: stretch;
-}
-.project-modal-content .project-full-details h2 {
-  margin: 10px 0;
-}
-.project-modal-content .project-full-details p,
-.project-modal-content .project-full-details > section > section > ul {
-  border: 1px dashed white;
-  padding: 8px;
-}
-.project-modal-content .project-full-details > section > section > ul {
-  padding-left: 28px;
-}
-.project-modal-content .project-full-details p a,
-.project-modal-content .project-full-details p a:visited {
-  color: white;
-  font-style: italic;
-}
-.project-modal-content .project-full-details aside {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-.project-modal-content .project-full-details aside > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.project-modal-content .project-full-details aside img {
-  width: 55px;
-}
-.project-modal-content .project-full-details aside p {
-  margin: 0;
-  border: 0;
-}
-.project-modal-content .project-full-details aside ul {
-  margin: 0;
-  padding: 8px 8px 8px 28px;
-  border: 1px dashed white;
-}
-
-@media (max-width: 768px) {
-  .modal-overlay .project-modal-box {
-    padding: 2rem 1rem 1rem;
-  }
-  .project-modal-content .project-full-details {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-  .project-modal-content .project-full-details > section {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .project-modal-content .project-full-details aside {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/*# sourceMappingURL=Portfolio.css.map */
+}/*# sourceMappingURL=Portfolio.css.map */
