@@ -39,7 +39,6 @@ function updateFloatingNav() {
 
 window.addEventListener("scroll", updateFloatingNav);
 updateFloatingNav();
-}
 
 window.addEventListener("scroll", updateFloatingNav);
 updateFloatingNav();
