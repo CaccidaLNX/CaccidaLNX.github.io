@@ -1,1008 +1,1209 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <!-- Métadonnées, feuille de style et police du portfolio. -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="Portfolio.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
+<!doctype html> <!-- indique au navigateur que c'est un document HTML5 (évite le "mode compatibilité" des vieux navigateurs) -->
+<!--
+    =====================================================================
+    Portfolio.html : structure (le "squelette") du portfolio
+    =====================================================================
+
+    GUIDE DE LECTURE
+
+    Ce fichier décrit CE QU'IL Y A dans la page. Les autres fichiers s'en occupent ainsi :
+      - Portfolio.scss (compilé en Portfolio.css) : l'apparence (couleurs, positions...)
+      - script.js                                 : le comportement (clics, fenêtres modales...)
+
+    PLAN DE LA PAGE (de haut en bas) :
+      1. <head>   : informations invisibles (encodage, style, police, titre de l'onglet)
+      2. <body> :
+           - .bg-fixed       : image de fond qui ne bouge pas
+           - <header>        : navigation principale (en haut)
+           - .FloatingNav    : navigation flottante (apparaît quand on défile)
+           - <main>          : 3 sections, UNE SEULE visible à la fois :
+                 #WhoIAm  (À propos + compétences techniques + outils)
+                 #Cursus  (parcours scolaire)
+                 #Projet  (cartes de projets)
+           - <footer>        : contact et crédits
+           - 2 fenêtres modales cachées (#ProjectModal et #CompetenceModal)
+           - <script>        : charge script.js
+
+    POINTS DE VIGILANCE (liens entre les 3 fichiers) :
+      - Les ids (id="...") sont utilisés par le JavaScript : ne pas les renommer sans modifier script.js.
+      - Les noms dans data-competence="..." doivent être IDENTIQUES aux clés de
+        "competencesData" dans script.js.
+      - Les classes (class="...") sont utilisées par le CSS.
+
+    RAPPEL : dans un commentaire HTML, évite d'écrire deux tirets collés suivis d'un
+    chevron fermant : cette suite de caractères FERMERAIT le commentaire trop tôt.
+    =====================================================================
+-->
+<html lang="fr"> <!-- lang="fr" : langue de la page (utile aux lecteurs d'écran, aux moteurs de recherche et à la traduction automatique) -->
+<head>
+    <!-- Métadonnées, feuille de style et police du portfolio. -->
+
+    <!-- Encodage des caractères : UTF-8 permet d'afficher correctement les accents (é, à, ç...) -->
+    <meta charset="UTF-8" />
+
+    <!-- Responsive : la largeur de la page suit la largeur réelle de l'écran du téléphone
+         (sans cette ligne, un mobile afficherait la page "dézoomée" comme sur un grand écran).
+         initial-scale=1.0 : zoom initial à 100%. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Lien vers la feuille de style. ATTENTION : on charge Portfolio.css (le fichier COMPILÉ),
+         pas Portfolio.scss. Il faut donc recompiler le SCSS après chaque modification du style. -->
+    <link rel="stylesheet" href="Portfolio.css" />
+
+    <!-- Accélération du chargement de la police : "preconnect" demande au navigateur d'ouvrir
+         à l'avance la connexion vers les serveurs de Google Fonts.
+         crossorigin est nécessaire pour le serveur qui distribue les fichiers de police. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Chargement de la police "Inter" en graisses 400 (normal) et 700 (gras).
+         display=swap : le texte s'affiche tout de suite avec une police de secours,
+         puis la police Inter le remplace dès qu'elle est chargée. -->
+    <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
             rel="stylesheet"
-        />
-        <title>Portfolio | Benjamin CACCIATORE</title>
-    </head>
+    />
 
-    <body>
-        <!-- Arrière-plan décoratif fixé pendant le défilement. -->
-        <div class="bg-fixed"></div>
+    <!-- Titre affiché dans l'onglet du navigateur (et dans les résultats de recherche). -->
+    <title>Portfolio | Benjamin CACCIATORE</title>
+</head>
 
-        <!-- Navigation principale, visible en haut de la page. -->
-        <header id="MainHeader">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#WhoIAm" id="LinkWhoIAm"
-                            ><img
-                                src="./logo_Accueil.webp"
-                                alt="Benjamin CACCIATORE"
-                        /></a>
-                    </li>
-                    <li><a href="#Cursus" id="LinkCursus">Cursus</a></li>
-                    <li><a href="#Projet" id="LinkProjet">Projets</a></li>
-                </ul>
-            </nav>
-        </header>
+<body>
+<!-- Arrière-plan décoratif fixé pendant le défilement.
+     Le <div> est vide : l'image est ajoutée par le CSS (classe .bg-fixed). -->
+<div class="bg-fixed"></div>
 
-        <!-- Navigation flottante, affichée après le défilement de l'en-tête. -->
-        <nav class="FloatingNav" id="FloatingNav">
-            <ul>
-                <li class="logo-accueil">
-                    <a href="#WhoIAm"><img src="./logo_Accueil.webp" alt="Benjamin CACCIATORE" loading="lazy"/></a>
-                </li>
-                <li><a href="#Cursus">Cursus</a></li>
-                <li><a href="#Projet">Projets</a></li>
-            </ul>
-        </nav>
-        <hr />
-        <!-- Contenu principal : présentation, formation et projets. -->
-        <main>
-            <!-- Présentation personnelle et compétences techniques. -->
-            <section class="WhoIAm active" id="WhoIAm">
-                <div class="aPropos" id="aPropos">
-                    <h1>À propos</h1>
-                    <br />
-                    <p>
-                        Je m'appelle <b>Benjamin CACCIATORE</b> et je suis
-                        étudiant en 2<sup>e</sup> année de BUT informatique à
-                        <a
-                            href="https://iut2.univ-grenoble-alpes.fr/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >l'IUT2</a
-                        > de
-                        <a
-                            href="https://www.univ-grenoble-alpes.fr/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >l'Université Grenoble Alpes</a
-                        >.<br />
-                        Passionné <b>d'informatique</b>, de <b>jeux vidéo</b>,
-                        de la <b>culture japonaise</b> et de
-                        <b>nouvelles technologies</b>, je suis curieux et j'ai
-                        soif d'apprentissage et de savoir.<br />
-                        J'étudie dans l'objectif de devenir développeur de jeux
-                        vidéo ou dans l'univers de l'astrophysique.
-                    </p>
-                </div>
+<!-- ============================================================= -->
+<!-- NAVIGATION PRINCIPALE                                          -->
+<!-- ============================================================= -->
+<!-- Navigation principale, visible en haut de la page.
+     L'id "MainHeader" est utilisé par script.js pour savoir quand l'en-tête sort de l'écran. -->
+<header id="MainHeader">
+    <nav> <!-- <nav> = zone de navigation (sens sémantique : utile à l'accessibilité) -->
+        <ul> <!-- liste non ordonnée : chaque entrée du menu est un <li> -->
+            <li>
+                <!-- Les liens commencent par "#" : ce sont des liens vers un id de la page.
+                     Ici script.js bloque le comportement normal (preventDefault) et affiche à la place
+                     la section portant cet id (voir "NAVIGATION" dans script.js).
+                     Les balises sont collées ("><img") volontairement, pour éviter qu'un espace
+                     blanc ne s'affiche à côté de l'image. -->
+                <a href="#WhoIAm" id="LinkWhoIAm"
+                ><img
+                        src="./logo_Accueil.webp"
+                        alt="Benjamin CACCIATORE"
+                /></a> <!-- alt = texte alternatif de l'image (lu par les lecteurs d'écran, affiché si l'image ne charge pas) -->
+            </li>
+            <li><a href="#Cursus" id="LinkCursus">Cursus</a></li>
+            <li><a href="#Projet" id="LinkProjet">Projets</a></li>
+        </ul>
+    </nav>
+</header>
 
-                <div class="compTechTitle" id="compTechTitle">
-                    <h1>Mes compétences techniques</h1>
-                </div>
+<!-- Navigation flottante, affichée après le défilement de l'en-tête.
+     Elle est cachée par défaut (opacité 0) ; script.js lui ajoute la classe "visible".
+     Elle reprend les mêmes liens que l'en-tête : script.js met en surbrillance les deux en même temps. -->
+<nav class="FloatingNav" id="FloatingNav">
+    <ul>
+        <!-- class="logo-accueil" : permet au CSS de retirer le cadre autour du logo -->
+        <li class="logo-accueil">
+            <!-- loading="lazy" : l'image n'est chargée que lorsqu'elle est proche de l'écran (gain de performance) -->
+            <a href="#WhoIAm"><img src="./logo_Accueil.webp" alt="Benjamin CACCIATORE" loading="lazy"/></a>
+        </li>
+        <li><a href="#Cursus">Cursus</a></li>
+        <li><a href="#Projet">Projets</a></li>
+    </ul>
+</nav>
+<hr /> <!-- trait horizontal de séparation entre la navigation et le contenu -->
 
-                <section class="competenceTechnique" id="competenceTechnique">
-                    <div>
-                        <a
-                            href="https://dev.java/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./java-logo.svg"
-                                alt="Logo Java"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                                href="https://isocpp.org/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                        >
-                            <img
-                                    src="./cpp-logo.svg"
-                                    alt="Logo C++"
-                                    loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                                href="https://www.c-language.org/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                        >
-                            <img
-                                    src="./C-logo.svg"
-                                    alt="Logo C"
-                                    loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.python.org/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./python-logo.svg"
-                                alt="Logo Python"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.w3schools.com/htmlcss/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./html-logo.svg"
-                                alt="Logo HTML"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.w3schools.com/htmlcss/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./css-logo.svg"
-                                alt="logo CSS"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.php.net/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./php-logo.svg"
-                                alt="logo PHP"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.omg.org/uml/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./UML-logo.svg"
-                                alt="Logo UML"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://archlinux.org/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./linux-logo.svg"
-                                alt="Logo Linux"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="http://eaglesystem.free.fr/68000.html"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./logo-assembleur.png"
-                                alt="Logo Assembly"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                </section>
+<!-- ============================================================= -->
+<!-- CONTENU PRINCIPAL                                              -->
+<!-- ============================================================= -->
+<!-- Contenu principal : présentation, formation et projets.
+     Les 3 <section> enfants directes de <main> fonctionnent comme des "onglets" :
+     une seule porte la classe "active" (donc est visible) à la fois. -->
+<main>
+    <!-- =========================================================== -->
+    <!-- SECTION 1 : À PROPOS + COMPÉTENCES + OUTILS                  -->
+    <!-- =========================================================== -->
+    <!-- Présentation personnelle et compétences techniques.
+         Elle a déjà la classe "active" dans le HTML : c'est donc la section affichée au chargement. -->
+    <section class="WhoIAm active" id="WhoIAm">
+        <!-- Carte "À propos". -->
+        <div class="aPropos" id="aPropos">
+            <h1>À propos</h1>
+            <br /> <!-- saut de ligne -->
+            <!-- Paragraphe de présentation.
+                 Les liens externes utilisent :
+                   - target="_blank"            : s'ouvre dans un NOUVEL onglet
+                   - rel="noopener noreferrer"  : sécurité : la page ouverte ne peut pas
+                                                   contrôler la page d'origine (noopener) et ne reçoit pas
+                                                   l'adresse de provenance (noreferrer).
+                 Les écritures bizarres "</a\n>" sont voulues : elles évitent d'ajouter un espace
+                 blanc entre le lien et la ponctuation qui suit.
+                 <b> met en gras ; <sup> met en exposant (le "e" de 2e). -->
+            <p>
+                Je m'appelle <b>Benjamin CACCIATORE</b> et je suis
+                étudiant en 2<sup>e</sup> année de BUT informatique à
+                <a
+                        href="https://iut2.univ-grenoble-alpes.fr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >l'IUT2</a
+                > de
+                <a
+                        href="https://www.univ-grenoble-alpes.fr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >l'Université Grenoble Alpes</a
+                >.<br />
+                Passionné <b>d'informatique</b>, de <b>jeux vidéo</b>,
+                de la <b>culture japonaise</b> et de
+                <b>nouvelles technologies</b>, je suis curieux et j'ai
+                soif d'apprentissage et de savoir.<br />
+                J'étudie dans l'objectif de devenir développeur de jeux
+                vidéo ou dans l'univers de l'astrophysique.
+            </p>
+        </div>
 
-                <div class="outilsUtilises">
-                    <h1>Outils utilisés</h1>
-                </div>
+        <!-- Bandeau-titre de la grille de compétences. -->
+        <div class="compTechTitle" id="compTechTitle">
+            <h1>Mes compétences techniques</h1>
+        </div>
 
-                <section class="outils">
-                    <div>
-                        <a
-                            href="https://www.jetbrains.com/clion/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./Clion-logo.svg"
-                                alt="Logo Clion"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                            href="https://www.jetbrains.com/idea/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="./intellijIDEA-logo.svg"
-                                alt="Logo IntelliJ IDEA"
-                                loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                                href="https://www.jetbrains.com/webstorm/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                        >
-                            <img
-                                    src="./webstorm-logo.svg"
-                                    alt="Logo webstorm"
-                                    loading="lazy"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a
-                                href="https://code.visualstudio.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                        >
-                            <img
-                                    src="./vscode-logo.svg"
-                                    alt="Logo VSCode"
-                                    loading="lazy"
-                            />
-                        </a>
-                    </div>
-                </section>
-            </section>
+        <!-- Grille des logos de langages et technologies.
+             Chaque <div> = une "case" avec un logo cliquable qui renvoie vers le site officiel.
+             La mise en grille (4 logos par ligne) est faite dans le CSS (.competenceTechnique). -->
+        <section class="competenceTechnique" id="competenceTechnique">
+            <!-- Java -->
+            <div>
+                <a
+                        href="https://dev.java/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./java-logo.svg"
+                            alt="Logo Java"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- C++ -->
+            <div>
+                <a
+                        href="https://isocpp.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./cpp-logo.svg"
+                            alt="Logo C++"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- C -->
+            <div>
+                <a
+                        href="https://www.c-language.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./C-logo.svg"
+                            alt="Logo C"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- Python -->
+            <div>
+                <a
+                        href="https://www.python.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./python-logo.svg"
+                            alt="Logo Python"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- HTML -->
+            <div>
+                <a
+                        href="https://www.w3schools.com/htmlcss/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./html-logo.svg"
+                            alt="Logo HTML"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- CSS -->
+            <div>
+                <a
+                        href="https://www.w3schools.com/htmlcss/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./css-logo.svg"
+                            alt="logo CSS"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- PHP -->
+            <div>
+                <a
+                        href="https://www.php.net/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./php-logo.svg"
+                            alt="logo PHP"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- UML -->
+            <div>
+                <a
+                        href="https://www.omg.org/uml/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./UML-logo.svg"
+                            alt="Logo UML"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- Linux (le lien pointe vers Arch Linux) -->
+            <div>
+                <a
+                        href="https://archlinux.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./linux-logo.svg"
+                            alt="Logo Linux"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- Assembleur (le lien pointe vers une page consacrée au 68000) -->
+            <div>
+                <a
+                        href="http://eaglesystem.free.fr/68000.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./logo-assembleur.png"
+                            alt="Logo Assembly"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+        </section>
 
-            <!-- Parcours scolaire et universitaire. -->
-            <section class="Cursus" id="Cursus">
-                <div>
-                    <section>
-                        <h1>BUT informatique</h1>
-                        <h1>(2025-aujourd'hui)</h1>
-                    </section>
-                    <section>
-                        <p>
-                            À
-                            <a href="https://iut2.univ-grenoble-alpes.fr/"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                                >l'IUT2 - Grenoble</a
-                            >
-                        </p>
-                        <p>
-                            Formation actuelle : je me spécialise dans la
-                            réalisation d’applications : conception,
-                            développement et validation
-                        </p>
-                    </section>
-                </div>
-                <div>
-                    <section>
-                        <h1>Licence L1</h1>
-                        <h1>(2023-2025)</h1>
-                    </section>
-                    <section>
-                        <p>
-                            Au
-                            <a
-                                href="https://dlst.univ-grenoble-alpes.fr/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >DLST (Département licence sciences et
-                                technologies)</a
-                            >
-                        </p>
-                        <p>
-                            J'ai suivi le parcours L1 PCMM (physique, chimie,
-                            mathématiques et mécanique), où je voulais me
-                            spécialiser dans la science, car ce domaine
-                            m'attirait énormément. Mon projet professionnel
-                            étant de devenir astrophysicien, j'ai pu découvrir
-                            les bases de la physique-chimie, approfondir les
-                            mathématiques et étudier la mécanique du point.
-                        </p>
-                    </section>
-                </div>
-                <div>
-                    <section>
-                        <h1>Licence L0</h1>
-                        <h1>(2022-2023)</h1>
-                    </section>
-                    <section>
-                        <p>
-                            Au
-                            <a
-                                href="https://dlst.univ-grenoble-alpes.fr/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >DLST (Département licence sciences et
-                                technologies)</a
-                            >
-                        </p>
-                        <p>
-                            À la suite du lycée, j'ai été admis en année de
-                            propédeutique scientifique où j'ai pu revoir toutes
-                            les bases des mathématiques et de la
-                            physique-chimie.
-                        </p>
-                    </section>
-                </div>
-                <div>
-                    <section>
-                        <h1>Lycée</h1>
-                        <h1>(2019-2022)</h1>
-                    </section>
-                    <section>
-                        <p>
-                            Au
-                            <a
-                                href="https://pablo-neruda.ent.auvergnerhonealpes.fr/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Lycée Polyvalent Pablo Neruda</a
-                            ><br />
-                            Obtention du bac <b>mention assez bien</b>
-                        </p>
-                        <p>
-                            J'ai fait un bac STI2D option SIN (sciences
-                            informatiques et numériques), où j'ai découvert le
-                            monde de l'informatique.
-                        </p>
-                    </section>
-                </div>
-            </section>
+        <!-- Bandeau-titre de la grille d'outils. -->
+        <div class="outilsUtilises">
+            <h1>Outils utilisés</h1>
+        </div>
 
-            <!-- Projets réalisés pendant les études et en autonomie. -->
-            <section class="Projet" id="Projet">
-                <div>
-                    <!-- Application de gestion d'événements sportifs en équipe. -->
-                    <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">Création d'une application de gestion d'événements sportifs</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Nous avons dû mettre en pratique tout ce
-                                    qu'on a vu durant l'année pour répondre à une
-                                    problématique : "Conception et développement d’un
-                                    outil d’aide et de pilotage à destination
-                                    d’organisateurs d’événements".<br />
-                                    Entre la couche de persistance, l'interface graphique, les
-                                    liens entre les pages, les user stories
-                                    et la gestion des risques, nous avons mis en pratique
-                                    toutes nos connaissances.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                                class="competence-link"
-                                                data-competence="Réaliser un développement d'application"
-                                        >
-                                            Réaliser un développement
-                                            d'application
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                                class="competence-link"
-                                                data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                                class="competence-link"
-                                                data-competence="Conduire un projet"
-                                        >
-                                            Conduire un projet
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                                class="competence-link"
-                                                data-competence="Travailler dans une équipe informatique"
-                                        >
-                                            Travailler dans une équipe
-                                            informatique
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>5 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>2 mois</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>Java</li>
-                                    <li>JavaFX</li>
-                                    <li>UML</li>
-                                    <li>IntelliJ IDEA</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <!-- Chatbot Java de culture générale. -->
-                <div>
-                    <h1 data-summary="Chatbot Java de culture générale capable de reconnaître et de mémoriser des questions et leurs réponses.">Création d'un chatbot</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Nous avons dû créer un chatbot en Java
-                                    qui répondait à des questions de culture générale.<br />
-                                    Nous avons dû concevoir les méthodes nécessaires
-                                    pour créer des formes canoniques de questions
-                                    et de réponses à l'aide de mots-outils, puis les enregistrer dans une
-                                    <a
-                                        href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
-                                        target="_blank">
-                                            HashMap
-                                    </a> et ajouter les questions et réponses qui n'étaient pas
-                                    encore connues du chatbot.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                                class="competence-link"
-                                                data-competence="Réaliser un développement d'application"
-                                        >
-                                            Réaliser un développement
-                                            d'application
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>2 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>1 semaine</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>Java</li>
-                                    <li>IntelliJ IDEA</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Casse-briques développé progressivement en assembleur. -->
-                    <h1 data-summary="Casse-briques réalisé progressivement en assembleur, avec gestion de la mémoire et de la pile.">Création d'un casse-briques</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Durant les TP d'assembleur, j'ai développé
-                                    progressivement un casse-briques. À chaque
-                                    séance, nous avions des objectifs (créer un
-                                    bloc, en poser pour former des structures,
-                                    faire rebondir la balle...) et j'utilisais
-                                    la mémoire et la pile pour les atteindre.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Réaliser un développement d'application"
-                                        >
-                                            Réaliser un développement
-                                            d'application
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>Solo</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>1 semestre</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>Assembleur</li>
-                                    <li>VSCode</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Jeu des Tours de Hanoï réalisé en Python avec Turtle. -->
-                    <h1 data-summary="Jeu des Tours de Hanoï développé en Python avec la bibliothèque graphique Turtle.">Les Tours de Hanoï</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Pendant ma première année de licence,
-                                    nous avons dû recréer les Tours de Hanoï
-                                    en Python avec la bibliothèque
-                                    <a
-                                        href="https://docs.python.org/fr/3/library/turtle.html"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        >Turtle</a
-                                    >. C'était la première fois que je réalisais
-                                    puis menais à bien un projet de cette envergure.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Réaliser un développement d'application"
-                                        >
-                                            Réaliser un développement
-                                            d'application
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>2 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>1 semestre</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>VSCode</li>
-                                    <li>Python</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Labyrinthe généré en Python à partir d'un fichier. -->
-                    <h1 data-summary="Labyrinthe développé en Python, affiché avec Turtle et construit à partir d'un fichier.">Le labyrinthe</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Nous avons dû créer, comme pour les Tours de Hanoï,
-                                    un labyrinthe en Python avec la bibliothèque
-                                    <a
-                                        href="https://docs.python.org/fr/3/library/turtle.html"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        >Turtle</a
-                                    >
-                                    et en utilisant une bibliothèque de lecture
-                                    de fichier.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Réaliser un développement d'application"
-                                        >
-                                            Réaliser un développement
-                                            d'application
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>2 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>1 semestre</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>VSCode</li>
-                                    <li>Python</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Analyse d'un jeu de données Open Food Facts. -->
-                    <h1 data-summary="Nettoyage et analyse des données Open Food Facts à l'aide de SQL, PostgreSQL et R.">
-                        Exploitation d'une base de données - Open Food Facts
-                    </h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Nous devions exploiter une très grande
-                                    base de données, Open Food Facts. Il y avait
-                                    3 076 420 lignes structurées en 206 champs.
-                                    Nous devions dans un premier temps la
-                                    nettoyer pour n'en conserver qu'environ
-                                    300 lignes.<br />
-                                    Puis, sur RStudio, nous avons réalisé des
-                                    graphiques pour exploiter les données que
-                                    nous avions.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Gérer des données de l'information"
-                                        >
-                                            Gérer des données de l'information
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>2 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>1 mois</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>SQL</li>
-                                    <li>PostgreSQL</li>
-                                    <li>R</li>
-                                    <li>RStudio</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Création et exploitation d'une base de données relationnelle. -->
-                    <h1 data-summary="Conception et alimentation d'une base PostgreSQL, puis tests de recherche et de modification des données.">Création d'une base de données - Le Tourmentin</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Nous avons dû créer et alimenter une base de
-                                    données, puis tester la recherche et la
-                                    modification des données.<br />
-                                    Cela nous a permis de nous familiariser avec
-                                    SQL et l'exploitation d'une base de données.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Gérer des données de l'information"
-                                        >
-                                            Gérer des données de l'information
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>3 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>4 semaines</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>SQL</li>
-                                    <li>PostgreSQL</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Site web conçu en équipe pour aider des élèves à trouver un stage. -->
-                    <h1 data-summary="Site web créé en équipe pour aider des élèves de 3e à trouver un stage, selon un cahier des charges client.">Développement d'un site internet</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Dans le cadre d'une mise en situation, notre enseignant
-                                    jouait le rôle d'Econocom, le client. Nous devions
-                                    réaliser un site web destiné à des élèves de 3e en
-                                    recherche de stage.<br />
-                                    Cela nous a permis d'approfondir les bases
-                                    du HTML et du CSS, ainsi que d'apprendre à
-                                    respecter les demandes d'un client.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Conduire un projet"
-                                        >
-                                            Conduire un projet
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Travailler dans une équipe informatique"
-                                        >
-                                            Travailler dans une équipe
-                                            informatique
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>5 personnes</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>10 semaines</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>WebStorm</li>
-                                    <li>VS Code</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-                <div>
-                    <!-- Installation et découverte de distributions Linux. -->
-                    <h1 data-summary="Installation de Linux en dual boot Windows/Arch Linux, puis découverte de Debian en machine virtuelle.">Installation d'un dual boot</h1>
-                    <hr>
-                    <section>
-                        <section>
-                            <section>
-                                <h2>Description</h2>
-                                <p>
-                                    Au lycée, j'ai installé Windows et Arch
-                                    Linux en dual boot sur mon PC portable. J'ai
-                                    ainsi appris les bases de Linux.<br />
-                                    Puis, en BUT informatique, j'ai installé
-                                    un système d'exploitation Debian sur une
-                                    machine virtuelle et approfondi ma
-                                    connaissance de Linux.
-                                </p>
-                            </section>
-                            <section>
-                                <h2>Compétences</h2>
-                                <ul>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Administrer des systèmes informatiques communicants complexes"
-                                        >
-                                            Administrer des systèmes
-                                            informatiques communicants complexes
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            class="competence-link"
-                                            data-competence="Optimiser des applications informatiques"
-                                        >
-                                            Optimiser des applications
-                                            informatiques
-                                        </button>
-                                    </li>
-                                </ul>
-                            </section>
-                        </section>
-                        <aside>
-                            <div>
-                                <img src="people.png" alt="logo groupe">
-                                <p>solo</p>
-                            </div>
-                            <div>
-                                <img src="sablier.png" alt="logo sablier">
-                                <p>inconnu</p>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li>Linux</li>
-                                    <li>Machine Virtuelle</li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </section>
-                </div>
-            </section>
-        </main>
-        <hr />
-        <!-- Coordonnées, liens externes et crédits de réalisation. -->
-        <footer>
-            <section>
-                <h1>Me contacter</h1>
-                <ul>
-                    <li>Mail professionnel : b.<b>nom</b>.pro@gmail.com</li>
-                    <li>
-                        Mail scolaire :
-                        <b>prénom</b>.<b>nom</b>@etu.univ-grenoble-alpes.fr
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <p>
-                    Réalisé et développé avec
-                    <a
+        <!-- Grille des logos d'outils de développement (même principe que la grille précédente). -->
+        <section class="outils">
+            <!-- CLion -->
+            <div>
+                <a
+                        href="https://www.jetbrains.com/clion/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./Clion-logo.svg"
+                            alt="Logo Clion"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- IntelliJ IDEA -->
+            <div>
+                <a
+                        href="https://www.jetbrains.com/idea/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./intellijIDEA-logo.svg"
+                            alt="Logo IntelliJ IDEA"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- WebStorm -->
+            <div>
+                <a
+                        href="https://www.jetbrains.com/webstorm/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    <img
+                            src="./webstorm-logo.svg"
+                            alt="Logo webstorm"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+            <!-- Visual Studio Code -->
+            <div>
+                <a
                         href="https://code.visualstudio.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Visual Studio Code</a
-                    >
-                    et
-                    <a href="https://www.jetbrains.com/webstorm/">WebStorm</a>
-                </p>
-                <p>© 2026 Benjamin CACCIATORE</p>
+                >
+                    <img
+                            src="./vscode-logo.svg"
+                            alt="Logo VSCode"
+                            loading="lazy"
+                    />
+                </a>
+            </div>
+        </section>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- SECTION 2 : CURSUS                                           -->
+    <!-- =========================================================== -->
+    <!-- Parcours scolaire et universitaire.
+         Cette section n'a PAS la classe "active" : elle est cachée au chargement
+         et s'affiche quand on clique sur le lien "#Cursus".
+         Structure répétée pour chaque étape :
+           <div> (une carte)
+               <section> : intitulé + dates (deux <h1>)
+               <section> : lieu (lien) + description (deux <p>) -->
+    <section class="Cursus" id="Cursus">
+        <!-- Étape actuelle : BUT informatique -->
+        <div>
+            <section>
+                <h1>BUT informatique</h1>
+                <h1>(2025-aujourd'hui)</h1>
+            </section>
+            <section>
                 <p>
-                    <a
-                        href="https://www.linkedin.com/in/benjamin-cacciatore"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    À
+                    <a href="https://iut2.univ-grenoble-alpes.fr/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                    >l'IUT2 - Grenoble</a
                     >
-                        <img
-                            src="./linkedin-logo.svg"
-                            alt="LinkedIn"
-                            loading="lazy"
-                        />
-                    </a>
-                    <a
-                        href="https://github.com/CaccidaLNX"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            src="./github-logo.svg"
-                            alt="GitHub"
-                            loading="lazy"
-                        />
-                    </a>
+                </p>
+                <p>
+                    Formation actuelle : je me spécialise dans la
+                    réalisation d’applications : conception,
+                    développement et validation
                 </p>
             </section>
-        </footer>
-
-        <!-- Fenêtre modale des détails d'un projet. -->
-        <div id="ProjectModal" class="modal-overlay hidden" aria-hidden="true">
-            <div class="modal-box project-modal-box" role="dialog" aria-modal="true" aria-labelledby="ProjectModalTitle">
-                <button class="modal-close" id="ProjectModalClose" type="button" aria-label="Fermer">✕</button>
-                <h2 id="ProjectModalTitle"></h2>
-                <div id="ProjectModalContent" class="project-modal-content"></div>
-            </div>
         </div>
-        <!-- Fenêtre modale des éléments associés à une compétence. -->
-        <div id="CompetenceModal" class="modal-overlay hidden" aria-hidden="true">
-            <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ModalTitle">
-                <button class="modal-close" id="ModalClose" type="button" aria-label="Fermer">✕</button>
-                <h2 id="ModalTitle"></h2>
-                <ul id="ModalList"></ul>
-            </div>
+        <!-- Licence L1 -->
+        <div>
+            <section>
+                <h1>Licence L1</h1>
+                <h1>(2023-2025)</h1>
+            </section>
+            <section>
+                <p>
+                    Au
+                    <a
+                            href="https://dlst.univ-grenoble-alpes.fr/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >DLST (Département licence sciences et
+                        technologies)</a
+                    >
+                </p>
+                <p>
+                    J'ai suivi le parcours L1 PCMM (physique, chimie,
+                    mathématiques et mécanique), où je voulais me
+                    spécialiser dans la science, car ce domaine
+                    m'attirait énormément. Mon projet professionnel
+                    étant de devenir astrophysicien, j'ai pu découvrir
+                    les bases de la physique-chimie, approfondir les
+                    mathématiques et étudier la mécanique du point.
+                </p>
+            </section>
+        </div>
+        <!-- Licence L0 -->
+        <div>
+            <section>
+                <h1>Licence L0</h1>
+                <h1>(2022-2023)</h1>
+            </section>
+            <section>
+                <p>
+                    Au
+                    <a
+                            href="https://dlst.univ-grenoble-alpes.fr/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >DLST (Département licence sciences et
+                        technologies)</a
+                    >
+                </p>
+                <p>
+                    À la suite du lycée, j'ai été admis en année de
+                    propédeutique scientifique où j'ai pu revoir toutes
+                    les bases des mathématiques et de la
+                    physique-chimie.
+                </p>
+            </section>
+        </div>
+        <!-- Lycée -->
+        <div>
+            <section>
+                <h1>Lycée</h1>
+                <h1>(2019-2022)</h1>
+            </section>
+            <section>
+                <p>
+                    Au
+                    <a
+                            href="https://pablo-neruda.ent.auvergnerhonealpes.fr/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >Lycée Polyvalent Pablo Neruda</a
+                    ><br />
+                    Obtention du bac <b>mention assez bien</b>
+                </p>
+                <p>
+                    J'ai fait un bac STI2D option SIN (sciences
+                    informatiques et numériques), où j'ai découvert le
+                    monde de l'informatique.
+                </p>
+            </section>
+        </div>
+    </section>
+
+    <!-- =========================================================== -->
+    <!-- SECTION 3 : PROJETS                                          -->
+    <!-- =========================================================== -->
+    <!-- Projets réalisés pendant les études et en autonomie.
+         Cette section est cachée au chargement (pas de classe "active").
+
+         STRUCTURE D'UNE CARTE PROJET (identique pour les 9 projets) :
+           <div>                              ← la carte
+               <h1 data-summary="...">        ← titre ; data-summary contient le RÉSUMÉ court
+               <hr>                           ← trait de séparation
+               <section>                      ← DÉTAILS COMPLETS (cachés dans la carte)
+                   <section>
+                       <section> Description (h2 + p)
+                       <section> Compétences (h2 + liste de boutons)
+                   <aside>                    ← infos pratiques : nombre de personnes, durée, technologies
+
+         CE QUE FAIT script.js SUR CHAQUE CARTE :
+           - il lit le résumé dans data-summary et crée un <p> de résumé ;
+           - il crée un bouton "En savoir plus" ;
+           - il cache la <section> de détails ;
+           - au clic sur le bouton, il en affiche une COPIE dans la fenêtre modale #ProjectModal.
+
+         Pour AJOUTER un projet : copier une carte complète, changer le texte, et ne PAS oublier
+         le data-summary sur le <h1> (sinon script.js lève une erreur et s'arrête). -->
+    <section class="Projet" id="Projet">
+        <!-- ===== PROJET 1 : application de gestion d'événements sportifs (carte commentée en détail) ===== -->
+        <div>
+            <!-- Application de gestion d'événements sportifs en équipe. -->
+            <!-- data-summary="..." : attribut personnalisé (data-*) que le JavaScript lit avec
+                 title.dataset.summary pour afficher le résumé sur la carte. -->
+            <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">Création d'une application de gestion d'événements sportifs</h1>
+            <hr>
+            <!-- Détails complets : section cachée par script.js, affichée dans la modale. -->
+            <section>
+                <section>
+                    <!-- Bloc 1 : description du projet -->
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Nous avons dû mettre en pratique tout ce
+                            qu'on a vu durant l'année pour répondre à une
+                            problématique : "Conception et développement d’un
+                            outil d’aide et de pilotage à destination
+                            d’organisateurs d’événements".<br />
+                            Entre la couche de persistance, l'interface graphique, les
+                            liens entre les pages, les user stories
+                            et la gestion des risques, nous avons mis en pratique
+                            toutes nos connaissances.
+                        </p>
+                    </section>
+                    <!-- Bloc 2 : compétences travaillées.
+                         Chaque <button> a class="competence-link" : script.js détecte les clics sur cette classe.
+                         data-competence="..." : nom de la compétence, qui doit correspondre EXACTEMENT
+                         à une clé de "competencesData" dans script.js (sinon : erreur "Compétence introuvable"). -->
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Réaliser un développement d'application"
+                                >
+                                    Réaliser un développement
+                                    d'application
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Conduire un projet"
+                                >
+                                    Conduire un projet
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Travailler dans une équipe informatique"
+                                >
+                                    Travailler dans une équipe
+                                    informatique
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <!-- <aside> = contenu annexe : informations pratiques sur le projet.
+                     Dans l'ordre : (1) nombre de personnes, (2) durée, (3) technologies utilisées.
+                     Ce même ordre est repris dans toutes les cartes (le CSS cible le 2e <div> avec :nth-child(2)
+                     et le dernier avec :last-child). -->
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>5 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>2 mois</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Java</li>
+                            <li>JavaFX</li>
+                            <li>UML</li>
+                            <li>IntelliJ IDEA</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
         </div>
 
-        <!-- Comportements de navigation et gestion des fenêtres modales. -->
-        <script src="script.js"></script>
-    </body>
+        <!-- ===== PROJET 2 : chatbot (même structure que le projet 1) ===== -->
+        <!-- Chatbot Java de culture générale. -->
+        <div>
+            <h1 data-summary="Chatbot Java de culture générale capable de reconnaître et de mémoriser des questions et leurs réponses.">Création d'un chatbot</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <!-- Ici le lien vers la documentation de HashMap n'a pas rel="noopener noreferrer"
+                             (contrairement aux autres liens externes) : on pourrait l'ajouter par sécurité. -->
+                        <p>
+                            Nous avons dû créer un chatbot en Java
+                            qui répondait à des questions de culture générale.<br />
+                            Nous avons dû concevoir les méthodes nécessaires
+                            pour créer des formes canoniques de questions
+                            et de réponses à l'aide de mots-outils, puis les enregistrer dans une
+                            <a
+                                    href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                HashMap
+                            </a> et ajouter les questions et réponses qui n'étaient pas
+                            encore connues du chatbot.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Réaliser un développement d'application"
+                                >
+                                    Réaliser un développement
+                                    d'application
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>2 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>1 semaine</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Java</li>
+                            <li>IntelliJ IDEA</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 3 : casse-briques en assembleur (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Casse-briques développé progressivement en assembleur. -->
+            <h1 data-summary="Casse-briques réalisé progressivement en assembleur, avec gestion de la mémoire et de la pile.">Création d'un casse-briques</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Durant les TP d'assembleur, j'ai développé
+                            progressivement un casse-briques. À chaque
+                            séance, nous avions des objectifs (créer un
+                            bloc, en poser pour former des structures,
+                            faire rebondir la balle...) et j'utilisais
+                            la mémoire et la pile pour les atteindre.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Réaliser un développement d'application"
+                                >
+                                    Réaliser un développement
+                                    d'application
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>Solo</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>1 semestre</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Assembleur</li>
+                            <li>VSCode</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 4 : Tours de Hanoï en Python (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Jeu des Tours de Hanoï réalisé en Python avec Turtle. -->
+            <h1 data-summary="Jeu des Tours de Hanoï développé en Python avec la bibliothèque graphique Turtle.">Les Tours de Hanoï</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Pendant ma première année de licence,
+                            nous avons dû recréer les Tours de Hanoï
+                            en Python avec la bibliothèque
+                            <a
+                                    href="https://docs.python.org/fr/3/library/turtle.html"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                            >Turtle</a
+                            >. C'était la première fois que je réalisais
+                            puis menais à bien un projet de cette envergure.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Réaliser un développement d'application"
+                                >
+                                    Réaliser un développement
+                                    d'application
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>2 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>1 semestre</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>VSCode</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 5 : labyrinthe en Python (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Labyrinthe généré en Python à partir d'un fichier. -->
+            <h1 data-summary="Labyrinthe développé en Python, affiché avec Turtle et construit à partir d'un fichier.">Le labyrinthe</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Nous avons dû créer, comme pour les Tours de Hanoï,
+                            un labyrinthe en Python avec la bibliothèque
+                            <a
+                                    href="https://docs.python.org/fr/3/library/turtle.html"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                            >Turtle</a
+                            >
+                            et en utilisant une bibliothèque de lecture
+                            de fichier.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Réaliser un développement d'application"
+                                >
+                                    Réaliser un développement
+                                    d'application
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>2 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>1 semestre</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>VSCode</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 6 : analyse Open Food Facts (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Analyse d'un jeu de données Open Food Facts. -->
+            <!-- Ici le titre est écrit sur plusieurs lignes : le texte affiché reste le même
+                 (les espaces en trop sont retirés par .trim() dans script.js). -->
+            <h1 data-summary="Nettoyage et analyse des données Open Food Facts à l'aide de SQL, PostgreSQL et R.">
+                Exploitation d'une base de données - Open Food Facts
+            </h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Nous devions exploiter une très grande
+                            base de données, Open Food Facts. Il y avait
+                            3 076 420 lignes structurées en 206 champs.
+                            Nous devions dans un premier temps la
+                            nettoyer pour n'en conserver qu'environ
+                            300 lignes.<br />
+                            Puis, sur RStudio, nous avons réalisé des
+                            graphiques pour exploiter les données que
+                            nous avions.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Gérer des données de l'information"
+                                >
+                                    Gérer des données de l'information
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>2 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>1 mois</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>SQL</li>
+                            <li>PostgreSQL</li>
+                            <li>R</li>
+                            <li>RStudio</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 7 : base de données Le Tourmentin (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Création et exploitation d'une base de données relationnelle. -->
+            <h1 data-summary="Conception et alimentation d'une base PostgreSQL, puis tests de recherche et de modification des données.">Création d'une base de données - Le Tourmentin</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Nous avons dû créer et alimenter une base de
+                            données, puis tester la recherche et la
+                            modification des données.<br />
+                            Cela nous a permis de nous familiariser avec
+                            SQL et l'exploitation d'une base de données.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Gérer des données de l'information"
+                                >
+                                    Gérer des données de l'information
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>3 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>4 semaines</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>SQL</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 8 : site internet pour élèves de 3e (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Site web conçu en équipe pour aider des élèves à trouver un stage. -->
+            <h1 data-summary="Site web créé en équipe pour aider des élèves de 3e à trouver un stage, selon un cahier des charges client.">Développement d'un site internet</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Dans le cadre d'une mise en situation, notre enseignant
+                            jouait le rôle d'Econocom, le client. Nous devions
+                            réaliser un site web destiné à des élèves de 3e en
+                            recherche de stage.<br />
+                            Cela nous a permis d'approfondir les bases
+                            du HTML et du CSS, ainsi que d'apprendre à
+                            respecter les demandes d'un client.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Conduire un projet"
+                                >
+                                    Conduire un projet
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Travailler dans une équipe informatique"
+                                >
+                                    Travailler dans une équipe
+                                    informatique
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>5 personnes</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>10 semaines</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>WebStorm</li>
+                            <li>VS Code</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+
+        <!-- ===== PROJET 9 : installation d'un dual boot (même structure que le projet 1) ===== -->
+        <div>
+            <!-- Installation et découverte de distributions Linux. -->
+            <h1 data-summary="Installation de Linux en dual boot Windows/Arch Linux, puis découverte de Debian en machine virtuelle.">Installation d'un dual boot</h1>
+            <hr>
+            <section>
+                <section>
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Au lycée, j'ai installé Windows et Arch
+                            Linux en dual boot sur mon PC portable. J'ai
+                            ainsi appris les bases de Linux.<br />
+                            Puis, en BUT informatique, j'ai installé
+                            un système d'exploitation Debian sur une
+                            machine virtuelle et approfondi ma
+                            connaissance de Linux.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Compétences</h2>
+                        <ul>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Administrer des systèmes informatiques communicants complexes"
+                                >
+                                    Administrer des systèmes
+                                    informatiques communicants complexes
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                        class="competence-link"
+                                        data-competence="Optimiser des applications informatiques"
+                                >
+                                    Optimiser des applications
+                                    informatiques
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="people.png" alt="logo groupe">
+                        <p>solo</p>
+                    </div>
+                    <div>
+                        <img src="sablier.png" alt="logo sablier">
+                        <p>inconnu</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Linux</li>
+                            <li>Machine Virtuelle</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+    </section>
+</main>
+<hr />
+
+<!-- ============================================================= -->
+<!-- PIED DE PAGE                                                   -->
+<!-- ============================================================= -->
+<!-- Coordonnées, liens externes et crédits de réalisation.
+     Deux <section> : (1) contact, (2) crédits + copyright + logos de réseaux sociaux. -->
+<footer>
+    <section>
+        <h1>Me contacter</h1>
+        <ul>
+            <!-- Les <b> mettent en gras les parties "nom" et "prénom" de l'adresse. -->
+            <li>Mail professionnel : b.<b>nom</b>.pro@gmail.com</li>
+            <li>
+                Mail scolaire :
+                <b>prénom</b>.<b>nom</b>@etu.univ-grenoble-alpes.fr
+            </li>
+        </ul>
+    </section>
+    <section>
+        <p>
+            Réalisé et développé avec
+            <a
+                    href="https://code.visualstudio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >Visual Studio Code</a
+            >
+            et
+            <a href="https://www.jetbrains.com/webstorm/">WebStorm</a>
+        </p>
+        <p>© 2026 Benjamin CACCIATORE</p>
+        <!-- Dernier paragraphe : les deux logos (LinkedIn, GitHub), alignés côte à côte par le CSS
+             (p:last-child en display:flex). Pour LinkedIn et GitHub, alt = nom du réseau. -->
+        <p>
+            <a
+                    href="https://www.linkedin.com/in/benjamin-cacciatore"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                <img
+                        src="./linkedin-logo.svg"
+                        alt="LinkedIn"
+                        loading="lazy"
+                />
+            </a>
+            <a
+                    href="https://github.com/CaccidaLNX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                <img
+                        src="./github-logo.svg"
+                        alt="GitHub"
+                        loading="lazy"
+                />
+            </a>
+        </p>
+    </section>
+</footer>
+
+<!-- ============================================================= -->
+<!-- FENÊTRES MODALES (cachées par défaut)                          -->
+<!-- ============================================================= -->
+<!-- Fenêtre modale des détails d'un projet.
+     Attributs d'accessibilité (ARIA) :
+       - class="hidden"           : cachée au départ (script.js retire/ajoute cette classe)
+       - aria-hidden="true"       : masquée aux lecteurs d'écran tant qu'elle est fermée
+       - role="dialog"            : indique que cet élément est une fenêtre de dialogue
+       - aria-modal="true"        : le reste de la page est inactif tant qu'elle est ouverte
+       - aria-labelledby="..."    : le nom de la fenêtre est le texte de l'élément portant cet id
+     Remplissage fait par script.js : le titre va dans #ProjectModalTitle,
+     les détails du projet dans #ProjectModalContent. -->
+<div id="ProjectModal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-box project-modal-box" role="dialog" aria-modal="true" aria-labelledby="ProjectModalTitle">
+        <!-- Bouton de fermeture ; aria-label="Fermer" : texte lu par les lecteurs d'écran (le bouton ne contient qu'un symbole ✕) -->
+        <button class="modal-close" id="ProjectModalClose" type="button" aria-label="Fermer">✕</button>
+        <h2 id="ProjectModalTitle"></h2>
+        <div id="ProjectModalContent" class="project-modal-content"></div>
+    </div>
+</div>
+<!-- Fenêtre modale des éléments associés à une compétence.
+     Même principe : le titre va dans #ModalTitle et les éléments dans la liste #ModalList. -->
+<div id="CompetenceModal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ModalTitle">
+        <button class="modal-close" id="ModalClose" type="button" aria-label="Fermer">✕</button>
+        <h2 id="ModalTitle"></h2>
+        <ul id="ModalList"></ul>
+    </div>
+</div>
+
+<!-- Comportements de navigation et gestion des fenêtres modales.
+     Le <script> est placé EN FIN de <body> volontairement : ainsi tous les éléments HTML
+     existent déjà quand script.js s'exécute (sinon getElementById renverrait null). -->
+<script src="script.js"></script>
+</body>
 </html>

@@ -1,140 +1,218 @@
+// =====================================================================
+// Portfolio.scss : feuille de style du portfolio (compilée en Portfolio.css)
+// =====================================================================
+//
+// GUIDE DE LECTURE (à lire en premier quand tu reviens sur ce fichier)
+//
+// SCSS = CSS "amélioré". Ce qu'il faut savoir pour lire ce fichier :
+//   - Imbrication : un bloc écrit DANS un autre s'applique seulement à
+//     l'intérieur de celui-ci. Exemple :
+//          nav { ul { color: red; } }     devient en CSS :   nav ul { color: red; }
+//   - "&" = "le sélecteur du parent". Exemple, dans  li { &:hover {...} } :
+//     "&:hover" donne "li:hover" ;  "&.active" donne "li.active".
+//   - Commentaires "//" : propres au SCSS, ils disparaissent à la compilation
+//     (ton CSS final reste donc léger). Je les utilise surtout EN FIN DE LIGNE
+//     pour expliquer une propriété.
+//   - Attention : en CSS pur, "//" n'existe pas. Il ne faut JAMAIS les copier
+//     dans Portfolio.css ; en CSS on utilise slash-étoile ... étoile-slash.
+//
+// STRUCTURE DU FICHIER :
+//   1. Variables de couleurs                  (:root)
+//   2. Styles principaux, imbriqués dans html > body :
+//        fond fixe, en-tête, navigation flottante, <main> (3 sections),
+//        pied de page
+//   3. Adaptations mobile (@media 1000px, 768px)
+//   4. Fenêtres modales (projets et compétences) + @media 700px
+//   5. Boutons de compétence (.competence-link)
+//
+// RAPPELS CSS UTILES :
+//   - Notation à 4 valeurs (padding, margin, border-width) : haut droite bas gauche
+//     (sens des aiguilles d'une montre). 3 valeurs : haut | gauche+droite | bas.
+//     2 valeurs : haut+bas | gauche+droite.
+//   - box-shadow : décalage-x décalage-y flou couleur.
+//   - Spécificité : quand deux règles visent le même élément, c'est la plus
+//     "précise" (celle qui a le plus de classes / de niveaux) qui gagne. À précision
+//     égale, c'est la dernière écrite.
+// =====================================================================
+
+
+// =====================================================================
+// 1. VARIABLES DE COULEURS
+// =====================================================================
+
 // Couleurs réutilisées dans l'ensemble du portfolio.
+// ":root" désigne l'élément <html> : les variables déclarées ici sont disponibles
+// partout. On les utilise ensuite avec var(--nom), par exemple var(--zinzolin).
+// Avantage : pour changer une couleur sur tout le site, on ne modifie qu'une ligne.
 :root {
-    --zinzolin: #6C0277;
-    --froid: #B79BFE;
-    --chaud: #FD9465;
+    --zinzolin: #6C0277; // violet foncé (utilisé dans les dégradés des titres)
+    --froid: #B79BFE;    // violet clair (déclarée mais non utilisée ailleurs dans ce fichier)
+    --chaud: #FD9465;    // orange saumon (déclarée mais non utilisée ailleurs dans ce fichier)
 }
 
+
+// =====================================================================
+// 2. STYLES PRINCIPAUX (tout est imbriqué dans html > body)
+// =====================================================================
+
 html {
-    background-color: black;
-    color: white;
-    font-family: 'Inter', sans-serif;
+    background-color: black; // couleur de secours derrière l'image de fond
+    color: white;            // couleur du texte par défaut (héritée par tous les enfants)
+    font-family: 'Inter', sans-serif; // police Inter (chargée par Google Fonts dans le HTML) ; sinon police sans-serif du système
 
     body {
-        margin: 0;
+        margin: 0; // le navigateur ajoute 8px de marge par défaut au body : on les supprime
 
+        // -------------------------------------------------------------
+        // ARRIÈRE-PLAN FIXE
+        // -------------------------------------------------------------
         // Arrière-plan fixé : il reste immobile pendant le défilement.
+        // C'est un <div> vide qui sert uniquement de décor.
         .bg-fixed {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: url("./fond-Accueil.webp");
-            background-size: cover;
-            background-position: center;
+            position: fixed;   // positionné par rapport à la FENÊTRE : ne bouge pas quand on défile
+            inset: 0;          // raccourci pour top: 0; right: 0; bottom: 0; left: 0 → l'élément couvre tout l'écran
+            z-index: -1;       // place l'élément DERRIÈRE tout le reste (z-index plus petit = plus loin de l'utilisateur)
+            background-image: url("./fond-Accueil.webp"); // chemin de l'image, relatif au fichier CSS compilé
+            background-size: cover;      // l'image est agrandie pour couvrir toute la zone (quitte à être rognée), sans déformation
+            background-position: center; // l'image est centrée : le rognage se fait de façon égale sur les bords
         }
 
+        // Les <hr> (traits horizontaux) n'ont pas de marge, sinon le navigateur en ajoute.
         hr {
             margin: 0;
         }
 
+        // -------------------------------------------------------------
+        // EN-TÊTE ET NAVIGATION PRINCIPALE
+        // -------------------------------------------------------------
         // En-tête et navigation principale.
         header {
-            background: linear-gradient(0deg,
-            rgba(black, 0.5),
-            rgba(22, 22, 29, 0.5));
-            padding: 0 15px;
+            // Fond en dégradé semi-transparent.
+            background: linear-gradient(0deg, // 0deg = le dégradé va du BAS vers le HAUT
+            rgba(black, 0.5),                 // départ (bas) : noir à 50% d'opacité. NB : rgba(black, 0.5) est une syntaxe SASS, le compilateur la convertit en rgba(0, 0, 0, 0.5)
+            rgba(22, 22, 29, 0.5));           // arrivée (haut) : gris très foncé à 50% d'opacité (rouge, vert, bleu, opacité)
+            padding: 0 15px; // 0 en haut et en bas, 15px à gauche et à droite
 
             nav {
-                display: flex;
-                justify-content: center;
+                display: flex;             // les enfants (ici le <ul>) deviennent des éléments flexibles
+                justify-content: center;   // centre le <ul> horizontalement dans la barre
 
                 ul {
-                    display: flex;
-                    width: 40%;
-                    justify-content: space-around;
-                    border: solid 2px white;
-                    border-radius: 50px;
+                    display: flex;                   // les <li> s'alignent côte à côte (au lieu d'être empilés)
+                    width: 40%;                      // largeur = 40% de la largeur de <nav>
+                    justify-content: space-around;   // répartit les <li> avec un espace égal autour de chacun
+                    border: solid 2px white;         // bordure blanche de 2px
+                    border-radius: 50px;             // très grand rayon → bords complètement arrondis (forme de "pilule")
                     padding: 5px;
-                    list-style: none;
+                    list-style: none;                // supprime les puces de la liste
 
+                    // Classe prévue pour retirer le cadre autour d'un logo.
+                    // (Dans le HTML actuel, aucun <li> de l'en-tête n'a cette classe : c'est
+                    // le ":first-child" plus bas qui fait ce travail. Cette règle ne s'applique donc
+                    // ici à rien, mais la même existe pour la navigation flottante.)
                     .logo-accueil {
                         border: none;
                         box-shadow: none;
                         background-color: transparent;
                     }
 
+                    // Chaque bouton de la barre (Logo, Cursus, Projets).
                     li {
-                        background-color: #16161d;
-                        border: solid;
-                        border-width: 1px 2px 2px 1px;
+                        background-color: #16161d;                 // gris très foncé
+                        border: solid;                             // style de bordure "ligne continue"... (la couleur par défaut est celle du texte : blanc)
+                        border-width: 1px 2px 2px 1px;             // épaisseurs : haut 1px, droite 2px, bas 2px, gauche 1px → petit effet de relief
                         border-radius: 5px;
-                        box-shadow: 1px 1px 3px #00FFFF;
+                        box-shadow: 1px 1px 3px #00FFFF;           // ombre cyan : décalée de 1px à droite et en bas, floutée sur 3px
                         padding: 4px;
                         font-size: 30px;
-                        align-self: center;
-                        transition: transform 0.3s ease;
+                        align-self: center;                        // centre chaque <li> verticalement (le <ul> est un conteneur flex)
+                        transition: transform 0.3s ease;           // quand "transform" change, l'animation dure 0,3s avec une accélération douce
                         list-style: none;
 
+                        // Au survol de la souris : léger agrandissement.
                         &:hover {
-                            transform: scale(1.1);
+                            transform: scale(1.1);                 // 1.1 = agrandi de 10%
                             box-shadow: 1px 1px 3px #00FFFF;
                         }
 
+                        // Le premier <li> (celui du logo) n'a pas de cadre.
                         &:first-child {
                             box-shadow: none;
                             border: none;
                             background-color: transparent;
-                            width: max-content;
+                            width: max-content;                    // largeur = celle du contenu, sans retour à la ligne
                         }
 
                         a {
                             color: white;
                             display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            text-decoration: none;
+                            justify-content: center;               // centre le contenu du lien horizontalement
+                            align-items: center;                   // et verticalement
+                            text-decoration: none;                 // retire le soulignement des liens
 
                             img {
                                 width: 55px;
                                 height: 55px;
                             }
 
+                            // Lien de la section actuellement affichée (classe ajoutée par script.js).
+                            // Le texte est rempli par un dégradé violet → blanc :
+                            // on dessine un dégradé en fond, on le "découpe" à la forme des lettres,
+                            // puis on rend le texte transparent pour que le dégradé apparaisse à travers.
                             &.active {
-                                background: linear-gradient(45deg, var(--zinzolin), white);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
+                                background: linear-gradient(45deg, var(--zinzolin), white); // dégradé en diagonale (45°) violet → blanc
+                                -webkit-background-clip: text;          // le fond n'est visible QUE derrière les lettres
+                                -webkit-text-fill-color: transparent;   // le remplissage normal des lettres devient transparent
                             }
                         }
                     }
                 }
             }
 
+            // Titre éventuel dans l'en-tête (pas présent dans le HTML actuel).
             h1 {
                 margin: 0;
                 text-align: center;
-                font-size: 2rem;
+                font-size: 2rem; // 1rem = taille de police de base de la page (souvent 16px) → 2rem = environ 32px
             }
         }
 
+        // -------------------------------------------------------------
+        // NAVIGATION FLOTTANTE
+        // -------------------------------------------------------------
         // Navigation secondaire affichée après le défilement de l'en-tête.
+        // Par défaut elle est invisible ; script.js lui ajoute la classe "visible"
+        // quand l'en-tête est sorti de l'écran.
         .FloatingNav {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            position: fixed;   // reste collée à l'écran pendant le défilement
+            top: 10px;         // à 10px du haut de la fenêtre
+            left: 50%;         // son bord GAUCHE est placé au milieu de l'écran...
+            transform: translateX(-50%) translateY(-20px); // ...puis on la décale de -50% de SA PROPRE largeur → elle est parfaitement centrée. translateY(-20px) la remonte de 20px (état de départ de l'animation d'apparition)
+            z-index: 1000;     // passe devant le contenu de la page
+            opacity: 0;        // totalement transparente (invisible)
+            pointer-events: none; // elle ne réagit pas à la souris tant qu'elle est invisible (on ne clique pas "à travers" par erreur)
+            transition: opacity 0.3s ease, transform 0.3s ease; // on anime à la fois la transparence et le déplacement (plusieurs transitions séparées par une virgule)
 
+            // État visible (classe ajoutée par JavaScript).
             &.visible {
                 opacity: 1;
-                pointer-events: auto;
-                transform: translateX(-50%) translateY(0);
+                pointer-events: auto;  // la barre redevient cliquable
+                transform: translateX(-50%) translateY(0); // même centrage, mais sans le décalage de -20px → elle "descend" à sa place finale
             }
 
             ul {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-                gap: 20px;
+                gap: 20px;                  // espace de 20px ENTRE les <li> (propriété des conteneurs flex/grid)
                 padding: 8px 20px;
                 margin: 0;
                 list-style: none;
                 border: solid 2px white;
                 border-radius: 50px;
-                background: linear-gradient(0deg, black, rgb(22, 22, 29));
+                background: linear-gradient(0deg, black, rgb(22, 22, 29)); // dégradé opaque (noir en bas → gris foncé en haut) pour bien se détacher du contenu derrière
 
+                // Logo sans cadre.
                 .logo-accueil {
                     border: none;
                     box-shadow: none;
@@ -145,20 +223,21 @@ html {
                     list-style: none;
                     background-color: #16161d;
                     border: solid;
-                    border-width: 1px 2px 2px 1px;
+                    border-width: 1px 2px 2px 1px;  // haut droite bas gauche
                     border-radius: 5px;
                     box-shadow: 1px 1px 3px #00FFFF;
-                    padding: 4px 10px;
+                    padding: 4px 10px;               // 4px en haut/bas, 10px à gauche/droite
                     font-size: 22px;
-                    height: max-content;
+                    height: max-content;             // hauteur juste suffisante pour le contenu
                     align-self: center;
                     transition: transform 0.3s ease;
 
                     &:hover {
-                        transform: scale(1.08);
+                        transform: scale(1.08);      // agrandissement de 8% au survol
                         box-shadow: 1px 1px 3px #00FFFF;
                     }
 
+                    // Le premier <li> (logo) perd son ombre cyan.
                     &:first-child {
                         box-shadow: none;
                     }
@@ -176,6 +255,7 @@ html {
                             height: 45px;
                         }
 
+                        // Lien actif : texte en dégradé (même technique que dans l'en-tête).
                         &.active {
                             background: linear-gradient(45deg, var(--zinzolin), white);
                             -webkit-background-clip: text;
@@ -186,106 +266,124 @@ html {
             }
         }
 
+        // -------------------------------------------------------------
+        // CONTENU PRINCIPAL : MÉCANISME D'AFFICHAGE DES 3 SECTIONS
+        // -------------------------------------------------------------
         // Contenu principal et transitions entre les différentes sections.
+        //
+        // PRINCIPE : les 3 sections (WhoIAm, Cursus, Projet) existent toujours dans la page.
+        //   - Les sections NON actives sont posées en "absolute", décalées de 100% vers la droite
+        //     (donc hors de l'écran, cachées par overflow:hidden) et transparentes.
+        //   - La section ayant la classe "active" (gérée par script.js) est affichée normalement.
         main {
-            position: relative;
-            overflow: hidden;
+            position: relative;  // sert de repère aux sections en position "absolute" qu'il contient
+            overflow: hidden;    // tout ce qui dépasse de <main> (les sections décalées à droite) est coupé et invisible
             padding: 30px 15px;
 
             hr {
                 width: 50%;
-                margin: 10px auto auto;
+                margin: 10px auto auto; // 3 valeurs : haut 10px | gauche+droite "auto" (→ centré horizontalement) | bas "auto"
             }
 
+            // "> section" = uniquement les <section> ENFANTS DIRECTS de <main>
+            // (donc pas les <section> imbriquées plus profondément).
             > section {
-                position: absolute;
+                // État par défaut = section masquée.
+                position: absolute;   // sort du flux normal : ne prend plus de place dans la page
                 top: 0;
                 left: 0;
-                transform: translate(100%);
-                opacity: 0;
-                pointer-events: none;
+                transform: translate(100%); // une seule valeur = décalage horizontal uniquement : la section est poussée de 100% de sa largeur vers la droite
+                opacity: 0;           // invisible
+                pointer-events: none; // ne capte pas la souris (on ne peut pas cliquer sur du contenu invisible)
 
-                transition: transform 0.5s ease;
+                transition: transform 0.5s ease; // seul le déplacement est animé (0,5s), pas l'opacité
 
+                // État affiché = classe "active".
                 &.active {
-                    display: grid;
-                    position: relative;
+                    display: grid;        // la section devient une grille (les enfants s'empilent avec un espacement régulier)
+                    position: relative;   // revient dans le flux normal : la section reprend sa place et sa hauteur
                     top: 0;
                     left: 0;
-                    margin-inline: auto;
-                    transform: translateX(0);
+                    margin-inline: auto;  // marges gauche et droite automatiques → centre la section horizontalement (inline = axe horizontal)
+                    transform: translateX(0); // plus de décalage : la section glisse vers sa place
                     opacity: 1;
                     pointer-events: auto;
 
-                    gap: 30px;
+                    gap: 30px;            // espace de 30px entre les enfants de la grille
                     width: 100%;
-                    max-width: 83rem;
-                    box-sizing: border-box;
+                    max-width: 83rem;     // ne dépasse pas 83rem (environ 1328px) sur grand écran
+                    box-sizing: border-box; // width et max-width incluent le padding et la bordure (sinon ils s'ajoutent à la largeur)
                 }
             }
 
+            // -------------------------------------------------------------
+            // SECTION 1 : "WhoIAm" (À propos, compétences, outils)
+            // -------------------------------------------------------------
             .WhoIAm.active {
                 // Présentation personnelle et grilles de compétences et d'outils.
                 display: grid;
-                grid-template-columns: 1fr;
-                column-gap: 0;
+                grid-template-columns: 1fr; // une seule colonne ; "fr" = fraction de l'espace disponible, 1fr = tout l'espace
+                column-gap: 0;              // pas d'espace horizontal entre colonnes (une seule colonne de toute façon)
 
+                // ATTENTION : "div" cible TOUS les <div> descendants (aPropos, titres, et
+                // aussi chaque case de logo dans les grilles). Chacun devient une "carte".
                 div {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: column;  // empile le contenu verticalement
                     text-align: center;
-                    align-items: center;
-                    justify-content: center;
+                    align-items: center;     // centre horizontalement (en colonne, l'axe transversal est l'horizontal)
+                    justify-content: center; // centre verticalement
 
                     // Apparence de la carte.
-                    background-color: rgba(22, 22, 29, 0.8);
+                    background-color: rgba(22, 22, 29, 0.9); // gris foncé légèrement transparent (opacité 0,9)
                     border: solid;
                     border-width: 1px 2px 2px 1px;
                     border-radius: 10px;
-                    box-shadow: 2px 2px 10px #00FFFF;
+                    box-shadow: 2px 2px 10px #00FFFF;        // lueur cyan plus large que celle de la navigation
 
                     // Dimensions et comportement du contenu.
                     padding: 10px;
                     width: 67%;
                     max-width: 80%;
-                    overflow-wrap: break-word;
-                    justify-self: center;
+                    overflow-wrap: break-word; // un mot trop long est coupé pour ne pas dépasser de la carte
+                    justify-self: center;      // centre la carte dans sa cellule de grille
 
                     a {
-                        transition: all 0.5s ease;
+                        transition: all 0.5s ease; // anime TOUTES les propriétés qui changent (ici surtout transform)
 
                         img {
-                            max-width: 60%;
+                            max-width: 60%;        // l'image ne dépasse pas 60% de la largeur de son conteneur
                         }
 
                         &:hover {
-                            transform: scale(1.1);
+                            transform: scale(1.1); // le logo grossit de 10% au survol
                         }
                     }
 
                     p {
-                        font-size: larger;
-                        margin: 10px 10%;
+                        font-size: larger;         // mot-clé : un cran au-dessus de la taille du parent
+                        margin: 10px 10%;          // 10px en haut/bas ; 10% (de la largeur du parent) à gauche/droite
 
                         a {
                             color: white;
                             font-style: italic;
 
-                            &:visited {
+                            &:visited {            // lien déjà visité : on force le blanc (sinon le navigateur le met en violet)
                                 color: white;
                             }
                         }
                     }
                 }
 
+                // Carte "À propos".
                 .aPropos {
-                    grid-column: 1 / -1;
+                    grid-column: 1 / -1;       // de la première à la dernière ligne de grille (-1 = la dernière) → occupe toutes les colonnes
                     max-width: 90%;
                     justify-self: center;
                     background-color: rgba(22, 22, 29, 0.8);
 
                     h1 {
-                        background: linear-gradient(45deg, var(--zinzolin), white);
+                        background: linear-gradient(45deg, var(--zinzolin), white); // titre en dégradé : voir la technique expliquée plus haut
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         font-size: 2rem;
@@ -293,14 +391,15 @@ html {
                     }
                 }
 
+                // Bandeau-titre "Mes compétences techniques".
                 .compTechTitle {
                     background-color: rgba(0, 0, 0, 0.7);
                     box-shadow: none;
-                    grid-column: 1/-1;
+                    grid-column: 1/-1;       // occupe toute la largeur de la grille (même chose que "1 / -1")
                     justify-self: center;
                     padding: 0 20px;
                     margin-top: 10px;
-                    width: auto;
+                    width: auto;             // annule le "width: 67%" hérité de la règle générale "div" : la largeur s'adapte au texte
 
                     h1 {
                         margin: 5px 7px;
@@ -311,18 +410,23 @@ html {
                     }
                 }
 
+                // Grille des logos de langages (10 logos : 4 par ligne sur grand écran).
                 .competenceTechnique {
                     display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
+                    flex-wrap: wrap;           // les éléments passent à la ligne quand il n'y a plus de place
+                    justify-content: center;   // centre chaque ligne (utile pour la dernière ligne incomplète)
                     gap: 20px;
 
                     div {
-                        flex: 0 0 calc((100% - 3 * 20px) / 4);
-                        box-sizing: border-box;
+                        // Calcul de la largeur d'une case pour en avoir 4 par ligne :
+                        //   100% = largeur du conteneur ; "3 * 20px" = 3 espaces entre 4 cases ; on divise le reste par 4.
+                        // flex: 0 0 X  =  flex-grow 0 (ne s'agrandit pas) | flex-shrink 0 (ne rétrécit pas) | flex-basis X (largeur de départ).
+                        flex: 0 0 calc((100% - 3 * 20px) / 4); // 4 cases par ligne : (largeur - 3 espaces de 20px) ÷ 4
+                        box-sizing: border-box; // le padding et la bordure sont inclus DANS la largeur calculée (sinon la 4e case passerait à la ligne)
                     }
                 }
 
+                // Bandeau-titre "Outils utilisés" (même style que .compTechTitle).
                 .outilsUtilises {
                     background-color: rgba(0, 0, 0, 0.7);
                     box-shadow: none;
@@ -341,6 +445,7 @@ html {
                     }
                 }
 
+                // Grille des logos d'outils (4 logos).
                 .outils {
                     display: flex;
                     flex-wrap: wrap;
@@ -348,36 +453,43 @@ html {
                     gap: 20px;
 
                     div {
-                        flex: 0 0 calc((100% - 3 * 20px) / 4);
+                        flex: 0 0 calc((100% - 3 * 20px) / 4); // même calcul que ci-dessus : 4 cases par ligne
                         box-sizing: border-box;
-                        width: min-content;
+                        width: min-content;   // largeur minimale du contenu (en pratique la "flex-basis" ci-dessus prend le dessus sur "width")
 
                         a {
-                            min-width: 60%;
+                            min-width: 60%;   // le lien (donc le logo) occupe au moins 60% de la largeur de la case
 
                             img {
-                                height: auto;
+                                height: auto; // la hauteur suit les proportions de l'image (évite de la déformer)
                             }
                         }
                     }
                 }
             }
 
+            // -------------------------------------------------------------
+            // SECTION 2 : "Cursus" (parcours scolaire)
+            // -------------------------------------------------------------
             // Présentation du parcours scolaire et universitaire.
+            // Structure HTML : .Cursus > div (une carte par étape) > section (titre) + section (description).
             .Cursus.active {
                 border: none;
                 width: 90%;
 
+                // NB : cette règle est en pratique remplacée par "div section { display: flex }"
+                // plus bas (plus précise), car toutes les <section> de Cursus sont dans un <div>.
                 section {
                     display: grid;
                 }
 
+                // Une carte = une étape du parcours.
                 div {
                     display: flex;
                     flex-direction: column;
 
                     background-color: rgba(22, 22, 29, 0.7);
-                    border: solid white;
+                    border: solid white;     // raccourci : style "continu" + couleur blanche (l'épaisseur est définie juste après)
                     border-width: 1px 2px 2px 1px;
                     border-radius: 10px;
                     box-shadow: 2px 2px 10px #00FFFF;
@@ -386,8 +498,9 @@ html {
 
                     section {
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: space-between; // écarte les éléments : le premier à gauche, le dernier à droite
 
+                        // Les deux titres de la 1re section : intitulé (dégradé) et dates (blanc).
                         h1 {
                             width: max-content;
                             background: linear-gradient(45deg, var(--zinzolin), white);
@@ -396,6 +509,7 @@ html {
                             margin: 10px;
                             font-size: 2rem;
 
+                            // Le dernier <h1> (les dates) : fond blanc uni, donc texte blanc.
                             &:last-child {
                                 background: white;
                                 -webkit-background-clip: text;
@@ -403,14 +517,15 @@ html {
                             }
                         }
 
+                        // 2e section de la carte : le texte descriptif.
                         &:last-child {
                             width: 100%;
                             display: flex;
                             flex-direction: column;
-                            justify-content: start;
+                            justify-content: start;  // aligne le contenu en haut (début de l'axe vertical)
 
                             p {
-                                margin: 0 10px 10px;
+                                margin: 0 10px 10px; // haut 0 | gauche+droite 10px | bas 10px
                                 font-size: 17px;
 
                                 a {
@@ -428,27 +543,36 @@ html {
                 }
             }
 
+            // -------------------------------------------------------------
+            // SECTION 3 : "Projet" (cartes de projets)
+            // -------------------------------------------------------------
             // Grille des projets et cartes de présentation.
+            // Structure HTML : .Projet > div (une carte par projet).
+            // Après exécution de script.js, chaque carte contient : <h1> + <hr> + résumé <p> + bouton
+            // + <section> de détails (cachée ; une COPIE est affichée dans la modale).
             .Projet.active {
                 // Dimensions et bordure de la section.
                 width: 90%;
                 border: none;
 
                 // Organisation des cartes dans la grille.
+                // (Cette règle écrase le "display: grid" de "> section.active" : les cartes sont empilées en colonne.)
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: center;            // centre les cartes horizontalement
                 justify-content: space-between;
 
                 // Dimensions et débordement du contenu.
                 padding: 0 10px 5px 10px;
                 overflow-wrap: break-word;
 
+                // "> div" = seulement les cartes (enfants directs).
                 > div {
                     // Résumé et bouton d'ouverture de la fiche détaillée.
+                    // Ces éléments sont créés par script.js.
                     .project-preview {
-                        align-self: stretch;
-                        line-height: 1.45;
+                        align-self: stretch;  // s'étire sur toute la largeur de la carte (annule le centrage du parent)
+                        line-height: 1.45;    // interligne = 1,45 × la taille de la police (nombre sans unité)
                         text-align: left;
                     }
 
@@ -461,10 +585,12 @@ html {
                         border: 1px solid #00FFFF;
                         border-radius: 5px;
                         box-shadow: 1px 1px 3px #00FFFF;
-                        font: inherit;
-                        cursor: pointer;
+                        font: inherit;        // un <button> n'hérite pas de la police du parent par défaut : on force l'héritage (police, taille...)
+                        cursor: pointer;      // curseur en forme de main
                         transition: transform 0.2s ease, box-shadow 0.2s ease;
 
+                        // Survol à la souris ET navigation au clavier (focus).
+                        // :focus-visible = le focus n'est affiché que lorsqu'il est utile (navigation clavier), pas au simple clic souris.
                         &:hover,
                         &:focus-visible {
                             transform: scale(1.05);
@@ -472,17 +598,20 @@ html {
                         }
 
                         &:hover {
-                            background-color: #008cff;
+                            background-color: #008cff; // bleu vif au survol
                         }
 
                         &:focus-visible {
                             background-color: #008cff;
-                            outline: 2px solid white;
-                            outline-offset: 2px;
+                            outline: 2px solid white;  // contour blanc bien visible pour les utilisateurs du clavier
+                            outline-offset: 2px;       // contour décollé de 2px du bord du bouton
                         }
                     }
                 }
 
+                // ATTENTION : "div" cible ici TOUS les <div> descendants de .Projet
+                // (cartes ET <div> internes aux aside). Les règles du bloc "aside" plus bas
+                // sont là pour réinitialiser ce style sur ces petits <div>.
                 div {
                     // Apparence de la carte.
                     background-color: rgba(22, 22, 29, 0.95);
@@ -492,7 +621,7 @@ html {
                     box-shadow: 2px 2px 10px #00FFFF;
 
                     // Dimensions et débordement du contenu.
-                    padding: 0 10px 10px 10px;
+                    padding: 0 10px 10px 10px; // haut droite bas gauche
                     height: 100%;
                     width: 90%;
                     overflow-wrap: break-word;
@@ -507,6 +636,7 @@ html {
                         margin: 0;
                     }
 
+                    // Titre du projet (dégradé violet → blanc).
                     h1 {
                         margin: 10px 0 15px 0;
                         background: linear-gradient(45deg, var(--zinzolin), white);
@@ -515,6 +645,13 @@ html {
                         font-size: 2rem;
                     }
 
+                    // HYPOTHÈSE (à vérifier) : tout le bloc "section" ci-dessous (et "aside") concerne le contenu
+                    // détaillé du projet. Depuis que script.js cache ce contenu dans la carte
+                    // (hidden + règle ".project-full-details[hidden]" en bas de fichier) et n'en affiche
+                    // qu'une copie dans la modale (hors de <main>), ces règles semblent ne plus avoir d'effet
+                    // visible. Elles ont sans doute été écrites quand les détails s'affichaient directement
+                    // dans la carte. Je les ai laissées intactes ; la mise en page de la modale est
+                    // définie dans ".project-modal-content" plus bas.
                     section {
                         // Description, compétences et informations du projet.
                         display: flex;
@@ -534,8 +671,8 @@ html {
                             }
 
                             ul {
-                                border: dashed 1px white;
-                                padding: 5px 7px 5px 20px;
+                                border: dashed 1px white; // cadre en pointillés
+                                padding: 5px 7px 5px 20px; // 20px à gauche : place pour les puces de la liste
                                 margin: 10px;
                                 display: flex;
                                 flex-direction: column;
@@ -564,25 +701,28 @@ html {
 
                         &:last-child {
                             width: 100%;
-                            justify-content: end;
+                            justify-content: end;     // aligne le contenu à la fin (à droite en ligne)
                         }
 
+                        // Colonne d'informations : nombre de personnes, durée, technologies.
                         aside {
                             display: flex;
                             flex-direction: column;
-                            justify-self: start;
+                            justify-self: start;      // sans effet dans un conteneur flex (propriété prévue pour les grilles)
                             align-items: center;
                             gap: 15px;
-                            width: min-content;
+                            width: min-content;       // aussi étroit que possible : la largeur de son plus long élément
                             margin-top: 20px;
 
+                            // Réinitialisation du style "carte" pour ces petits blocs d'information.
                             div {
                                 flex-direction: column;
                                 border: none;
                                 box-shadow: none;
                                 background: transparent;
 
-                                &:nth-child(2) {
+                                // 2e bloc (durée) : petit espace entre l'icône et le texte.
+                                &:nth-child(2) {   // :nth-child(2) = le 2e enfant de son parent
                                     gap: 5px;
                                 }
 
@@ -607,7 +747,11 @@ html {
             }
         }
 
+        // -------------------------------------------------------------
+        // PIED DE PAGE
+        // -------------------------------------------------------------
         // Coordonnées et liens de contact.
+        // Structure HTML : footer > section (contact) + section (crédits et logos de réseaux).
         footer {
             padding: 0 15px;
             margin: 0;
@@ -621,6 +765,7 @@ html {
             section {
                 display: flex;
 
+                // 1re section : "Me contacter" et liste d'e-mails.
                 &:first-child {
                     height: max-content;
                     align-items: center;
@@ -653,10 +798,11 @@ html {
                     }
                 }
 
+                // 2e section : crédits, copyright et logos LinkedIn / GitHub.
                 &:last-child {
                     justify-content: space-between;
                     align-items: center;
-                    height: 40%;
+                    height: 40%;       // 40% de la hauteur du parent (le footer n'ayant pas de hauteur fixe, l'effet est limité)
                     gap: 15px;
                     margin: 5px 0;
 
@@ -667,6 +813,7 @@ html {
                             color: white;
                             font-style: italic;
 
+                            // Logos de réseaux sociaux sur fond blanc (pour être lisibles sur le fond sombre).
                             img {
                                 width: 50px;
                                 background-color: white;
@@ -678,6 +825,7 @@ html {
                             }
                         }
 
+                        // Dernier paragraphe : contient les deux logos, alignés côte à côte.
                         &:last-child {
                             text-decoration: none;
                             display: flex;
@@ -696,6 +844,16 @@ html {
     }
 }
 
+
+// =====================================================================
+// 3. ADAPTATION AUX PETITS ÉCRANS (responsive)
+// =====================================================================
+// "@media (max-width: X)" : les règles qui suivent ne s'appliquent QUE
+// si la fenêtre fait X pixels de large ou moins. Elles sont écrites APRÈS
+// les règles principales pour pouvoir les écraser à précision égale.
+// =====================================================================
+
+// Écrans de 1000px de large ou moins (tablettes, petits ordinateurs).
 @media (max-width: 1000px) {
     // Adaptation des grilles et cartes aux écrans intermédiaires.
     html {
@@ -703,7 +861,7 @@ html {
             header {
                 nav {
                     ul {
-                        width: 50%;
+                        width: 50%;     // la barre de navigation s'élargit (40% → 50%)
                         gap: 10px;
 
                         li {
@@ -711,7 +869,7 @@ html {
                             padding: 5px;
 
                             a {
-                                font-size: 75%;
+                                font-size: 75%;  // 75% de la taille du parent
 
                                 img {
                                     width: 50px;
@@ -730,6 +888,7 @@ html {
     }
 }
 
+// Écrans de 768px de large ou moins (téléphones et petites tablettes).
 @media (max-width: 768px) {
     // Navigation, sections et cartes adaptées aux petits écrans.
     html {
@@ -737,11 +896,11 @@ html {
             header {
                 nav {
                     ul {
-                        width: 100%;
+                        width: 100%;    // la barre prend toute la largeur
                         gap: 10px;
 
                         li {
-                            width: 30%;
+                            width: 30%; // chaque bouton prend 30% de la largeur de la barre
                             padding: 5px;
 
                             a {
@@ -782,6 +941,7 @@ html {
             }
 
             main {
+                // Section "À propos" sur mobile.
                 .WhoIAm.active {
                     grid-template-columns: 1fr;
 
@@ -806,27 +966,30 @@ html {
                         }
 
                         &:last-child {
-                            grid-column: 1 / -1;
+                            grid-column: 1 / -1; // le dernier <div> occupe toute la largeur de la grille
                         }
                     }
 
+                    // Sur mobile : 2 logos de langages par ligne.
                     .competenceTechnique {
                         display: flex;
                         gap: 20px;
 
                         div {
-                            flex: 0 0 calc((100% - 1 * 20px) / 2);
+                            flex: 0 0 calc((100% - 1 * 20px) / 2); // 2 cases par ligne : (largeur - 1 espace de 20px) ÷ 2
                         }
                     }
 
+                    // Sur mobile : 3 logos d'outils par ligne.
                     .outils {
                         div {
-                            flex: 0 0 calc((100% - 2 * 20px) / 3);
+                            flex: 0 0 calc((100% - 2 * 20px) / 3); // 3 cases par ligne : (largeur - 2 espaces de 20px) ÷ 3
                             box-sizing: border-box;
                         }
                     }
                 }
 
+                // Section "Cursus" sur mobile : intitulé et dates s'empilent au lieu d'être côte à côte.
                 .Cursus.active {
                     div {
                         section {
@@ -838,7 +1001,7 @@ html {
                                     margin: 10px 10px 0 10px;
                                 }
 
-                                &:nth-child(2) {
+                                &:nth-child(2) {   // le 2e <h1> de la section (les dates)
                                     margin: 0 10px 15px 10px;
                                     font-size: 1.7rem;
                                 }
@@ -847,9 +1010,10 @@ html {
                     }
                 }
 
+                // Section "Projet" sur mobile.
                 .Projet.active {
-                    grid-template-columns: 1fr;
-
+                    // (Comme plus haut : ces règles visent le contenu détaillé des cartes,
+                    // aujourd'hui caché ; voir l'hypothèse dans le bloc "section" du .Projet.active principal.)
                     div {
                         section {
                             section {
@@ -857,7 +1021,7 @@ html {
 
                                 section {
                                     width: 100%;
-                                    min-width: 0;
+                                    min-width: 0;  // autorise un élément flex à rétrécir en dessous de la taille de son contenu (évite les débordements)
 
                                     ul {
                                         width: 100%;
@@ -869,7 +1033,7 @@ html {
                                             .competence-link {
                                                 display: inline-block;
                                                 line-height: 1.4;
-                                                vertical-align: top;
+                                                vertical-align: top;   // aligne le haut de l'élément avec le haut de la ligne de texte
                                             }
                                         }
                                     }
@@ -878,12 +1042,9 @@ html {
                         }
                     }
                 }
-
-                .Competences.active {
-                    grid-template-columns: 1fr;
-                }
             }
 
+            // Pied de page sur mobile : les deux blocs s'empilent.
             footer {
                 height: max-content;
 
@@ -903,25 +1064,39 @@ html {
     }
 }
 
+
+// =====================================================================
+// 4. FENÊTRES MODALES (projets et compétences)
+// =====================================================================
+// Les modales sont des <div> placés EN DEHORS de <main>, à la fin du <body>.
+// Structure : .modal-overlay (fond sombre) > .modal-box (la fenêtre) > bouton ✕ + titre + contenu.
+
 // Fenêtre modale partagée par les détails des projets et des compétences.
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.50);
+    position: fixed;       // collée à l'écran, par-dessus la page
+    inset: 0;              // top/right/bottom/left à 0 → couvre l'écran (voir la NOTE sur "width" plus bas)
+    background: rgba(0, 0, 0, 0.50); // fond noir à 50% d'opacité : assombrit la page derrière
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
+    align-items: center;       // centre la fenêtre verticalement
+    justify-content: center;   // et horizontalement
+    overflow-y: auto;          // barre de défilement verticale si le contenu est trop grand pour l'écran
     padding: 1rem;
     box-sizing: border-box;
-    z-index: 9999;
+    z-index: 9999;             // passe devant absolument tout (la nav flottante est à 1000)
+    // NOTE (à vérifier visuellement) : avec "position: fixed" + "inset: 0", une largeur de 90%
+    // peut empêcher le fond sombre de couvrir les 10% de droite de l'écran. Si tu vois une bande non
+    // assombrie à droite, supprimer ces deux lignes est la piste à tester.
     width: 90%;
-    justify-self: center;
+    justify-self: center;      // pensée pour les grilles ; n'a a priori pas d'effet sur un élément en "position: fixed"
 
+    // Classe ajoutée/retirée par script.js pour afficher/cacher la modale.
+    // "!important" force la règle même si une autre plus précise voudrait un autre "display"
+    // (ici, le "display: flex" juste au-dessus).
     &.hidden {
         display: none !important;
     }
 
+    // La fenêtre elle-même (petite modale des compétences par défaut).
     .modal-box {
         background-color: rgb(22, 22, 29);
         border-radius: 12px;
@@ -929,10 +1104,10 @@ html {
         padding: 2rem;
         max-width: 480px;
         width: 90%;
-        max-height: calc(100vh - 2rem);
-        overflow-y: auto;
+        max-height: calc(100vh - 2rem); // 100vh = 100% de la hauteur de la fenêtre ; on retire 2rem pour garder une marge
+        overflow-y: auto;               // si le contenu dépasse, on défile À L'INTÉRIEUR de la fenêtre
         box-sizing: border-box;
-        position: relative;
+        position: relative;             // repère pour positionner le bouton ✕ (en "absolute") par rapport à la fenêtre
 
         h2 {
             margin-bottom: 1rem;
@@ -946,25 +1121,31 @@ html {
         }
     }
 
+    // Variante plus large pour les projets (s'ajoute à .modal-box : <div class="modal-box project-modal-box">).
     .project-modal-box {
-        width: min(1100px, 100%);
+        width: min(1100px, 100%); // min() prend la PLUS PETITE des deux valeurs : 1100px sur grand écran, 100% sur petit écran
         max-width: 1100px;
 
+        // Le titre est masqué VISUELLEMENT (le titre est déjà dans la carte) mais reste
+        // lisible par les lecteurs d'écran (utilisé par aria-labelledby dans le HTML).
+        // On ne peut pas utiliser display:none car l'élément disparaîtrait aussi pour eux.
+        // C'est la technique classique du "visually hidden".
         > h2 {
             position: absolute;
             width: 1px;
             height: 1px;
             padding: 0;
-            margin: -1px;
+            margin: -1px;                 // le décale hors de sa place pour qu'il ne prenne aucune place visible
             overflow: hidden;
-            clip: rect(0, 0, 0, 0);
+            clip: rect(0, 0, 0, 0);       // découpe l'élément à une zone vide : plus rien n'est affiché
             white-space: nowrap;
             border: 0;
         }
     }
 
+    // Bouton ✕ en haut à droite de la fenêtre.
     .modal-close {
-        position: absolute;
+        position: absolute;    // positionné par rapport à .modal-box (qui est en "position: relative")
         top: 0.75rem;
         right: 0.75rem;
         background: none;
@@ -976,27 +1157,31 @@ html {
 }
 
 // Mise en page détaillée d'un projet affiché dans sa fenêtre modale.
+// Ces règles s'appliquent à la COPIE des détails que script.js insère dans #ProjectModalContent.
+// Structure copiée : .project-full-details > section > (section Description + section Compétences) + aside.
 .project-modal-content {
     .project-full-details {
-        display: flex;
+        display: flex;       // colonnes : [Description | Compétences] puis [aside d'infos], côte à côte
         align-items: start;
         gap: 1.5rem;
         width: 100%;
         height: auto;
-        min-width: 0;
+        min-width: 0;        // autorise le rétrécissement (évite les débordements dans un conteneur flex)
 
+        // Bloc "Description + Compétences".
         > section {
             display: flex;
             align-items: start;
             gap: 1.5rem;
-            flex: 1 1 0;
+            flex: 1 1 0;     // flex-grow 1 | flex-shrink 1 | flex-basis 0 → prend tout l'espace restant (après l'aside)
             width: auto;
             height: auto;
             min-width: 0;
 
+            // Chaque colonne (Description, Compétences).
             > section {
                 display: block;
-                flex: 1 1 0;
+                flex: 1 1 0; // les deux colonnes se partagent l'espace à parts égales
                 min-width: 0;
                 width: auto;
                 height: auto;
@@ -1005,22 +1190,22 @@ html {
                     margin: 0 0 0.75rem;
                     text-align: left;
                     color: white;
-                    background: none;
-                    -webkit-text-fill-color: white;
+                    background: none;                 // annule le dégradé du style général ".modal-box h2"
+                    -webkit-text-fill-color: white;   // annule la transparence du texte (nécessaire pour que le blanc s'affiche)
                 }
 
                 p {
                     margin: 0;
-                    border: 1px dashed rgba(255, 255, 255, 0.65);
+                    border: 1px dashed rgba(255, 255, 255, 0.65); // cadre en pointillés, blanc à 65% d'opacité
                     padding: 0.75rem;
                     line-height: 1.5;
-                    overflow-wrap: anywhere;
+                    overflow-wrap: anywhere; // coupe n'importe où si besoin (plus agressif que "break-word")
                 }
 
                 ul {
                     display: flex;
                     flex-direction: column;
-                    align-items: stretch;
+                    align-items: stretch;    // les <li> prennent toute la largeur de la liste
                     gap: 0.15rem;
                     margin: 0;
                     padding: 0.75rem 0.75rem 0.75rem 2rem;
@@ -1029,17 +1214,19 @@ html {
             }
         }
 
+        // Colonne d'informations à droite (personnes, durée, technologies).
         aside {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            flex: 0 0 auto;
-            width: fit-content;
+            flex: 0 0 auto;        // ne s'agrandit pas, ne rétrécit pas, largeur selon le contenu
+            width: fit-content;    // largeur ajustée au contenu, sans dépasser l'espace disponible
             max-width: 220px;
             min-width: 0;
             margin: 0;
 
+            // Chaque petit bloc d'information (on retire ici le style "carte").
             > div {
                 display: flex;
                 flex-direction: column;
@@ -1055,11 +1242,11 @@ html {
                 background: transparent;
 
                 img {
-                    display: block;
+                    display: block;        // supprime le petit espace sous une image (une image est "inline" par défaut)
                     width: 64px;
                     max-width: 100%;
                     height: 64px;
-                    object-fit: contain;
+                    object-fit: contain;   // l'image garde ses proportions dans la zone 64×64 (sans être rognée ni déformée)
                 }
 
                 p {
@@ -1078,6 +1265,7 @@ html {
             }
         }
 
+        // Liens dans les détails : blancs et en italique, même une fois visités.
         a {
             color: white;
             font-style: italic;
@@ -1089,9 +1277,11 @@ html {
     }
 }
 
+// Modale des compétences : un peu plus étroite que celle des projets.
+// "#CompetenceModal" = sélecteur d'id (très précis, il l'emporte sur les règles de classes).
 #CompetenceModal {
     .modal-box {
-        width: min(480px, 100%);
+        width: min(480px, 100%); // 480px au maximum, ou 100% si l'écran est plus petit
 
         ul {
             padding-left: 1.5rem;
@@ -1104,6 +1294,7 @@ html {
     }
 }
 
+// Écrans de 700px de large ou moins.
 @media (max-width: 700px) {
     // Passage des fenêtres modales en une seule colonne sur mobile.
     .modal-overlay {
@@ -1122,7 +1313,7 @@ html {
 
     .project-modal-content {
         .project-full-details {
-            flex-direction: column;
+            flex-direction: column;   // les blocs s'empilent verticalement
             gap: 1.25rem;
 
             > section {
@@ -1130,13 +1321,15 @@ html {
                 gap: 1.25rem;
             }
 
+            // Les informations passent en grille de 2 colonnes.
             aside {
                 display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr)); // 2 colonnes égales ; minmax(0, 1fr) autorise une colonne à être plus étroite que son contenu (évite les débordements)
                 align-items: start;
 
+                // Le dernier bloc (technologies) occupe toute la largeur, centré.
                 > div:last-child {
-                    grid-column: 1 / -1;
+                    grid-column: 1 / -1;       // de la première à la dernière colonne
                     justify-self: center;
                     width: min(100%, 260px);
                 }
@@ -1145,20 +1338,29 @@ html {
     }
 }
 
+
+// =====================================================================
+// 5. ÉLÉMENTS GÉNÉRAUX
+// =====================================================================
+
+// Détails d'un projet masqués dans la carte (attribut HTML "hidden", posé par script.js).
+// Pourquoi cette règle ? Les règles "display: flex" écrites plus haut ont une priorité plus forte
+// que le style par défaut du navigateur pour [hidden] ; sans "!important" l'élément resterait affiché.
 .project-full-details[hidden] {
     display: none !important;
 }
 
+// Boutons de compétence : un <button> stylé pour ressembler à un lien.
 .competence-link {
-    background: none;
+    background: none;        // retire le fond gris des boutons
     border: none;
     padding: 0;
-    font: inherit;
-    color: inherit;
+    font: inherit;           // reprend la police du texte environnant
+    color: inherit;          // reprend la couleur du texte environnant
     cursor: pointer;
     font-style: italic;
     text-decoration: underline;
-    text-align: start;
+    text-align: start;       // "start" = alignement au début de la ligne (gauche en français, s'adapte aux langues écrites de droite à gauche)
 
     &:hover {
         color: white;

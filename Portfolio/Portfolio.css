@@ -199,7 +199,7 @@ html body main .WhoIAm.active div {
   text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: rgba(22, 22, 29, 0.8);
+  background-color: rgba(22, 22, 29, 0.9);
   border: solid;
   border-width: 1px 2px 2px 1px;
   border-radius: 10px;
@@ -652,9 +652,6 @@ html body footer section:last-child p:last-child a {
     margin: 0 10px 15px 10px;
     font-size: 1.7rem;
   }
-  html body main .Projet.active {
-    grid-template-columns: 1fr;
-  }
   html body main .Projet.active div section section {
     padding: 0 10px;
   }
@@ -673,9 +670,6 @@ html body footer section:last-child p:last-child a {
     display: inline-block;
     line-height: 1.4;
     vertical-align: top;
-  }
-  html body main .Competences.active {
-    grid-template-columns: 1fr;
   }
   html body footer {
     height: max-content;
