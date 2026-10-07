@@ -106,16 +106,6 @@ html {
                     padding: 5px;
                     list-style: none;                // supprime les puces de la liste
 
-                    // Classe prévue pour retirer le cadre autour d'un logo.
-                    // (Dans le HTML actuel, aucun <li> de l'en-tête n'a cette classe : c'est
-                    // le ":first-child" plus bas qui fait ce travail. Cette règle ne s'applique donc
-                    // ici à rien, mais la même existe pour la navigation flottante.)
-                    .logo-accueil {
-                        border: none;
-                        box-shadow: none;
-                        background-color: transparent;
-                    }
-
                     // Chaque bouton de la barre (Logo, Cursus, Projets).
                     li {
                         background-color: #16161d;                 // gris très foncé
@@ -167,13 +157,6 @@ html {
                         }
                     }
                 }
-            }
-
-            // Titre éventuel dans l'en-tête (pas présent dans le HTML actuel).
-            h1 {
-                margin: 0;
-                text-align: center;
-                font-size: 2rem; // 1rem = taille de police de base de la page (souvent 16px) → 2rem = environ 32px
             }
         }
 
@@ -477,12 +460,6 @@ html {
                 border: none;
                 width: 90%;
 
-                // NB : cette règle est en pratique remplacée par "div section { display: flex }"
-                // plus bas (plus précise), car toutes les <section> de Cursus sont dans un <div>.
-                section {
-                    display: grid;
-                }
-
                 // Une carte = une étape du parcours.
                 div {
                     display: flex;
@@ -708,7 +685,6 @@ html {
                         aside {
                             display: flex;
                             flex-direction: column;
-                            justify-self: start;      // sans effet dans un conteneur flex (propriété prévue pour les grilles)
                             align-items: center;
                             gap: 15px;
                             width: min-content;       // aussi étroit que possible : la largeur de son plus long élément
@@ -1361,8 +1337,4 @@ html {
     font-style: italic;
     text-decoration: underline;
     text-align: start;       // "start" = alignement au début de la ligne (gauche en français, s'adapte aux langues écrites de droite à gauche)
-
-    &:hover {
-        color: white;
-    }
 }

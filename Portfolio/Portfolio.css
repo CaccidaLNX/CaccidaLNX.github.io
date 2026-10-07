@@ -40,11 +40,6 @@ html body header nav ul {
   padding: 5px;
   list-style: none;
 }
-html body header nav ul .logo-accueil {
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-}
 html body header nav ul li {
   background-color: #16161d;
   border: solid;
@@ -82,11 +77,6 @@ html body header nav ul li a.active {
   background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-html body header h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 2rem;
 }
 html body .FloatingNav {
   position: fixed;
@@ -306,9 +296,6 @@ html body main .Cursus.active {
   border: none;
   width: 90%;
 }
-html body main .Cursus.active section {
-  display: grid;
-}
 html body main .Cursus.active div {
   display: flex;
   flex-direction: column;
@@ -466,7 +453,6 @@ html body main .Projet.active div section:last-child {
 html body main .Projet.active div section aside {
   display: flex;
   flex-direction: column;
-  justify-self: start;
   align-items: center;
   gap: 15px;
   width: min-content;
@@ -902,9 +888,6 @@ html body footer section:last-child p:last-child a {
   font-style: italic;
   text-decoration: underline;
   text-align: start;
-}
-.competence-link:hover {
-  color: white;
 }
 
 /*# sourceMappingURL=Portfolio.css.map */
