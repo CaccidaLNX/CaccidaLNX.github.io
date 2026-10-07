@@ -278,11 +278,14 @@ html {
                 transform: translate(100%); // une seule valeur = décalage horizontal uniquement : la section est poussée de 100% de sa largeur vers la droite
                 opacity: 0;           // invisible
                 pointer-events: none; // ne capte pas la souris (on ne peut pas cliquer sur du contenu invisible)
+                visibility: hidden; // cache aussi l'élément au clavier (Tab) et aux lecteurs d'écran (opacity: 0 seul ne le fait pas)
 
                 transition: transform 0.5s ease; // seul le déplacement est animé (0,5s), pas l'opacité
 
                 // État affiché = classe "active".
                 &.active {
+                    visibility: visible; // la section active redevient accessible
+
                     display: grid;        // la section devient une grille (les enfants s'empilent avec un espacement régulier)
                     position: relative;   // revient dans le flux normal : la section reprend sa place et sa hauteur
                     top: 0;
@@ -307,6 +310,7 @@ html {
                 display: grid;
                 grid-template-columns: 1fr; // une seule colonne ; "fr" = fraction de l'espace disponible, 1fr = tout l'espace
                 column-gap: 0;              // pas d'espace horizontal entre colonnes (une seule colonne de toute façon)
+                width: 90%;
 
                 // ATTENTION : "div" cible TOUS les <div> descendants (aPropos, titres, et
                 // aussi chaque case de logo dans les grilles). Chacun devient une "carte".
@@ -326,7 +330,6 @@ html {
 
                     // Dimensions et comportement du contenu.
                     padding: 10px;
-                    width: 67%;
                     max-width: 80%;
                     overflow-wrap: break-word; // un mot trop long est coupé pour ne pas dépasser de la carte
                     justify-self: center;      // centre la carte dans sa cellule de grille
@@ -345,7 +348,7 @@ html {
 
                     p {
                         font-size: larger;         // mot-clé : un cran au-dessus de la taille du parent
-                        margin: 10px 10%;          // 10px en haut/bas ; 10% (de la largeur du parent) à gauche/droite
+                        margin: 10px 9%;          // 10px en haut/bas ; 10% (de la largeur du parent) à gauche/droite
 
                         a {
                             color: white;

@@ -162,9 +162,11 @@ html body main > section {
   transform: translate(100%);
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transition: transform 0.5s ease;
 }
 html body main > section.active {
+  visibility: visible;
   display: grid;
   position: relative;
   top: 0;
@@ -182,6 +184,7 @@ html body main .WhoIAm.active {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 0;
+  width: 90%;
 }
 html body main .WhoIAm.active div {
   display: flex;
@@ -195,7 +198,6 @@ html body main .WhoIAm.active div {
   border-radius: 10px;
   box-shadow: 2px 2px 10px #00FFFF;
   padding: 10px;
-  width: 67%;
   max-width: 80%;
   overflow-wrap: break-word;
   justify-self: center;
@@ -211,7 +213,7 @@ html body main .WhoIAm.active div a:hover {
 }
 html body main .WhoIAm.active div p {
   font-size: larger;
-  margin: 10px 10%;
+  margin: 10px 9%;
 }
 html body main .WhoIAm.active div p a {
   color: white;
