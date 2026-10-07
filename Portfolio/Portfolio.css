@@ -292,7 +292,7 @@ html body main .WhoIAm.active .outils {
   gap: 20px;
 }
 html body main .WhoIAm.active .outils div {
-  flex: 0 0 calc((100% - 40px) / 3);
+  flex: 0 0 calc((100% - 60px) / 4);
   box-sizing: border-box;
   width: min-content;
 }
