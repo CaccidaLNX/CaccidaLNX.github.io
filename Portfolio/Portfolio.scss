@@ -407,7 +407,7 @@ html {
                         // Calcul de la largeur d'une case pour en avoir 4 par ligne :
                         //   100% = largeur du conteneur ; "3 * 20px" = 3 espaces entre 4 cases ; on divise le reste par 4.
                         // flex: 0 0 X  =  flex-grow 0 (ne s'agrandit pas) | flex-shrink 0 (ne rétrécit pas) | flex-basis X (largeur de départ).
-                        flex: 0 0 calc((100% - 3 * 20px) / 4); // 4 cases par ligne : (largeur - 3 espaces de 20px) ÷ 4
+                        flex: 0 0 calc((100% - 4 * 20px) / 5); // 4 cases par ligne : (largeur - 3 espaces de 20px) ÷ 4
                         box-sizing: border-box; // le padding et la bordure sont inclus DANS la largeur calculée (sinon la 4e case passerait à la ligne)
                     }
                 }
@@ -603,7 +603,7 @@ html {
                     // Dimensions et débordement du contenu.
                     padding: 0 10px 10px 10px; // haut droite bas gauche
                     height: 100%;
-                    width: 90%;
+                    width: 80%;
                     overflow-wrap: break-word;
 
                     // Organisation du contenu de la carte.
@@ -614,6 +614,8 @@ html {
                     hr {
                         width: 100%;
                         margin: 0;
+                        color: white;
+                        border-width: 0 1px 1px 1px;
                     }
 
                     // Titre du projet (dégradé violet → blanc).
@@ -863,6 +865,16 @@ html {
                     }
                 }
             }
+
+            main{
+                .WhoIAm.active {
+                    .competenceTechnique {
+                        div {
+                            flex: 0 0 calc((100% - 3 * 20px) / 4); // 2 cases par ligne : (largeur - 1 espace de 20px) ÷ 2
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -955,7 +967,7 @@ html {
                         gap: 20px;
 
                         div {
-                            flex: 0 0 calc((100% - 1 * 20px) / 2); // 2 cases par ligne : (largeur - 1 espace de 20px) ÷ 2
+                            flex: 0 0 calc((100% - 2 * 20px) / 3); // 2 cases par ligne : (largeur - 1 espace de 20px) ÷ 2
                         }
                     }
 

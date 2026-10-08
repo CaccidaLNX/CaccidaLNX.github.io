@@ -258,7 +258,7 @@ html body main .WhoIAm.active .competenceTechnique {
   gap: 20px;
 }
 html body main .WhoIAm.active .competenceTechnique div {
-  flex: 0 0 calc((100% - 60px) / 4);
+  flex: 0 0 calc((100% - 80px) / 5);
   box-sizing: border-box;
 }
 html body main .WhoIAm.active .outilsUtilises {
@@ -392,7 +392,7 @@ html body main .Projet.active div {
   box-shadow: 2px 2px 10px #00FFFF;
   padding: 0 10px 10px 10px;
   height: 100%;
-  width: 90%;
+  width: 80%;
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
@@ -401,6 +401,8 @@ html body main .Projet.active div {
 html body main .Projet.active div hr {
   width: 100%;
   margin: 0;
+  color: white;
+  border-width: 0 1px 1px 1px;
 }
 html body main .Projet.active div h1 {
   margin: 10px 0 15px 0;
@@ -569,6 +571,9 @@ html body footer section:last-child p:last-child a {
   html body header nav ul li:last-child {
     margin-right: 5px;
   }
+  html body main .WhoIAm.active .competenceTechnique div {
+    flex: 0 0 calc((100% - 60px) / 4);
+  }
 }
 @media (max-width: 768px) {
   html body header nav ul {
@@ -623,7 +628,7 @@ html body footer section:last-child p:last-child a {
     gap: 20px;
   }
   html body main .WhoIAm.active .competenceTechnique div {
-    flex: 0 0 calc((100% - 20px) / 2);
+    flex: 0 0 calc((100% - 40px) / 3);
   }
   html body main .WhoIAm.active .outils div {
     flex: 0 0 calc((100% - 40px) / 3);
