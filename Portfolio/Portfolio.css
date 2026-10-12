@@ -297,8 +297,15 @@ html body main .WhoIAm.active .outils div a img {
 html body main .Cursus.active {
   border: none;
   width: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-html body main .Cursus.active div {
+html body main .Cursus.active > section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+html body main .Cursus.active > section div {
   display: flex;
   flex-direction: column;
   background-color: rgba(22, 22, 29, 0.7);
@@ -309,11 +316,11 @@ html body main .Cursus.active div {
   padding: 10px;
   overflow-wrap: break-word;
 }
-html body main .Cursus.active div section {
+html body main .Cursus.active > section div section {
   display: flex;
   justify-content: space-between;
 }
-html body main .Cursus.active div section h1 {
+html body main .Cursus.active > section div section h1 {
   width: max-content;
   background: linear-gradient(45deg, var(--zinzolin), white);
   -webkit-background-clip: text;
@@ -321,28 +328,72 @@ html body main .Cursus.active div section h1 {
   margin: 10px;
   font-size: 2rem;
 }
-html body main .Cursus.active div section h1:last-child {
+html body main .Cursus.active > section div section h1:last-child {
   background: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-html body main .Cursus.active div section:last-child {
+html body main .Cursus.active > section div section:last-child {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
-html body main .Cursus.active div section:last-child p {
+html body main .Cursus.active > section div section:last-child p {
   margin: 0 10px 10px;
   font-size: 17px;
 }
-html body main .Cursus.active div section:last-child p a {
+html body main .Cursus.active > section div section:last-child p a {
   color: white;
   font-style: italic;
 }
-html body main .Cursus.active div section:last-child p a:visited {
+html body main .Cursus.active > section div section:last-child p a:visited {
   color: white;
   font-style: italic;
+}
+html body main .Cursus.active > section .ParcoursTitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: none;
+  grid-column: 1/-1;
+  justify-self: center;
+  padding: 0 20px;
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+}
+html body main .Cursus.active > section .ParcoursTitle h1 {
+  margin: 5px 7px;
+  font-size: 35px;
+  background: linear-gradient(45deg, var(--zinzolin), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+> html body main .Cursus.active > section .ParcoursTitle h1:last-child {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html body main .Cursus.active > section .StageTitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: none;
+  grid-column: 1/-1;
+  justify-self: center;
+  padding: 0 20px;
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+}
+html body main .Cursus.active > section .StageTitle h1 {
+  margin: 5px 7px;
+  font-size: 35px;
+  background: linear-gradient(45deg, var(--zinzolin), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+> html body main .Cursus.active > section .StageTitle h1:last-child {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .Projet.active {
   width: 90%;
@@ -573,6 +624,13 @@ html body footer section:last-child p:last-child a {
   }
   html body main .WhoIAm.active .competenceTechnique div {
     flex: 0 0 calc((100% - 60px) / 4);
+  }
+  html body main .Cursus.active {
+    display: flex;
+    flex-direction: column;
+  }
+  html body main .Cursus.active h1 {
+    margin: 0;
   }
 }
 @media (max-width: 768px) {

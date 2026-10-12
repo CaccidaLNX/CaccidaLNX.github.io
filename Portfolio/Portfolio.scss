@@ -462,61 +462,121 @@ html {
             .Cursus.active {
                 border: none;
                 width: 90%;
+                display: grid;
+                grid-template-columns: 1fr;
 
-                // Une carte = une étape du parcours.
-                div {
+                > section {
                     display: flex;
                     flex-direction: column;
+                    gap: 25px;
 
-                    background-color: rgba(22, 22, 29, 0.7);
-                    border: solid white;     // raccourci : style "continu" + couleur blanche (l'épaisseur est définie juste après)
-                    border-width: 1px 2px 2px 1px;
-                    border-radius: 10px;
-                    box-shadow: 2px 2px 10px #00FFFF;
-                    padding: 10px;
-                    overflow-wrap: break-word;
-
-                    section {
+                    // Une carte = une étape du parcours.
+                    div {
                         display: flex;
-                        justify-content: space-between; // écarte les éléments : le premier à gauche, le dernier à droite
+                        flex-direction: column;
 
-                        // Les deux titres de la 1re section : intitulé (dégradé) et dates (blanc).
+                        background-color: rgba(22, 22, 29, 0.7);
+                        border: solid white; // raccourci : style "continu" + couleur blanche (l'épaisseur est définie juste après)
+                        border-width: 1px 2px 2px 1px;
+                        border-radius: 10px;
+                        box-shadow: 2px 2px 10px #00FFFF;
+                        padding: 10px;
+                        overflow-wrap: break-word;
+
+                        section {
+                            display: flex;
+                            justify-content: space-between; // écarte les éléments : le premier à gauche, le dernier à droite
+
+                            // Les deux titres de la 1re section : intitulé (dégradé) et dates (blanc).
+                            h1 {
+                                width: max-content;
+                                background: linear-gradient(45deg, var(--zinzolin), white);
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                margin: 10px;
+                                font-size: 2rem;
+
+                                // Le dernier <h1> (les dates) : fond blanc uni, donc texte blanc.
+                                &:last-child {
+                                    background: white;
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                }
+                            }
+
+                            // 2e section de la carte : le texte descriptif.
+                            &:last-child {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: start; // aligne le contenu en haut (début de l'axe vertical)
+
+                                p {
+                                    margin: 0 10px 10px; // haut 0 | gauche+droite 10px | bas 10px
+                                    font-size: 17px;
+
+                                    a {
+                                        color: white;
+                                        font-style: italic;
+
+                                        &:visited {
+                                            color: white;
+                                            font-style: italic;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .ParcoursTitle {
+                        background-color: rgba(0, 0, 0, 0.7);
+                        box-shadow: none;
+                        grid-column: 1/-1;       // occupe toute la largeur de la grille (même chose que "1 / -1")
+                        justify-self: center;
+                        padding: 0 20px;
+                        margin-top: 10px;
+                        width: fit-content;      // annule le "width: 67%" hérité de la règle générale "div" : la largeur s'adapte au texte
+                        align-self: center;
+
                         h1 {
-                            width: max-content;
+                            margin: 5px 7px;
+                            font-size: 35px;
                             background: linear-gradient(45deg, var(--zinzolin), white);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
-                            margin: 10px;
-                            font-size: 2rem;
 
                             // Le dernier <h1> (les dates) : fond blanc uni, donc texte blanc.
-                            &:last-child {
+                            > &:last-child {
                                 background: white;
                                 -webkit-background-clip: text;
                                 -webkit-text-fill-color: transparent;
                             }
                         }
+                    }
 
-                        // 2e section de la carte : le texte descriptif.
-                        &:last-child {
-                            width: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: start;  // aligne le contenu en haut (début de l'axe vertical)
+                    .StageTitle {
+                        background-color: rgba(0, 0, 0, 0.7);
+                        box-shadow: none;
+                        grid-column: 1/-1;       // occupe toute la largeur de la grille (même chose que "1 / -1")
+                        justify-self: center;
+                        padding: 0 20px;
+                        margin-top: 10px;
+                        width: fit-content;      // annule le "width: 67%" hérité de la règle générale "div" : la largeur s'adapte au texte
+                        align-self: center;
 
-                            p {
-                                margin: 0 10px 10px; // haut 0 | gauche+droite 10px | bas 10px
-                                font-size: 17px;
+                        h1 {
+                            margin: 5px 7px;
+                            font-size: 35px;
+                            background: linear-gradient(45deg, var(--zinzolin), white);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
 
-                                a {
-                                    color: white;
-                                    font-style: italic;
-
-                                    &:visited {
-                                        color: white;
-                                        font-style: italic;
-                                    }
-                                }
+                            // Le dernier <h1> (les dates) : fond blanc uni, donc texte blanc.
+                            > &:last-child {
+                                background: white;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
                             }
                         }
                     }
@@ -872,6 +932,16 @@ html {
                         div {
                             flex: 0 0 calc((100% - 3 * 20px) / 4); // 2 cases par ligne : (largeur - 1 espace de 20px) ÷ 2
                         }
+                    }
+                }
+            }
+            main {
+                .Cursus.active {
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        margin: 0;
                     }
                 }
             }
