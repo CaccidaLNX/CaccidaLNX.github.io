@@ -535,7 +535,7 @@ html {
                         grid-column: 1/-1;       // occupe toute la largeur de la grille (même chose que "1 / -1")
                         justify-self: center;
                         padding: 0 20px;
-                        margin-top: 10px;
+                        margin: 0;
                         width: fit-content;      // annule le "width: 67%" hérité de la règle générale "div" : la largeur s'adapte au texte
                         align-self: center;
 

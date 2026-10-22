@@ -357,7 +357,7 @@ html body main .Cursus.active > section .ParcoursTitle {
   grid-column: 1/-1;
   justify-self: center;
   padding: 0 20px;
-  margin-top: 10px;
+  margin: 0;
   width: fit-content;
   align-self: center;
 }
