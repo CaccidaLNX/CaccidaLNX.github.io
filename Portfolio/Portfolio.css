@@ -45,7 +45,6 @@ html body header nav ul li {
   border: solid;
   border-width: 1px 2px 2px 1px;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px;
   font-size: 30px;
   align-self: center;
@@ -54,7 +53,6 @@ html body header nav ul li {
 }
 html body header nav ul li:hover {
   transform: scale(1.1);
-  box-shadow: 1px 1px 3px #00FFFF;
 }
 html body header nav ul li:first-child {
   box-shadow: none;
@@ -116,7 +114,6 @@ html body .FloatingNav ul li {
   border: solid;
   border-width: 1px 2px 2px 1px;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px #00FFFF;
   padding: 4px 10px;
   font-size: 22px;
   height: max-content;
@@ -125,7 +122,6 @@ html body .FloatingNav ul li {
 }
 html body .FloatingNav ul li:hover {
   transform: scale(1.08);
-  box-shadow: 1px 1px 3px #00FFFF;
 }
 html body .FloatingNav ul li:first-child {
   box-shadow: none;
@@ -234,6 +230,9 @@ html body main .WhoIAm.active .aPropos h1 {
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
   margin: 10px 0;
+}
+html body main .WhoIAm.active .aPropos h2 {
+  margin: 7px 0 0 0;
 }
 html body main .WhoIAm.active .compTechTitle {
   background-color: rgba(0, 0, 0, 0.7);
@@ -443,7 +442,7 @@ html body main .Projet.active div {
   box-shadow: 2px 2px 10px #00FFFF;
   padding: 0 10px 10px 10px;
   height: 100%;
-  width: 80%;
+  width: 90%;
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
@@ -745,7 +744,7 @@ html body footer section:last-child p:last-child a {
   padding: 1rem;
   box-sizing: border-box;
   z-index: 9999;
-  width: 90%;
+  width: 80%;
   justify-self: center;
 }
 .modal-overlay.hidden {
@@ -835,6 +834,7 @@ html body footer section:last-child p:last-child a {
   padding: 0.75rem;
   line-height: 1.5;
   overflow-wrap: anywhere;
+  font-size: 19px;
 }
 .project-modal-content .project-full-details > section > section ul {
   display: flex;

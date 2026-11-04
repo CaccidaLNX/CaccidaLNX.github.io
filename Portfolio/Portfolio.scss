@@ -111,8 +111,7 @@ html {
                         background-color: #16161d;                 // gris très foncé
                         border: solid;                             // style de bordure "ligne continue"... (la couleur par défaut est celle du texte : blanc)
                         border-width: 1px 2px 2px 1px;             // épaisseurs : haut 1px, droite 2px, bas 2px, gauche 1px → petit effet de relief
-                        border-radius: 5px;
-                        box-shadow: 1px 1px 3px #00FFFF;           // ombre cyan : décalée de 1px à droite et en bas, floutée sur 3px
+                        border-radius: 5px;          // ombre cyan : décalée de 1px à droite et en bas, floutée sur 3px
                         padding: 4px;
                         font-size: 30px;
                         align-self: center;                        // centre chaque <li> verticalement (le <ul> est un conteneur flex)
@@ -122,7 +121,6 @@ html {
                         // Au survol de la souris : léger agrandissement.
                         &:hover {
                             transform: scale(1.1);                 // 1.1 = agrandi de 10%
-                            box-shadow: 1px 1px 3px #00FFFF;
                         }
 
                         // Le premier <li> (celui du logo) n'a pas de cadre.
@@ -208,7 +206,6 @@ html {
                     border: solid;
                     border-width: 1px 2px 2px 1px;  // haut droite bas gauche
                     border-radius: 5px;
-                    box-shadow: 1px 1px 3px #00FFFF;
                     padding: 4px 10px;               // 4px en haut/bas, 10px à gauche/droite
                     font-size: 22px;
                     height: max-content;             // hauteur juste suffisante pour le contenu
@@ -217,7 +214,6 @@ html {
 
                     &:hover {
                         transform: scale(1.08);      // agrandissement de 8% au survol
-                        box-shadow: 1px 1px 3px #00FFFF;
                     }
 
                     // Le premier <li> (logo) perd son ombre cyan.
@@ -374,6 +370,9 @@ html {
                         -webkit-text-fill-color: transparent;
                         font-size: 2rem;
                         margin: 10px 0;
+                    }
+                    h2 {
+                        margin: 7px 0 0 0;
                     }
                 }
 
@@ -663,7 +662,7 @@ html {
                     // Dimensions et débordement du contenu.
                     padding: 0 10px 10px 10px; // haut droite bas gauche
                     height: 100%;
-                    width: 80%;
+                    width: 90%;
                     overflow-wrap: break-word;
 
                     // Organisation du contenu de la carte.
@@ -1147,7 +1146,7 @@ html {
     // NOTE (à vérifier visuellement) : avec "position: fixed" + "inset: 0", une largeur de 90%
     // peut empêcher le fond sombre de couvrir les 10% de droite de l'écran. Si tu vois une bande non
     // assombrie à droite, supprimer ces deux lignes est la piste à tester.
-    width: 90%;
+    width: 80%;
     justify-self: center;      // pensée pour les grilles ; n'a a priori pas d'effet sur un élément en "position: fixed"
 
     // Classe ajoutée/retirée par script.js pour afficher/cacher la modale.
@@ -1261,6 +1260,7 @@ html {
                     padding: 0.75rem;
                     line-height: 1.5;
                     overflow-wrap: anywhere; // coupe n'importe où si besoin (plus agressif que "break-word")
+                    font-size: 19px;
                 }
 
                 ul {
