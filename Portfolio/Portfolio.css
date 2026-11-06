@@ -199,16 +199,16 @@ html body main .WhoIAm.active div {
   justify-self: center;
 }
 html body main .WhoIAm.active div a {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 html body main .WhoIAm.active div a img {
   max-width: 60%;
 }
 html body main .WhoIAm.active div a:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 html body main .WhoIAm.active div p {
-  font-size: larger;
+  font-size: 20px;
   margin: 10px 9%;
 }
 html body main .WhoIAm.active div p a {
@@ -222,7 +222,7 @@ html body main .WhoIAm.active .aPropos {
   grid-column: 1/-1;
   max-width: 90%;
   justify-self: center;
-  background-color: rgba(22, 22, 29, 0.8);
+  background-color: rgba(20, 20, 25, 0.9);
 }
 html body main .WhoIAm.active .aPropos h1 {
   background: linear-gradient(45deg, var(--zinzolin), white);
@@ -233,6 +233,11 @@ html body main .WhoIAm.active .aPropos h1 {
 }
 html body main .WhoIAm.active .aPropos h2 {
   margin: 7px 0 0 0;
+}
+html body main .WhoIAm.active .aPropos b {
+  background: linear-gradient(45deg, var(--zinzolin), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 html body main .WhoIAm.active .compTechTitle {
   background-color: rgba(0, 0, 0, 0.7);
@@ -428,6 +433,7 @@ html body main .Projet.active > div .project-details-button:hover, html body mai
 }
 html body main .Projet.active > div .project-details-button:hover {
   background-color: #008cff;
+  color: #121212;
 }
 html body main .Projet.active > div .project-details-button:focus-visible {
   background-color: #008cff;
