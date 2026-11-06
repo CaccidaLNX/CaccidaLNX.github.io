@@ -331,19 +331,19 @@ html {
                     justify-self: center;      // centre la carte dans sa cellule de grille
 
                     a {
-                        transition: all 0.5s ease; // anime TOUTES les propriétés qui changent (ici surtout transform)
+                        transition: all 0.3s ease; // anime TOUTES les propriétés qui changent (ici surtout transform)
 
                         img {
                             max-width: 60%;        // l'image ne dépasse pas 60% de la largeur de son conteneur
                         }
 
                         &:hover {
-                            transform: scale(1.1); // le logo grossit de 10% au survol
+                            transform: scale(1.05); // le logo grossit de 10% au survol
                         }
                     }
 
                     p {
-                        font-size: larger;         // mot-clé : un cran au-dessus de la taille du parent
+                        font-size: 20px;          // mot-clé : un cran au-dessus de la taille du parent
                         margin: 10px 9%;          // 10px en haut/bas ; 10% (de la largeur du parent) à gauche/droite
 
                         a {
@@ -362,7 +362,7 @@ html {
                     grid-column: 1 / -1;       // de la première à la dernière ligne de grille (-1 = la dernière) → occupe toutes les colonnes
                     max-width: 90%;
                     justify-self: center;
-                    background-color: rgba(22, 22, 29, 0.8);
+                    background-color: rgba(20, 20, 25, 0.9);
 
                     h1 {
                         background: linear-gradient(45deg, var(--zinzolin), white); // titre en dégradé : voir la technique expliquée plus haut
@@ -373,6 +373,11 @@ html {
                     }
                     h2 {
                         margin: 7px 0 0 0;
+                    }
+                    b {
+                        background: linear-gradient(45deg, var(--zinzolin), white);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
                     }
                 }
 
@@ -638,6 +643,7 @@ html {
 
                         &:hover {
                             background-color: #008cff; // bleu vif au survol
+                            color: #121212;
                         }
 
                         &:focus-visible {
