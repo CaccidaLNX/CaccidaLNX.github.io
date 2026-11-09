@@ -34,7 +34,7 @@
     chevron fermant : cette suite de caractères FERMERAIT le commentaire trop tôt.
     =====================================================================
 -->
-<html lang="fr"> <!-- lang="fr" : langue de la page (utile aux lecteurs d'écran, aux moteurs de recherche et à la traduction automatique) -->
+<html lang="fr">
 <head>
     <!-- Métadonnées, feuille de style et police du portfolio. -->
 
@@ -607,6 +607,99 @@
          le data-summary sur le <h1> (sinon script.js lève une erreur et s'arrête). -->
     <section class="Projet" id="Projet">
         <!-- ===== PROJET 1 : application de gestion d'événements sportifs (carte commentée en détail) ===== -->
+        <div>
+            <!-- Application de gestion d'événements sportifs en équipe. -->
+            <!-- data-summary="..." : attribut personnalisé (data-*) que le JavaScript lit avec
+                 title.dataset.summary pour afficher le résumé sur la carte. -->
+            <h1 data-summary="Application de gestion d'événements sportifs développée en équipe, de la modélisation UML à l'interface JavaFX.">
+                Création d'une application de gestion d'événements sportifs
+            </h1>
+            <hr>
+            <!-- Détails complets : section cachée par script.js, affichée dans la modale. -->
+            <section>
+                <section>
+                    <!-- Bloc 1 : description du projet -->
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Nous avons dû mettre en pratique tout ce
+                            qu'on a vu durant l'année pour répondre à une
+                            problématique : "Conception et développement d’un
+                            outil d’aide et de pilotage à destination
+                            d’organisateurs d’événements".<br />
+                            Entre la couche de persistance, l'interface graphique, les
+                            liens entre les pages, les user stories
+                            et la gestion des risques, nous avons mis en pratique
+                            toutes nos connaissances.
+                        </p>
+                    </section>
+                </section>
+                <!-- <aside> = contenu annexe : informations pratiques sur le projet.
+                     Dans l'ordre : (1) nombre de personnes, (2) durée, (3) technologies utilisées.
+                     Ce même ordre est repris dans toutes les cartes (le CSS cible le 2e <div> avec :nth-child(2)
+                     et le dernier avec :last-child). -->
+                <aside>
+                    <div>
+                        <img src="logo/people.png" alt="logo groupe">
+                        <p>5 personnes</p>
+                    </div>
+                    <div>
+                        <img src="logo/sablier.png" alt="logo sablier">
+                        <p>2 mois</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Java</li>
+                            <li>JavaFX</li>
+                            <li>UML</li>
+                            <li>IntelliJ IDEA</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
+        <div>
+            <h1 data-summary="Contributeur bénévole dans une équipe indépendante qui développe l'ancien jeu en ligne &quot;Club Penguin&quot;">
+                Développement du jeu "Aventure Penguin"
+            </h1>
+            <hr>
+            <!-- Détails complets : section cachée par script.js, affichée dans la modale. -->
+            <section>
+                <section>
+                    <!-- Bloc 1 : description du projet -->
+                    <section>
+                        <h2>Description</h2>
+                        <p>
+                            Depuis octobre 2026, je participe bénévolement à "Aventure Penguin",
+                            un projet communautaire indépendant et non lucratif, qui développe
+                            le jeu en ligne "Club Penguin" sous un nouveau nom "Aventure penguin".
+                            Nous créons des événements, nous corrigeons des bugs, nous
+                            implémentons des fonctionnalités, nous faisons vivre le jeu.
+                        </p>
+                    </section>
+                </section>
+                <aside>
+                    <div>
+                        <img src="logo/people.png" alt="logo groupe">
+                        <p>Variant</p>
+                    </div>
+                    <div>
+                        <img src="logo/sablier.png" alt="logo sablier">
+                        <p>Depuis octobre 2026</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Python</li>
+                            <li>PostgreSQL</li>
+                            <li>phpPgAdmin</li>
+                            <li>ActionScript 2</li>
+                            <li>ActionScript 3</li>
+                            <li>JPEXS Free Flash Decompiler</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </div>
         <div>
             <!-- Application de gestion d'événements sportifs en équipe. -->
             <!-- data-summary="..." : attribut personnalisé (data-*) que le JavaScript lit avec
